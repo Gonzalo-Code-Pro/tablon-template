@@ -1,0 +1,555 @@
+.a {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  padding: 11px 0 0 9px;
+  border-radius: 50%;
+  tap-highlight-color: transparent;
+}
+/*span {*/
+/*display: block;*/
+/*width: 26px;*/
+/*height: 4px;*/
+/*background-color: white;*/
+/*pointer-events: none;*/
+/*}*/
+/*span:nth-child(2) {*/
+/*margin: 3px 0;*/
+/*}*/
+.open {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.open span {
+  background: black;
+}
+.open :first-child {
+  transform: translateY(5px) rotate(-45deg);
+}
+.open :nth-child(2) {
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+.open :last-child {
+  transform: translateY(-5px) rotate(-135deg);
+}
+.rip:hover {
+  background-color: #222;
+  transition: all 0.3s ease;
+}
+.rip:hover h3 {
+  font-weight: 100;
+  color: white;
+  transition: all 0.3s ease;
+}
+.rip2:hover {
+  background-color: #222;
+  transition: all 0.3s ease;
+}
+.rip2:hover h3 {
+  font-weight: 100;
+  color: white;
+  transition: all 0.3s ease;
+}
+#logo {
+  top: -8px;
+  margin-bottom: 0;
+  position: absolute;
+  margin-left: -100px;
+  width: 200px;
+  background: #fccc4c;
+}
+#logo:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0;
+  bottom: -40px;
+  border-width: 20px 50px;
+  border-style: solid;
+  border-color: #fccc4c transparent transparent #fccc4c;
+}
+#logo:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -40px;
+  border-width: 20px 50px;
+  border-style: solid;
+  border-color: #fccc4c #fccc4c transparent transparent;
+}
+
+.div:hover {
+  background-color: #fcae1e;
+  transition: 0.5s ease;
+}
+.div:hover a {
+  color: black;
+  transition: 0.3s ease;
+}
+nav {
+  position: absolute;
+  width: 200px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  transform: translateX(-100%);
+  transition: 0.5s;
+}
+.open + nav {
+  transform: none;
+}
+code {
+  color: transparent;
+  font-size: 0;
+}
+@media only screen and (max-width: 1860px) {
+  .menu-wrap ul li a {
+    margin-left: 12%;
+  }
+  .span {
+    display: none;
+  }
+  .nav {
+    display: none;
+  }
+  #logo {
+    left: 46%;
+  }
+  .dd4 {
+    left: 54%;
+  }
+  .hover4 {
+    left: 54.5%;
+  }
+  .hover5 {
+    left: 62.5%;
+  }
+  .hover6 {
+    left: 68.5%;
+  }
+  .hover7 {
+    left: 75.5%;
+  }
+  .menu-wrap ul ul {
+    left: 270px;
+  }
+  .dd {
+    left: 18%;
+  }
+  .dd2 {
+    left: 25%;
+  }
+  .dd3 {
+    left: 30%;
+    top: 54px;
+  }
+}
+@media only screen and (max-width: 1699px) {
+  .span {
+    display: none;
+  }
+  .nav {
+    display: none;
+  }
+  .menu-wrap ul li a {
+    margin-left: 9%;
+  }
+  .dd3 {
+    left: 29%;
+  }
+  .menu-wrap ul ul {
+    left: 140px;
+  }
+}
+@media only screen and (max-width: 1684px) {
+  .span {
+    display: none;
+  }
+  .nav {
+    display: none;
+  }
+  .menu-wrap ul li a {
+    margin-left: 6%;
+  }
+  .dd3 {
+    left: 26.5%;
+    top: 54px;
+  }
+  .dd2 {
+    left: 21%;
+  }
+  .dd {
+    top: 50px;
+    left: 13%;
+  }
+  .menu-wrap ul ul {
+    left: 160px;
+  }
+}
+@media only screen and (max-width: 1430px) {
+  .span {
+    display: none;
+  }
+  .nav {
+    display: none;
+  }
+  .menu-wrap ul li a {
+    margin-left: 3%;
+  }
+  .hover4 {
+    margin-left: 8%;
+  }
+  .hover5 {
+    margin-left: 29%;
+  }
+  .hover6 {
+    margin-left: 14%;
+  }
+  .hover7 {
+    margin-left: -2.5%;
+  }
+  #logo {
+    left: 50%;
+  }
+  .dd4 {
+    left: 61.4%;
+  }
+  .dd3 {
+    left: 28%;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  /*span {*/
+  /*display: block;*/
+  /*}*/
+  .nav {
+    display: block;
+  }
+  .menu-wrap ul li a {
+    opacity: 0;
+    display: none;
+  }
+  #logo {
+    left: 47%;
+  }
+  .nope5 {
+    display: none;
+  }
+  .nope4 {
+    display: none;
+  }
+  .nope3 {
+    display: none;
+  }
+  .nope2 {
+    display: none;
+  }
+  .nope {
+    display: none;
+  }
+  .nope6 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1861px) {
+  .dd4 {
+    left: 56%;
+  }
+  #logo {
+    left: 50%;
+  }
+  .dd {
+    left: 23.7%;
+  }
+  .menu-wrap ul li a {
+    display: block;
+
+    margin-left: 18%;
+  }
+  .hover4 {
+    left: 57.5%;
+  }
+  .hover5 {
+    left: 64.5%;
+  }
+  .hover6 {
+    left: 70.5%;
+  }
+  .hover7 {
+    left: 77%;
+  }
+  .menu-wrap ul ul {
+    left: 21%;
+  }
+
+  .dd3 {
+    left: 35.4%;
+    top: 50px;
+  }
+  .dd2 {
+    left: 30%;
+  }
+}
+
+.me img:hover {
+  transition: 0.6s ease;
+  transform: scale(1.1);
+}
+.me img:hover {
+  transition: 0.6s ease;
+  transform: scale(1.1);
+}
+.me img:hover .me3 {
+  visibility: visible;
+}
+.me {
+  max-width: 300px;
+}
+
+.menu-wrap {
+  background-color: #222;
+  height: 60px;
+  line-height: 50px;
+  z-index: 10;
+  position: relative;
+  max-width: 100%;
+  margin-top: 0px;
+}
+
+.menu-wrap ul {
+  list-style: none;
+}
+.2 {
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  left: 0px;
+  top: 54px;
+  width: 140px;
+}
+
+.menu-wrap ul li a {
+  float: left;
+  width: 90px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 550;
+
+  color: #fff;
+  margin-top: 5px;
+  text-decoration: none;
+}
+.menu-wrap ul li a:hover {
+  color: #fccc4c !important;
+  transition: all 0.4s ease;
+}
+.hover:hover {
+  color: #fccc4c !important;
+  transition: all 0.4s ease;
+}
+.hover4:hover {
+  color: #fccc4c !important;
+  transition: all 0.4s ease;
+}
+.hover5:hover {
+  color: #fccc4c !important;
+  transition: all 0.4s ease;
+}
+.hover6:hover {
+  color: #fccc4c !important;
+  transition: all 0.4s ease;
+}
+.hover7:hover {
+  color: #fccc4c !important;
+  transition: all 0.4s ease;
+}
+.menu-wrap ul li:hover ul {
+  display: block;
+}
+
+.menu-wrap ul ul {
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  top: 54px;
+  width: 140px;
+}
+
+.2 {
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  left: 200px;
+  top: 54px;
+  width: 140px;
+}
+
+.menu-wrap ul ul li a {
+  float: none;
+  display: block;
+  font-weight: bold;
+  text-align: left;
+  width: 160px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.ship {
+  float: left;
+  width: 90px;
+  display: block;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 550;
+
+  color: #fff;
+  margin-top: 5px;
+  margin-left: 9 %;
+  text-decoration: none;
+}
+.hell {
+  margin-left: -40px;
+  width: 180px;
+  height: 60px;
+  margin-top: -20px;
+}
+.hell:hover {
+  margin-left: -40px;
+  width: 180px;
+  height: 60px;
+  margin-top: -20px;
+  background-color: black;
+  transition: all 0.3s ease;
+}
+
+.dd2 {
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  height: 210px;
+  top: 54px;
+  border-radius: 2px;
+  width: 180px;
+}
+.dd {
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  height: 220px;
+  top: 54px;
+  border-radius: 2px;
+  width: 180px;
+}
+.dd3 {
+  z-index: 999999999999999999999999999999999;
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  height: 210px;
+  border-radius: 2px;
+  width: 180px;
+}
+.dd4 {
+  margin-top: 20px;
+  display: none;
+  list-style: none;
+  position: fixed;
+  background-color: white;
+  height: 320px;
+  top: 54px;
+  border-radius: 2px;
+  width: 180px;
+}
+
+.nope:hover .dd {
+  display: block;
+  transition: all 0.3s ease;
+}
+.nope2:hover .dd2 {
+  display: block;
+  transition: all 0.3s ease;
+}
+.nope3:hover .dd3 {
+  display: block;
+  transition: all 0.3s ease;
+}
+.nope4:hover .dd4 {
+  display: block;
+  transition: all 0.3s ease;
+}
+.menu-wrap ul ul li a:hover {
+  color: #fff;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+
+@media (max-width: 568px) {
+  .navbar-nav {
+    display: none;
+  }
+}
+
+@media (min-width: 568px) {
+  /*.open-slide{display:none}*/
+}

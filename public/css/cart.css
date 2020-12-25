@@ -1,0 +1,109 @@
+.cart {
+  font-family: "Rubik", sans-serif;
+}
+.cart a {
+  color: black;
+}
+.cart {
+  margin-top: -40.9em;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 99;
+  background-color: white;
+  transition: 0.3s ease-out all;
+}
+.cart.active {
+  margin-top: 0;
+  transition: 0.3s ease-out all;
+}
+
+.cart-section {
+  padding-top: 3em;
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  padding-bottom: 4em;
+}
+
+.cart-section .list {
+  overflow: auto;
+  display: flex;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 0.5px solid #eaeaea;
+  flex-direction: column;
+  width: 600px;
+  max-height: 375px;
+}
+.cart-section .item-cart {
+  display: flex;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  border-bottom: 1px solid #eaeaea;
+  justify-content: space-between;
+}
+
+.item-cart .info-cart-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cart-section .item-cart img {
+  width: 60px;
+  height: 60px;
+  border: 0.5px solid #eaeaea;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.cart-section .price-item .cantidad {
+  color: #e4584b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cart-section .price-item .cantidad span {
+  font-size: 12px;
+  margin: 0 1px 0 1px;
+}
+.cart-section-2 {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+.cart-section-2 .buttons-cart {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+.cart-section-2 .total-price {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-section-2 .buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.list::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.list::-webkit-scrollbar:vertical {
+  width: 4px;
+}
+.list::-webkit-scrollbar-button:increment,
+.list::-webkit-scrollbar-button {
+  display: none;
+}
+.list::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+}
+.list::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

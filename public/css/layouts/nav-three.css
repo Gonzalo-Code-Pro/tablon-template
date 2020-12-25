@@ -1,0 +1,188 @@
+.home-navbar {
+  position: absolute;
+
+  top: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-left: 3.6%;
+  height: 4em;
+  border-radius: 10px;
+  background-color: rgb(252, 204, 76);
+  box-shadow: -6px 56px 156px -19px rgba(0, 0, 0, 0.73);
+  z-index: 1;
+}
+a {
+  text-decoration: none;
+}
+.home-navbar a {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 0px 10px;
+}
+.home-navbar a img {
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+  color: rgb(77, 44, 33);
+}
+.home-navbar a .text-icon {
+  color: rgb(77, 44, 33);
+  font-weight: 700;
+  font-size: 15px;
+}
+.home-navbar a .text-icon::after {
+  display: inline-block;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-left: 4px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.container-links {
+  display: flex;
+  justify-content: center;
+}
+.container-links a span {
+  position: absolute;
+  padding: 0 5px;
+  color: #fff !important;
+  top: -20%;
+  right: 0;
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 24px;
+  white-space: nowrap;
+  height: 24px;
+  border-radius: 3px;
+  vertical-align: middle;
+  transform: rotate(-12deg);
+  transition: all 0.3s ease 0s;
+}
+
+.container-links .stcker-red {
+  background-color: red;
+}
+.container-links a:hover span {
+  transition: all 0.3s ease 0s;
+  transform: translateY(-9px);
+}
+.container-links .stcker-orange {
+  background-color: orange;
+}
+
+.container-links .stcker-green {
+  background-color: #82e85c;
+}
+
+.container-links .stcker-black {
+  background-color: black;
+}
+
+.container-links .stcker-purple {
+  background-color: #aa43d6;
+}
+
+.container-links .stcker-turquoise {
+  background-color: #86d4f3;
+}
+
+.container-links .stcker-brown {
+  background-color: #9e742a;
+}
+
+/**dropdown (menu despegabble)*/
+
+#item1 {
+  position: relative;
+
+  transition: 0.2s all;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  transition: 0.2s all;
+}
+
+.dropdown-content1 {
+  display: none;
+  margin-top: 2px;
+  margin-left: -50px;
+  width: 70em;
+  height: 0em;
+  transition: 1s all;
+}
+.dropdown-content1 .image {
+  display: none;
+  transition: 0.3s all;
+}
+.dropdown-content1 .image img {
+}
+.dropdown-content1 .content-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2em;
+  padding-right: 2em;
+  transition: 0.2s all;
+}
+.dropdown-content1 .content-modal h3 {
+  font-size: 18px;
+
+  transition: 0.3s all;
+}
+
+.dropdown-content1 .content-modal p {
+  font-size: 13px;
+
+  transition: 0.3s all;
+}
+
+.dropdown-content1 .content-modal button {
+  background-color: rgb(230, 100, 73);
+  color: white;
+  border-radius: 30px;
+  border: none;
+  padding: 0.85em;
+
+  transition: 0.3s all;
+}
+
+.dropdown-content1 .content-modal button:hover {
+  background-color: black;
+
+  transition: 0.3s all;
+}
+#item1:hover .dropdown-content1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20em;
+  transition: 0.3s all;
+}
+
+#item1:hover .dropdown-content1 .content-modal {
+  display: flex;
+  transition: 0.3s all;
+}
+
+#item1:hover .dropdown-content1 .image {
+  display: flex;
+  transition: 0.3s all;
+}
+
+#item1:hover .dropdown-content1 .image img {
+  width: 250px;
+  height: 250px;
+  transition: 0.2s all;
+  padding-left: 1.4em;
+  transition: 0.3s all;
+}
