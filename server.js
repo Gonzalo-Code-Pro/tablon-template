@@ -3,9 +3,8 @@ const app = express();
 const path = require("path");
 const port = 5500;
 const ejs = require("ejs");
-
 const expressLayout = require("express-ejs-layouts");
-//archivos estaticos
+//archivos estaticInicio
 app.use(express.static("public"));
 
 //configuar templates engines y los layouts

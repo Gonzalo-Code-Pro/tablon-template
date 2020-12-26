@@ -28,15 +28,16 @@
     <!--cart--->
     <div class="cart" id="cart"><%- include('cart') %></div>
     <!---Header -->
-    <header>
+
+    <header id="header">
       <div class="menu-wrap">
         <ul class="1">
           <li class="11">
             <a
-              class="ship"
+              class="ship li"
               style="font-family: 'Rubik'; font-weight: bold"
               href="contact.html"
-              >HOME</a
+              >Inicio</a
             >
             <ul class="111" style="border-radius: 2px">
               <li class="hell">
@@ -103,6 +104,7 @@
           </li>
           <div class="nope">
             <a
+              class="li"
               href="WelshCorgi.html"
               style="
                 text-decoration: none;
@@ -114,7 +116,7 @@
                 font-family: 'Rubik';
                 font-weight: bold;
               "
-              class="hover"
+              class="hover li"
               >ABOUT LAFKA
             </a>
             <div class="dd">
@@ -233,7 +235,7 @@
                 font-weight: bold;
                 font-family: 'Rubik';
               "
-              class="hover"
+              class="hover li"
               >OUR BLOG
             </a>
             <div class="dd2">
@@ -351,7 +353,7 @@
                 font-weight: bold;
                 font-family: 'Rubik';
               "
-              class="hover"
+              class="hover li"
               >OUR MENU
             </a>
             <div class="dd3">
@@ -463,6 +465,7 @@
         <div id="logo">
           <a href="#" title="Lafka" rel="home">
             <img
+              id="logo-lafka"
               style="margin: 0 auto; display: block"
               width="110px"
               height="110px"
@@ -493,7 +496,7 @@
               font-weight: bold;
               height: 52.5px;
             "
-            class="hover4"
+            class="hover4 li"
             >ORDER ONLINE
           </a>
           <div class="dd4">
@@ -611,7 +614,7 @@
               font-weight: bold;
               font-family: 'Rubik';
             "
-            class="hover5"
+            class="hover5 li"
             >CATERING
           </a>
           <div class="dd2">
@@ -729,7 +732,7 @@
               font-weight: bold;
               font-family: 'Rubik';
             "
-            class="hover6"
+            class="hover6 li"
             >LOCATIONS
           </a>
           <div class="dd3">
@@ -847,7 +850,7 @@
               font-weight: bold;
               font-family: 'Rubik';
             "
-            class="hover7"
+            class="hover7 li"
             >CONTACTS
           </a>
           <div class="dd3">
@@ -955,7 +958,7 @@
         </div>
       </div>
       <div class="nav-two">
-        <div class="number">
+        <div class="number" id="phone-number">
           <a href="#" class="info-phone">
             <p class="phone-icon">
               <i style="font-size: 20px" class="far">&#xf004;</i>
@@ -963,7 +966,7 @@
             <p class="number-icon">+5552347651</p>
           </a>
         </div>
-        <div class="cart-search">
+        <div class="cart-search" id="cart-options">
           <a href="#"
             ><p class="icon-user">
               <i style="font-size: 20px" class="far">&#xf004;</i>
@@ -992,7 +995,7 @@
       </div>
     </header>
     <!--- Nav flotante -->
-    <div class="home-navbar" id="navbar-two">
+    <div class="home-navbar" id="navbar-three">
       <div class="container-links">
         <div id="item1">
           <a id="#" href="#">
@@ -1142,9 +1145,34 @@
         </ul>
       </div>
     </footer>
-
+    <script>
+      function autoHeader() {
+        let scrollTop = document.documentElement.scrollTop;
+        let header = document.getElementById("header");
+        let navThree = document.getElementById("navbar-three");
+        let logoLafka = document.getElementById("logo-lafka");
+        let phoneNumber = document.getElementById("phone-number");
+        let cartOptions = document.getElementById("cart-options");
+        if (scrollTop >= 53) {
+          header.classList.add("active");
+          navThree.classList.add("active");
+          logoLafka.classList.add("active");
+          phoneNumber.classList.add("active");
+          cartOptions.classList.add("active");
+        } else {
+          navThree.classList.remove("active");
+          header.classList.remove("active");
+          logoLafka.classList.remove("active");
+          phoneNumber.classList.remove("active");
+          cartOptions.classList.remove("active");
+        }
+        console.log(scrollTop);
+      }
+      window.addEventListener("scroll", () => {
+        autoHeader();
+      });
+    </script>
     <!--- Carrito de compras--->
-
     <script src="./js/cart.js"></script>
   </body>
 </html>

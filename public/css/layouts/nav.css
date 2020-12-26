@@ -62,6 +62,15 @@
   width: 200px;
   background: #fccc4c;
 }
+#logo img.active {
+  width: 85px;
+  height: 85px;
+  transition: 0.4s all;
+}
+
+#logo img {
+  transition: 0.4s all;
+}
 #logo:before {
   content: " ";
   position: absolute;
@@ -316,15 +325,20 @@ code {
 }
 
 .menu-wrap {
-  background-color: #222;
+  background-color: #fccc4c;
   height: 60px;
+
   line-height: 50px;
   z-index: 10;
   position: relative;
-  max-width: 100%;
+  max-width: 98%;
+  margin-left: 1%;
   margin-top: 0px;
-}
+  border-radius: 10px;
 
+  font-size: 15px;
+  box-shadow: -6px 56px 156px -19px rgba(0, 0, 0, 0.73);
+}
 .menu-wrap ul {
   list-style: none;
 }
@@ -341,38 +355,21 @@ code {
 .menu-wrap ul li a {
   float: left;
   width: 90px;
-  font-size: 13px;
   text-align: center;
   font-weight: 550;
-
-  color: #fff;
   margin-top: 5px;
   text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, a Verdana, sans-serif;
+  color: rgb(77, 44, 33);
+  font-weight: 700;
+  font-size: 14px;
 }
 .menu-wrap ul li a:hover {
-  color: #fccc4c !important;
   transition: all 0.4s ease;
+
+  color: rgb(77, 44, 33);
 }
-.hover:hover {
-  color: #fccc4c !important;
-  transition: all 0.4s ease;
-}
-.hover4:hover {
-  color: #fccc4c !important;
-  transition: all 0.4s ease;
-}
-.hover5:hover {
-  color: #fccc4c !important;
-  transition: all 0.4s ease;
-}
-.hover6:hover {
-  color: #fccc4c !important;
-  transition: all 0.4s ease;
-}
-.hover7:hover {
-  color: #fccc4c !important;
-  transition: all 0.4s ease;
-}
+
 .menu-wrap ul li:hover ul {
   display: block;
 }

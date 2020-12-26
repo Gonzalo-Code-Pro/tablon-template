@@ -107,3 +107,32 @@
 .list::-webkit-scrollbar-track {
   border-radius: 10px;
 }
+.buttons-cart .buttons .view-cart {
+  width: 288px;
+  height: 46px;
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  font-weight: 600;
+ text-transform: uppercase;
+  background-color: #333333;
+}
+.buttons-cart .buttons .checkout {
+  width: 288px;
+  height: 46px;
+  padding: 10px;
+
+  font-weight: 600;
+ text-transform: uppercase;
+  border-radius: 30px;
+  border: none;
+  color: #fff;
+ text-transform: uppercase;
+  background-color: #333333;
+  background-color: #e4584b;
+  font-size: 17px;
+}
+}
+}

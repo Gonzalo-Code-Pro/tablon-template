@@ -1,6 +1,5 @@
 .home-navbar {
   position: absolute;
-
   top: 28%;
   display: flex;
   justify-content: center;
@@ -12,8 +11,15 @@
   background-color: rgb(252, 204, 76);
   box-shadow: -6px 56px 156px -19px rgba(0, 0, 0, 0.73);
   z-index: 1;
+  opacity: 1;
+  transition: 0.5s all;
 }
-a {
+.home-navbar.active {
+  opacity: 0;
+
+  transition: 0.5s all;
+}
+.home-navbar a {
   text-decoration: none;
 }
 .home-navbar a {
