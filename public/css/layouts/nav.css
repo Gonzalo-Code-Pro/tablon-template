@@ -63,8 +63,9 @@
   background: #fccc4c;
 }
 #logo img.active {
-  width: 85px;
-  height: 85px;
+  width: 90px;
+  height: 89px;
+  transform: scale(1.3);
   transition: 0.4s all;
 }
 
@@ -325,33 +326,18 @@ code {
 }
 
 .menu-wrap {
-  background-color: #fccc4c;
+  background-color: #000;
   height: 60px;
-
   line-height: 50px;
   z-index: 10;
   position: relative;
-  max-width: 98%;
-  margin-left: 1%;
+  max-width: 100%;
   margin-top: 0px;
-  border-radius: 10px;
-
   font-size: 15px;
-  box-shadow: -6px 56px 156px -19px rgba(0, 0, 0, 0.73);
 }
 .menu-wrap ul {
   list-style: none;
 }
-.2 {
-  display: none;
-  list-style: none;
-  position: absolute;
-  background-color: white;
-  left: 0px;
-  top: 54px;
-  width: 140px;
-}
-
 .menu-wrap ul li a {
   float: left;
   width: 90px;
@@ -360,14 +346,13 @@ code {
   margin-top: 5px;
   text-decoration: none;
   font-family: "Segoe UI", Tahoma, Geneva, a Verdana, sans-serif;
-  color: rgb(77, 44, 33);
   font-weight: 700;
   font-size: 14px;
 }
 .menu-wrap ul li a:hover {
   transition: all 0.4s ease;
 
-  color: rgb(77, 44, 33);
+  color: #fccc4c;
 }
 
 .menu-wrap ul li:hover ul {
@@ -382,17 +367,6 @@ code {
   top: 54px;
   width: 140px;
 }
-
-.2 {
-  display: none;
-  list-style: none;
-  position: absolute;
-  background-color: white;
-  left: 200px;
-  top: 54px;
-  width: 140px;
-}
-
 .menu-wrap ul ul li a {
   float: none;
   display: block;
@@ -412,7 +386,7 @@ code {
 
   color: #fff;
   margin-top: 5px;
-  margin-left: 9 %;
+  margin-left: 9%;
   text-decoration: none;
 }
 .hell {

@@ -6,8 +6,9 @@
     <title>Document</title>
     <!--Fonts--->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css?family=Poppins|Rubik&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
       rel="stylesheet"
     />
     <!-- App.css--->
@@ -19,6 +20,7 @@
     <!-- Product-section --->
     <link rel="stylesheet" href="./css/section-product/product.css" />
     <link rel="stylesheet" href="./css/section-product/home.css" />
+    <link rel="stylesheet" href="./css/section-product/just-product.css" />
     <!--- Cart list --->
     <link rel="stylesheet" href="./css/cart.css" />
     <!-- footer --->
@@ -28,7 +30,6 @@
     <!--cart--->
     <div class="cart" id="cart"><%- include('cart') %></div>
     <!---Header -->
-
     <header id="header">
       <div class="menu-wrap">
         <ul class="1">
@@ -467,18 +468,11 @@
             <img
               id="logo-lafka"
               style="margin: 0 auto; display: block"
-              width="110px"
-              height="110px"
-              src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/06/logo-lafka-shop.png"
+              width="140px"
+              height="140px"
+              src="/img/logo2.png"
               class="persistent_logo"
               alt=""
-              srcset="
-                https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/06/logo-lafka-shop.png         220w,
-                https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/06/logo-lafka-shop-150x150.png 150w,
-                https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/06/logo-lafka-shop-100x100.png 100w,
-                https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/06/logo-lafka-shop-60x60.png    60w
-              "
-              sizes="(max-width: 100px) 100vw, 200px"
             />
           </a>
         </div>
@@ -979,7 +973,7 @@
               <span>1</span>
             </p></a
           >
-          <a id="cartButton" href="#"
+          <a id="cartButton"
             ><p class="cart-icon">
               <i style="font-size: 20px" class="far">&#xf004;</i>
 
@@ -1153,19 +1147,23 @@
         let logoLafka = document.getElementById("logo-lafka");
         let phoneNumber = document.getElementById("phone-number");
         let cartOptions = document.getElementById("cart-options");
-        if (scrollTop >= 53) {
+        if (scrollTop >= 40) {
           header.classList.add("active");
-          navThree.classList.add("active");
           logoLafka.classList.add("active");
           phoneNumber.classList.add("active");
           cartOptions.classList.add("active");
         } else {
-          navThree.classList.remove("active");
           header.classList.remove("active");
           logoLafka.classList.remove("active");
           phoneNumber.classList.remove("active");
           cartOptions.classList.remove("active");
         }
+        if (scrollTop >= 10) {
+          navThree.classList.add("active");
+        } else {
+          navThree.classList.remove("active");
+        }
+
         console.log(scrollTop);
       }
       window.addEventListener("scroll", () => {

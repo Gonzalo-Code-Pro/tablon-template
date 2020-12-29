@@ -1,0 +1,86 @@
+.just-product {
+  font-family: "Rubik", sans-serif;
+  height: 115vh;
+  width: 100%;
+  padding-top: 8em;
+  background-color: #fcbc39;
+  position: relative;
+  background: #fff;
+}
+.product-content {
+  display: flex;
+  margin-top: 8em;
+  width: 100%;
+}
+.product-content .img-product {
+  width: 635px;
+  height: 635px;
+}
+
+.product-content .product-description {
+  /*border: 1px solid red;*/
+  width: 100%;
+  margin-left: 7em;
+  margin-top: 3em;
+}
+.product-content .product-description .title-product {
+  font-size: 35px;
+}
+.product-content .product-description .parrafo-product {
+  width: 440px;
+  font-size: 15px;
+  color: #666666;
+}
+
+.product-content .product-description .nutricional-info {
+  display: grid;
+  width: 440px;
+  height: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 2px;
+}
+.product-content .product-description .nutricional-info .propiedad {
+  background-color: #f8f8f8;
+  border: 1px solid #f1f1f1;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-content .product-description .nutricional-info .propiedad .name {
+  color: #999999;
+  font-size: 13px;
+  text-align: center;
+}
+.product-content .product-description .nutricional-info .propiedad p {
+  color: #333333;
+  font-size: 11px;
+  margin: 3px 0 3px 0;
+  text-align: center;
+}
+.product-content .product-description .mensaje-product {
+  color: #999999;
+  font-size: 12px;
+}
+
+.product-content .product-description .advertencia-product {
+  color: #333333;
+  font-size: 12.5px;
+}
+
+.product-content .product-description .product-price {
+  font-weight: 700;
+  color: #333333;
+}
+
+.product-content .product-description .product-price .moneda {
+  font-size: 24px;
+}
+.product-content .product-description .product-price .price-int {
+  font-size: 30px;
+}
+.product-content .product-description .product-price .price-dec {
+  font-size: 22.5px;
+  position: absolute;
+}

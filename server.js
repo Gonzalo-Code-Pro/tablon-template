@@ -11,14 +11,16 @@ app.use(express.static("public"));
 app.use(expressLayout);
 app.set("views", path.join(__dirname, "src/views/"));
 app.set("view engine", "ejs");
-
 //rutas
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
-app.get("/product", (req, res) => {
+app.get("/product/", (req, res) => {
   res.render("section-product/product.ejs");
+});
+app.get("/just-product", (req, res) => {
+  res.render("section-product/just-product.ejs");
 });
 app.listen(port, () => {
   console.log("server on port  : ", port);
