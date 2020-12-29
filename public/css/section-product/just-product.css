@@ -1,12 +1,11 @@
 .just-product {
   font-family: "Rubik", sans-serif;
-  height: 150vh;
+  height: auto;
   width: 100%;
   padding-top: 8em;
   background-color: #fcbc39;
   position: relative;
   background: #fff;
-  border: 1px solid red;
 }
 .product-content {
   display: flex;
@@ -19,12 +18,10 @@
     width: 100%;
   }
 }
-
 .product-content .img-product {
   width: 635px;
   height: 635px;
 }
-
 .product-content .product-description {
   /*border: 1px solid red;*/
   width: 100%;
@@ -104,7 +101,7 @@
   row-gap: 5px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  border: 1px solid red;
+
   border-radius: 6px;
   border: 2px solid #f1f1f1;
   padding: 1em;
@@ -135,7 +132,7 @@
 }
 .extra-total-price {
   display: flex;
-  border: 1px solid red;
+
   border-radius: 6px;
   border: 2px solid #f1f1f1;
   padding: 0.4em;
@@ -258,4 +255,157 @@
   background-color: #f5f5f5;
   padding: 1px 6px;
   border-radius: 4px;
+}
+
+/*comentarios y reviews*/
+.reviews_description-product {
+  width: 100%;
+  height: auto;
+}
+.reviews_description-product ul {
+  display: flex;
+  justify-content: center;
+  padding: 2em 0 2em 0;
+}
+
+.reviews_description-product ul .select-description {
+  border-bottom: 2.5px solid #f9f9f9;
+  margin-right: 5px;
+  padding: 15px;
+  color: #999999;
+  font-weight: 600;
+  transition: 0.4s all;
+  cursor: pointer;
+}
+
+.reviews_description-product ul .select-description.active {
+  border-bottom: 2.5px solid #000;
+  color: #000;
+  transition: 0.4s all;
+}
+
+.reviews_description-product ul .select-description:hover {
+  border-bottom: 2.5px solid #000;
+  color: #000;
+  transition: 0.4s all;
+}
+.reviews_description-product .description-parrafo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: #666666;
+}
+
+.reviews_description-product .description-parrafo p {
+  width: 940px;
+  text-align: center;
+  line-height: 25px;
+  padding: 0 0 5em 0;
+}
+.reviews_description-product ul .select-review {
+  padding: 15px;
+  color: #999999;
+  font-weight: 600;
+  margin-left: 5px;
+  padding: 15px;
+  transition: 0.4s all;
+  border-bottom: 2.5px solid #f9f9f9;
+  cursor: pointer;
+}
+
+.reviews_description-product ul .select-review:hover {
+  border-bottom: 2.5px solid #000;
+  color: #000;
+  transition: 0.4s all;
+}
+.reviews_description-product ul .select-review.active {
+  border-bottom: 2.5px solid #000;
+  color: #000;
+  transition: 0.4s all;
+}
+
+.review-product-complete {
+  display: none;
+}
+/*formulario de reviews y listado de reviews*/
+
+/*listar otros productos*/
+.other-products {
+  background: #fff;
+  max-width: 100%;
+  text-align: center;
+  padding: 2em;
+}
+.other-products .list {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 4em;
+}
+
+.other-products .item {
+  margin: 0 0.8em 0 0.8em;
+}
+.other-products .item img {
+  width: 175px;
+  height: 175px;
+  border-radius: 4px;
+  border: 0.5px solid #f5f5f5;
+}
+
+.other-products .item p {
+  font-size: 13px;
+  color: #333333;
+  text-align: center;
+  width: 157px;
+  font-weight: 600;
+}
+
+/*flechas*/
+.flechas-after-before {
+  display: flex;
+  padding: 3em;
+  justify-content: space-between;
+}
+.flechas-after-before .left {
+  display: flex;
+  filter: opacity(0.7);
+  transition: 0.4s all;
+}
+
+.flechas-after-before .left div,
+.flechas-after-before .right div {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.flechas-after-before .right {
+  display: flex;
+
+  filter: opacity(0.7);
+  transition: 0.4s all;
+}
+
+.flechas-after-before .right .icon img,
+.flechas-after-before .left .icon img {
+  width: 50px;
+  height: 42px;
+  filter: opacity(0.5);
+  transition: 0.4s all;
+}
+.flechas-after-before .right:hover,
+.flechas-after-before .left:hover {
+  transition: 0.4s all;
+  filter: opacity(1);
+}
+.flechas-after-before .right .direccion,
+.flechas-after-before .left .direccion {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #999999;
+  margin: 5px 0 5px 0;
+}
+.flechas-after-before .right .title-product,
+.flechas-after-before .left .title-product {
+  margin: 5px 0 5px 0;
+  color: #000;
 }
