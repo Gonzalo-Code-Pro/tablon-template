@@ -63,9 +63,8 @@
   background: #fccc4c;
 }
 #logo img.active {
-  width: 90px;
-  height: 89px;
-  transform: scale(1.3);
+  width: 100px;
+  height: 90px;
   transition: 0.4s all;
 }
 

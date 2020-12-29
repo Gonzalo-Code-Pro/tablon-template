@@ -98,29 +98,60 @@
       <div class="extra-total-price">
         <span class="extra">
           <p>Options total</p>
-          <p></p>
-          <div>
-            <span>$</span>
-            <span>2</span>
-            <span>.11</span>
+          <div class="price">
+            <span class="dolar">$</span>
+            <span class="entero">2</span>
+            <span class="decimal"> .11</span>
           </div>
         </span>
         <span class="total">
           <p>Options total</p>
-          <p></p>
-          <div>
-            <span>$</span>
-            <span>2</span>
-            <span>.11</span>
+          <div class="price">
+            <span class="dolar">$</span>
+            <span class="entero">2</span>
+            <span class="decimal">.11</span>
           </div>
         </span>
       </div>
       <div class="buttons-orders">
-        <input type="range" name="" id="" />
-        <button>Order</button>
-        <span>Favorite +</span>
-        <p>Category : <span>Pollos</span></p>
+        <div class="quant">
+          <button type="button" id="btn-" class="btn-minus">-</button>
+          <input type="text" value="1" id="quantity" />
+          <button type="button" id="btn+" class="btn-plus">+</button>
+        </div>
+        <script>
+          let valueCount = 0;
+          document
+            .getElementById("btn+")
+            .addEventListener("click", function () {
+              valueCount = document.getElementById("quantity").value;
+              valueCount++;
+              document.getElementById("quantity").value = valueCount;
+            });
+          document
+            .getElementById("btn-")
+            .addEventListener("click", function () {
+              valueCount = document.getElementById("quantity").value;
+              valueCount--;
+              if (valueCount <= 1) {
+                document.getElementById("quantity").value = 1;
+              } else {
+                document.getElementById("quantity").value = valueCount;
+              }
+            });
+        </script>
+        <button class="order">Order</button>
+        <span class="favorite">
+          <i style="font-size: 25px" class="far" aria-hidden="true"></i>
+        </span>
       </div>
+
+      <p class="category">
+        Category :
+        <span class="cat">Pollos</span>, <span class="cat">Pollos</span>,
+        <span class="cat">Pollos</span>,
+        <span class="cat">Pollos</span>
+      </p>
     </div>
   </div>
 </section>
