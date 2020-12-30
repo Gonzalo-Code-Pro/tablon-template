@@ -158,10 +158,10 @@
 
 <section class="reviews_description-product">
   <ul>
-    <a class="select-description"> Descripccion </a>
-    <a class="select-review"> Reviews(<span>1</span>) </a>
+    <a class="select-description" id="select-des"> Descripccion </a>
+    <a class="select-review" id="select-rev"> Reviews(<span>1</span>) </a>
   </ul>
-  <div class="description-parrafo">
+  <div id="description-parrafo" class="description-parrafo">
     <p>
       Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit, sed diam nonum
       nibhie euismod. Facilisis at vero eros et accumsan et iusto odio dignissim
@@ -170,7 +170,7 @@
       nihil imperdiet doming id quod mazim placerat facer possim assum.
     </p>
   </div>
-  <div class="review-product-complete">
+  <div id="review-product-complete" class="review-product-complete">
     <div class="list-reviews">
       <h2>Reviews</h2>
 
@@ -217,8 +217,69 @@
 
         <span class="calificacion">
           <p>YOUR RATING *</p>
-          <span> estrellitas </span>
+
+<div id="full-stars-example">
+    <div class="rating-group">
+        <input class="rating__input rating__input--none" name="rating" id="rating-none" value="0" type="radio">
+        <label aria-label="No rating" class="rating__label" for="rating-none">
+          <i class="rating__icon rating__icon--none fa fa-ban">
+          </i></label>
+        <label aria-label="1 star" class="rating__label" for="rating-1"><i class="rating__icon rating__icon--star fa fa-star">
+          </i></label>
+        <input class="rating__input" name="rating" id="rating-1" value="1" type="radio">
+        <label aria-label="2 stars" class="rating__label" for="rating-2"><i class="rating__icon rating__icon--star fa fa-star">
+          </i></label>
+        <input class="rating__input" name="rating" id="rating-2" value="2" type="radio">
+        <label aria-label="3 stars" class="rating__label" for="rating-3"><i class="rating__icon rating__icon--star fa fa-star">
+          </i></label>
+        <input class="rating__input" name="rating" id="rating-3" value="3" type="radio" checked>
+        <label aria-label="4 stars" class="rating__label" for="rating-4"><i class="rating__icon rating__icon--star fa fa-star">
+         
+          </i></label>
+        <input class="rating__input" name="rating" id="rating-4" value="4" type="radio">
+        <label aria-label="5 stars" class="rating__label" for="rating-5"><i class="rating__icon rating__icon--star fa fa-star">
+          </i></label>
+        <input class="rating__input" name="rating" id="rating-5" value="5" type="radio">
+    </div>
+ <input id="res" type="text">
         </span>
+        <script>
+          window.onload = () => {
+                
+          }
+
+          const rating0 = document.getElementById("rating-none");
+          rating0.addEventListener("click", () => {
+            count(0);
+          });
+
+          const rating1 = document.getElementById("rating-1");
+          rating1.addEventListener("click", () => {
+            count(1);
+          });
+          const rating2 = document.getElementById("rating-2");
+          rating2.addEventListener("click", () => {
+            count(2);
+          });
+          const rating3 = document.getElementById("rating-3");
+          rating3.addEventListener("click", () => {
+            count(3);
+          });
+          const rating4 = document.getElementById("rating-4");
+          rating4.addEventListener("click", () => {
+            count(4);
+          });
+          const rating5 = document.getElementById("rating-5");
+          rating5.addEventListener("click", () => {
+            count(5);
+          });
+
+          function count(n) {
+            const input = document.getElementById("res");
+            input.value = n;
+          }
+        </script>
+
         <div class="form-description">
           <label for="">Your Review</label>
           <input type="text" />
@@ -307,3 +368,27 @@
     </span>
   </a>
 </div>
+<script>
+  window.onload = () => {
+    const DescripccionSelect = document.getElementById("select-des");
+    const descriptionParrafo = document.getElementById("description-parrafo");
+    const ReviewSelect = document.getElementById("select-rev");
+    const reviewForm = document.getElementById("review-product-complete");
+    ReviewSelect.classList.add("active");
+    reviewForm.style.display = "flex";
+
+    DescripccionSelect.addEventListener("click", () => {
+      DescripccionSelect.classList.add("active");
+      ReviewSelect.classList.remove("active");
+      descriptionParrafo.style.display = "flex";
+      reviewForm.style.display = "none";
+    });
+    ReviewSelect.addEventListener("click", () => {
+      console.log("click review");
+      DescripccionSelect.classList.remove("active");
+      ReviewSelect.classList.add("active");
+      reviewForm.style.display = "flex";
+      descriptionParrafo.style.display = "none";
+    });
+  };
+</script>
