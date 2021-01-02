@@ -116,23 +116,21 @@
   font-size: 17px;
   color: #fff;
   font-weight: 600;
- text-transform: uppercase;
+  text-transform: uppercase;
   background-color: #333333;
 }
 .buttons-cart .buttons .checkout {
   width: 288px;
   height: 46px;
   padding: 10px;
-
+  cursor: pointer;
   font-weight: 600;
- text-transform: uppercase;
+  text-transform: uppercase;
   border-radius: 30px;
   border: none;
   color: #fff;
- text-transform: uppercase;
+  text-transform: uppercase;
   background-color: #333333;
   background-color: #e4584b;
   font-size: 17px;
-}
-}
 }

@@ -26,7 +26,8 @@
   /*border: 1px solid red;*/
   width: 100%;
   margin-left: 7em;
-  margin-top: 3em;
+  margin-top: 0em;
+  padding-bottom: 3em;
 }
 .product-content .product-description .title-product {
   font-size: 35px;
@@ -324,85 +325,236 @@
   transition: 0.4s all;
 }
 
-.review-product-complete {
-  display: none;
-}
 /*formulario de reviews y listado de reviews*/
-.review-product-complete{
-    justify-content: space-around;
+.review-product-complete {
+  padding-bottom: 5em;
+  display: none;
+  justify-content: space-around;
 }
 
-.review-product-complete .rating-list label{
-    
+.review-product-complete .review-form h2 {
+  font-size: 18px;
+  color: #22272d;
+  padding-bottom: 0.8em;
+}
+.review-product-complete .review-form {
+  border-left: 2px solid #0000000d;
+  padding-left: 2em;
+}
+
+.review-product-complete .review-form .form-description label {
+  font-size: 12px;
+  color: #333333;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+.review-product-complete .review-form .form-description textarea {
+  margin-bottom: 10px;
+  padding: 3%;
+  margin-top: 1em;
+  vertical-align: top;
+  width: 95%;
+  border: none;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.review-product-complete .review-form .form-user {
+  display: flex;
+
+  padding-bottom: 1em;
+}
+
+.review-product-complete .review-form .name,
+.review-product-complete .review-form .email {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-product-complete .review-form .name input,
+.review-product-complete .review-form .email input {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 6px;
+  padding: 1em;
+  width: 98%;
+  box-sizing: border-box;
+}
+
+.review-product-complete .review-form .checkbox {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1em;
+}
+.review-product-complete .review-form .checkbox label {
+  font-size: 12px;
+  color: #333;
+  font-weight: 600;
+}
+
+.review-product-complete .review-form button {
+  background-color: #e4584b;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  padding: 0.8em;
+  border-radius: 30px;
+  width: 95px;
+
+  transition: 0.5s all;
+}
+.review-product-complete .review-form button:hover {
+  background-color: #000;
+  transition: 0.5s all;
+}
+.review-product-complete .review-form .title-cal {
+  font-size: 12px;
+  color: #333333;
+  font-weight: 600;
+}
+.review-product-complete .review-form .des {
+  font-size: 18px;
+  color: #666666;
+  font-size: 15px;
+}
+.review-product-complete .list-reviews{
+      max-height: 554px;
+      display: flex;
+      border-top: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
+      overflow: auto;
+      flex-direction: column;
+}
+
+.review-product-complete .list-reviews::-webkit-scrollbar{
+    -webkit-appearance: none;
+
+}
+.review-product-complete .list-reviews:-webkit-scrollbar:vertical {
+  width: 4px;
+}
+.review-product-complete .list-reviews:-webkit-scrollbar-button:increment,
+.review-product-complete .list-reviews:-webkit-scrollbar-button {
+  display: none;
+}
+.review-product-complete .list-reviews:-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+}
+.review-product-complete .list-reviews:-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.review-product-complete .item-review{
+      position: relative;
+      max-width: 570px;
+      margin-bottom: -2em;
+}
+.review-product-complete .list-reviews .item-review img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+}
+.review-product-complete .list-reviews .item-review .calificacion{
+    padding-left: 1em;
+}
+.review-product-complete .list-reviews .item-review .calificacion i{
+      color: #0000000d;
+}
+.review-product-complete .list-reviews .item-review .calificacion .color-star{
+        color: #fccc4c;
+}
+
+.review-product-complete .list-reviews .item-review .parrafo{
+      padding: 1em;
+      font-style: oblique;
+      background-color: #0000000d;
+      border-radius: 6px;
+      padding-top: 3em;
+      transform: translatey(-3.2em);
+      color: #666666;
+      font-size: 14px;
+}
+
+.review-product-complete .list-reviews .item-review .info-user{
+font-size: 15px;
+color: #272727;
+padding-left: 1em;
+}
+
+.review-product-complete .list-reviews .item-review .info-user .date{
+    padding-left: 1em;
+    font-size: 13px;
+    color: #999999;
 }
 /*estrellitas*/
 
+.rating-group {
+  display: inline-flex;
+}
 
+/* make hover effect work properly in IE */
+.rating__icon {
+  pointer-events: none;
+}
 
+/* hide radio inputs */
+.rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
 
+/* set icon padding and size */
+.rating__label {
+  cursor: pointer;
+  padding: 0 0.1em;
+  font-size: 1.3rem;
+}
 
+/* set default star color */
+.rating__icon--star {
+  color: orange;
+}
 
-  .rating-group {
-    display: inline-flex;
-  }
-  
-  /* make hover effect work properly in IE */
-  .rating__icon {
-    pointer-events: none;
-  }
-  
-  /* hide radio inputs */
-  .rating__input {
-   position: absolute !important;
-   left: -9999px !important;
-  }
+/* set color of none icon when unchecked */
+.rating__icon--none {
+  color: #eee;
+}
 
-  /* set icon padding and size */
-  .rating__label {
-    cursor: pointer;
-    padding: 0 0.1em;
-    font-size: 2rem;
-  }
-  
-  /* set default star color */
-  .rating__icon--star {
-    color: orange;
-  }
-  
-  /* set color of none icon when unchecked */
+/* if none icon is checked, make it red */
+.rating__input--none:checked + .rating__label .rating__icon--none {
+  color: red;
+}
+
+/* if any input is checked, make its following siblings grey */
+.rating__input:checked ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+
+/* make all stars orange on rating group hover */
+.rating-group:hover .rating__label .rating__icon--star {
+  color: orange;
+}
+
+/* make hovered input's following siblings grey on hover */
+.rating__input:hover ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+
+/* make none icon grey on rating group hover */
+.rating-group:hover
+  .rating__input--none:not(:hover)
+  + .rating__label
   .rating__icon--none {
-    color: #eee;
-  }
+  color: #eee;
+}
 
-  /* if none icon is checked, make it red */
-  .rating__input--none:checked + .rating__label .rating__icon--none {
-    color: red;
-  }
-
-  /* if any input is checked, make its following siblings grey */
-  .rating__input:checked ~ .rating__label .rating__icon--star {
-    color: #ddd;
-  }
-
-  /* make all stars orange on rating group hover */
-  .rating-group:hover .rating__label .rating__icon--star {
-    color: orange;
-  }
-
-  /* make hovered input's following siblings grey on hover */
-  .rating__input:hover ~ .rating__label .rating__icon--star {
-    color: #ddd;
-  }
-  
-  /* make none icon grey on rating group hover */
-  .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
-     color: #eee;
-  }
-
-  /* make none icon red on hover */
-  .rating__input--none:hover + .rating__label .rating__icon--none {
-    color: red;
-  }
+/* make none icon red on hover */
+.rating__input--none:hover + .rating__label .rating__icon--none {
+  color: red;
+}
 
 /*listar otros productos*/
 .other-products {

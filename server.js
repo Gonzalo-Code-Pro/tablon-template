@@ -5,8 +5,8 @@ const port = 5500;
 const ejs = require("ejs");
 const expressLayout = require("express-ejs-layouts");
 //archivos estaticInicio
-  app.use(express.static("public"));
- 
+app.use(express.static("public"));
+
 //configuar templates engines y los layouts
 app.use(expressLayout);
 app.set("views", path.join(__dirname, "src/views/"));
