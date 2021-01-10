@@ -27,12 +27,26 @@
     <link rel="stylesheet" href="./css/section-product/just-product.css" />
     <!--- Cart list --->
     <link rel="stylesheet" href="./css/cart.css" />
+    <!-- Favorites--->
+    <link rel="stylesheet" href="./css/section-product/favorites.css" />
+    <!-- Pedido checkout--->
+    <link rel="stylesheet" href="./css/section-pedido/pedido.css" />
+    <!---Login & register -->
+    <link rel="stylesheet" href="./css/seccion-user/logins.css" />
     <!-- footer --->
     <link rel="stylesheet" href="./css/layouts/footer.css" />
   </head>
   <body n class="body" name="Ancla" id="body">
-    <!--cart--->
+    <!--cart modal --->
     <div class="cart" id="cart"><%- include('cart') %></div>
+    <!--- Login & Register  modal---->
+    <div class="logins" id="logins">
+      <%- include('./section-user/logins.ejs') %>
+    </div>
+    <!----  Favorites modal --->
+    <div class="favorites" id="favorites">
+      <%- include('./section-product/favorites.ejs') %>
+    </div>
     <!---Header -->
     <header id="header">
       <div class="menu-wrap">
@@ -122,7 +136,7 @@
                 font-weight: bold;
               "
               class="hover li"
-              >ABOUT LAFKA
+              >POLLOS A LA BRASA
             </a>
             <div class="dd">
               <div
@@ -241,7 +255,8 @@
                 font-family: 'Rubik';
               "
               class="hover li"
-              >OUR BLOG
+            >
+              PIZZAS
             </a>
             <div class="dd2">
               <div
@@ -359,7 +374,7 @@
                 font-family: 'Rubik';
               "
               class="hover li"
-              >OUR MENU
+              >MENU DEL DIA
             </a>
             <div class="dd3">
               <div
@@ -495,7 +510,7 @@
               height: 52.5px;
             "
             class="hover4 li"
-            >ORDER ONLINE
+            >PEDIDOS ONLINE
           </a>
           <div class="dd4">
             <div
@@ -613,7 +628,7 @@
               font-family: 'Rubik';
             "
             class="hover5 li"
-            >CATERING
+            >CONTACTANOS
           </a>
           <div class="dd2">
             <div
@@ -731,7 +746,7 @@
               font-family: 'Rubik';
             "
             class="hover6 li"
-            >LOCATIONS
+            >DONDE ESTAMOS
           </a>
           <div class="dd3">
             <div
@@ -849,7 +864,7 @@
               font-family: 'Rubik';
             "
             class="hover7 li"
-            >CONTACTS
+            >BLOG
           </a>
           <div class="dd3">
             <div
@@ -959,33 +974,44 @@
         <div class="number" id="phone-number">
           <a href="#" class="info-phone">
             <p class="phone-icon">
-              <i style="font-size: 20px" class="far">&#xf004;</i>
+              <i
+                class="fa fa-phone"
+                style="font-size: 20px; margin-right: 10px"
+                aria-hidden="true"
+              ></i>
             </p>
             <p class="number-icon">+5552347651</p>
           </a>
         </div>
         <div class="cart-search" id="cart-options">
-          <a href="#"
+          <a id="userButton" href="#"
             ><p class="icon-user">
-              <i style="font-size: 20px" class="fa fa-heart-o"></i></p
+              <i style="font-size: 18px" class="fa fa-user-o"></i></p
           ></a>
-          <a href="#">
+          <a id="favoriteButton" href="#">
             <p class="corazon-icon">
               <i style="font-size: 20px" class="fa fa-heart-o"></i>
 
-              <span>1</span>
+              <span>8</span>
             </p></a
           >
           <a id="cartButton"
             ><p class="cart-icon">
-              <i style="font-size: 20px" class="fa fa-heart-o"></i>
-
-              <span>1</span>
+              <i
+                style="font-size: 20px"
+                class="fa fa-cart-arrow-down"
+                aria-hidden="true"
+              ></i>
+              <span>5</span>
             </p></a
           >
           <a href="#">
             <p class="search-icon">
-              <i style="font-size: 20px" class="fa fa-heart-o"></i></p
+              <i
+                class="fa fa-search"
+                style="font-size: 20px"
+                aria-hidden="true"
+              ></i></p
           ></a>
         </div>
       </div>
@@ -995,9 +1021,17 @@
       <div class="container-links">
         <div id="item1">
           <a id="#" href="#">
-            <img src="icons/svgfood/023-pizza-slice.svg" alt="" />
-            <p class="text-icon">PIZZA</p>
-            <span class="stcker-red">3 STYLES</span>
+            <img src="icons/svgfood/043-chicken-leg.svg" alt="" />
+            <p class="text-icon">
+              POLLOS A LA BRAZA
+
+              <i
+                class="fa fa-chevron-right"
+                style="font-size: 11px"
+                aria-hidden="true"
+              ></i>
+            </p>
+            <span class="stcker-red">envio gratis+ </span>
           </a>
           <div id="dropdown1" class="dropdown dropdown-content1">
             <div class="image">
@@ -1035,55 +1069,67 @@
         </div>
         <div id="item2">
           <a href="#">
-            <img src="icons/svgfood/007-burger-1.svg" alt="" />
-            <p class="text-icon">BURGUERS</p>
-            <span class="stcker-brown">3 STYLES</span>
+            <img src="icons/svgfood/023-pizza-slice.svg" alt="" />
+            <p class="text-icon">
+              PIZZAS
+
+              <i
+                class="fa fa-chevron-right"
+                style="font-size: 11px"
+                aria-hidden="true"
+              ></i>
+            </p>
           </a>
           <div id="dropdown2" class="dropdown dropdown-content2"></div>
         </div>
         <div id="item3">
           <a href="#">
-            <img src="icons/svgfood/030-kebab.svg" alt="" />
-            <p class="text-icon">SANDWICHES</p>
-            <span class="stcker-orange">3 STYLES</span>
+            <img src="icons/svgfood/021-fried-chicken.svg" alt="" />
+            <p class="text-icon">
+              HAPPY BOX
+              <i
+                class="fa fa-chevron-right"
+                style="font-size: 11px"
+                aria-hidden="true"
+              ></i>
+            </p>
+            <span class="stcker-black">-10% descuento</span>
           </a>
         </div>
         <div id="item4">
           <a href="#">
-            <img src="icons/svgfood/008-fried-potatoes.svg" alt="" />
-            <p class="text-icon">SIDES & SALLADS</p>
-            <span class="stcker-black">3 STYLES</span>
+            <img src="icons/svgfood/025-meat.svg" alt="" />
+            <p class="text-icon">PARRILLADAS</p>
           </a>
           <div class="dropdown dropdown-content4"></div>
         </div>
         <div id="item5">
           <a href="#">
-            <img src="icons/svgfood/050-french-fries.svg" alt="" />
-            <p class="text-icon">COMBOS</p>
-            <span class="stcker-green">3 STYLES</span>
+            <img src="icons/svgfood/049-breakfast.svg" alt="" />
+            <p class="text-icon">DELICIOUS PACK</p>
           </a>
         </div>
         <div id="item6">
           <a href="#">
-            <img src="icons/svgfood/012-cola.svg" alt="" />
-            <p class="text-icon">DRINKS</p>
-            <span class="stcker-purple">3 STYLES</span>
+            <img src="icons/svgfood/047-menu.svg" alt="" />
+            <p class="text-icon">MENUS CRIOLLOS</p>
           </a>
         </div>
         <div id="item7">
           <a id="item7" href="#">
-            <img src="icons/svgfood/011-ice-cream-1.svg" alt="" />
-            <p class="text-icon">DESSERTS</p>
-            <span class="stcker-turquoise">3 STYLES</span>
+            <img src="icons/svgfood/024-chef-hat.svg" alt="" />
+            <p class="text-icon">PREMIUM PACKS</p>
+            <span class="stcker-turquoise">envio gratis +</span>
           </a>
         </div>
       </div>
     </div>
     <!--- End nav flotante --->
 
-    <!-- Body diferentes-->
-    <%- body %>
-    <footer>
+    <!-- Cuerpos diferentes -->
+    <div id="bodys"><%- body %></div>
+
+    <footer class="footer">
       <div class="footer-informacion">
         <ul>
           <h2 class="info-title">Information</h2>
@@ -1178,5 +1224,7 @@
     <!--- Carrito de compras--->
 
     <script src="./js/cart.js"></script>
+    <script src="./js/logins.js"></script>
+    <script src="./js/favorites.js"></script>
   </body>
 </html>

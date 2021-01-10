@@ -14,6 +14,9 @@
   opacity: 1;
   transition: 0.4s all;
 }
+.home-navbar.blur{
+    filter: blur(32px);
+}
 .home-navbar.active {
   opacity: 0;
   transition: 0.4s all;
@@ -40,10 +43,9 @@
 }
 .home-navbar a .text-icon::after {
   display: inline-block;
-  content: "\f107";
+
   font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  margin-left: 4px;
+
   font-size: 12px;
   vertical-align: middle;
 }
@@ -53,16 +55,16 @@
 }
 .container-links a span {
   position: absolute;
-  padding: 0 5px;
+  padding: 0 3px;
   color: #fff !important;
-  top: -20%;
+  top: -30%;
   right: 0;
   display: block;
   font-size: 10px;
   font-weight: 700;
   line-height: 24px;
   white-space: nowrap;
-  height: 24px;
+  height: 22px;
   border-radius: 3px;
   vertical-align: middle;
   transform: rotate(-12deg);

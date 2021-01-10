@@ -19,9 +19,15 @@ app.get("/", (req, res) => {
 app.get("/product/", (req, res) => {
   res.render("section-product/product.ejs");
 });
-
+app.get("/user", (req, res) => {
+  res.render("section-product/product.ejs");
+});
 app.get("/just-product", (req, res) => {
   res.render("section-product/just-product.ejs");
+});
+
+app.get("/pedido", (req, res) => {
+  res.render("section-pedido/pedido.ejs");
 });
 
 app.listen(port, () => {

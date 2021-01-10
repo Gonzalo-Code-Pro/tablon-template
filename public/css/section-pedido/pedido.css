@@ -1,0 +1,166 @@
+.section-pedido {
+  height: auto;
+  max-width: 99%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.section-pedido .bg {
+  height: 75vh;
+  background-color: #f0f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.section-pedido .info {
+  text-align: center;
+  font-size: 12px;
+  text-transform: 12px;
+  padding-bottom: 3em;
+}
+
+.section-pedido .info h2 {
+  font-size: 47px;
+  color: #22272d;
+}
+.section-pedido .login-cupon {
+  height: 25vh;
+}
+.section-pedido .details-pedido {
+  height: auto;
+  background-color: white;
+}
+
+/* -----------------------------*/
+.section-pedido .login-cupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.section-pedido .login-cupon .item {
+  background-color: #f0f0f0f0;
+  padding: 1em 0 1em 0em;
+  text-align: center;
+  width: 48%;
+}
+/*-------------------------------*/
+.section-pedido .details-pedido {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  width: 100%;
+  column-gap: 1.5em;
+}
+.section-pedido .details-pedido .form-user-info {
+  max-width: 768px;
+  margin-left: 1em;
+  padding: 2em;
+}
+
+.section-pedido .details-pedido .form-pedido-pago {
+  max-width: 768px;
+  margin-right: 1em;
+
+}
+/*---------------------------------------------*/
+.details-pedido  .form-user-info h2{
+        font-size: 24px;
+        color: #22272d;
+}
+.details-pedido  .form-user-info .form-item{
+  display: flex;
+  flex-direction: column;
+}
+.details-pedido  .form-user-info .form-item textarea{
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 1em;
+}
+
+.details-pedido  .form-user-info .form-item-select{
+  margin: 15px 0 15px 0;
+  display: flex;
+  flex-direction: column;
+}
+.details-pedido  .form-user-info .form-item-select select{
+    background-color: #f5f5f5;
+    border: none;
+    font-size: 16px;
+
+    width: 98%;
+    font-size: 14px;
+
+}
+.details-pedido  .form-user-info .form-item-select span{
+    width: 98%;
+    padding: 0.8em 0 0.8em 0.8em;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.details-pedido  .form-user-info .form-item-select p{
+  color: #333333;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.details-pedido  .form-user-info .form-item label{
+  color: #333333;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 10px 0 10px 0;
+}
+.details-pedido  .form-user-info .form-item input{
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.details-pedido  .form-user-info .form-item input:focus{
+    background-color: #f0f0f0;
+}
+/*----------------------------------------------------*/
+
+.form-pedido-pago{
+    padding: 4em 2em 4em 2em;
+}
+.form-pedido-pago  .content-pago{
+    padding: 1em;
+    border-radius: 10px;
+    height: 100vh;
+    border: 2px solid #f0f0f0;
+}
+.form-pedido-pago .item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6em 0.6em 0.6em 0.6em;
+}
+
+.form-pedido-pago .list-orders{
+    
+}
+.form-pedido-pago .list-orders .item-order{
+      display:  flex;
+      justify-content: space-between;
+      padding: 0.6em 0.6em 1em 0.6em;
+      border-bottom: 2px solid #f0f0f0;
+}
+
+.form-pedido-pago .list-orders .item-order small{
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    padding: 0.2em;
+}
+
+
+
+
+
+
+
