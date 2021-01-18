@@ -1,0 +1,100 @@
+* {
+  outline: none;
+  font-family: "Rubik", sans-serif;
+}
+body {
+  margin: 0;
+  background-color: #f9f9f9;
+}
+#bodys {
+  transition: 0.7s all;
+}
+header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 10em;
+  transition: 0.2s all;
+}
+
+#header.blur {
+  filter: blur(25px);
+}
+#header.active {
+  background-color: #fff;
+  height: 8.5em;
+  transition: 0.2s all;
+}
+/*home category*/
+.section-pedido,
+.section-pollos,
+.section-parrilladas,
+.section-menus,
+.section-deliciuspack,
+.section-pizzas,
+.section-happybox,
+.section-premiunpack
+{
+  height: auto;
+  max-width: 99%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.section-pedido .bg,
+.section-pollos .bg,
+.section-parrilladas .bg,
+.section-menus .bg,
+.section-deliciuspack .bg,
+.section-pizzas .bg,
+.section-happybox .bg,
+.section-premiunpack .bg{
+  height: 75vh;
+  background-color: #f0f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+ .section-pedido .info,
+.section-pollos .info,
+.section-parrilladas .info,
+.section-menus .info,
+.section-deliciuspack .info,
+.section-pizzas .info,
+.section-happybox .info,
+.section-premiunpack .info{
+  text-align: center;
+  font-size: 12px;
+  text-transform: 12px;
+  padding-bottom: 3em;
+}
+
+.section-pedido .info h2,
+.section-pollos .info h2,
+.section-parrilladas .info h2,
+.section-menus .info h2,
+.section-deliciuspack .info h2,
+.section-pizzas .info h2,
+.section-happybox .info h2,
+.section-premiunpack .info h2{
+  font-size: 47px;
+  color: #22272d;
+}
+a {
+  text-decoration: none;
+}
+footer {
+  display: none;/*flex*/
+  flex-direction: column;
+  min-height: 50vh;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+#footer.active{
+    filter: blur(24px);
+}
+

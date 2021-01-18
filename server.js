@@ -4,32 +4,20 @@ const path = require("path");
 const port = 5500;
 const ejs = require("ejs");
 const expressLayout = require("express-ejs-layouts");
-//archivos estaticInicio
-app.use(express.static("public"));
+//midlewares----------------------------------------
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-//configuar templates engines y los layouts
+//configuar templates engines y los layouts---------
+app.set("layout", "layoutsFastfood", "layoutsAdmin");
 app.use(expressLayout);
 app.set("views", path.join(__dirname, "src/views/"));
 app.set("view engine", "ejs");
-//rutas
-app.get("/", (req, res) => {
-  res.render("home.ejs");
-});
-
-app.get("/product/", (req, res) => {
-  res.render("section-product/product.ejs");
-});
-app.get("/user", (req, res) => {
-  res.render("section-product/product.ejs");
-});
-app.get("/just-product", (req, res) => {
-  res.render("section-product/just-product.ejs");
-});
-
-app.get("/pedido", (req, res) => {
-  res.render("section-pedido/pedido.ejs");
-});
-
+//rutas del adminitrador---------------------------------------------
+app.use("/admin", require("./src/routes/admin"));
+app.use("/fastfood", require("./src/routes/fastfood"));
+app.use("/admin", express.static(path.join(__dirname, "src/public")));
+app.use("/fastfood", express.static(path.join(__dirname, "src/public")));
 app.listen(port, () => {
   console.log("server on port  : ", port);
 });
