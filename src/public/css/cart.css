@@ -1,156 +1,100 @@
-.cart {
-  font-family: "Rubik", sans-serif;
-}
 .cart a {
   color: black;
 }
 .cart {
-  margin-top: -40.9em;
+  font-family: "Rubik", sans-serif;
+  margin-left: 84.5em;
   position: fixed;
   width: 100%;
   height: 100vh;
   z-index: 99;
-  background-color: #ffffff8c;
+  background-color: #fff;
   transition: 0.3s ease-out all;
 }
 .cart.active {
-  margin-top: 0;
+  margin-left: 0;
   transition: 0.3s ease-out all;
-}
-
-.cart-section {
-  padding-top: 3em;
-  background-color: #ffffff8c;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  height: auto;
-  justify-content: center;
-  padding-bottom: 4em;
-}
-.cart-section.blur {
-  filter: blur(25px);
-}
-
-.cart-section .list {
-  overflow: auto;
-  display: flex;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 0.5px solid #eaeaea;
-  flex-direction: column;
-  width: 600px;
-  max-height: 375px;
-}
-.cart-section .item-cart {
-  display: flex;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
-  border-bottom: 1px solid #eaeaea;
-  justify-content: space-between;
-}
-
-.item-cart .info-cart-item {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.cart-section .item-cart img {
-  width: 60px;
-  height: 60px;
-  border-radius: 3px;
-  border: 0.5px solid #eaeaea;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-
-.cart-section .price-item .cantidad {
-  color: #e4584b;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.cart-section .price-item .cantidad span {
-  font-size: 12px;
-  margin: 0 1px 0 1px;
-}
-.cart-section-2 {
-  width: 100%;
-  background-color: #ffffff8c;
-  display: flex;
-  padding-bottom: 2em;
-  justify-content: center;
-}
-.cart-section-2.blur {
-  filter: blur(32px);
-}
-
-.cart-section-2 .buttons-cart {
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-}
-.cart-section-2 .total-price {
-  display: flex;
-  justify-content: space-between;
-}
-.cart-section-2 .buttons {
-  display: flex;
-  justify-content: space-around;
-}
-.list::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-
-.list::-webkit-scrollbar:vertical {
-  width: 4px;
-}
-.list::-webkit-scrollbar-button:increment,
-.list::-webkit-scrollbar-button {
-  display: none;
-}
-.list::-webkit-scrollbar-thumb {
-  background-color: #797979;
-  border-radius: 20px;
-}
-.list::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-.buttons-cart .buttons .view-cart {
-  width: 288px;
-  height: 46px;
-  padding: 10px;
-  border-radius: 30px;
-  border: none;
-  font-size: 17px;
-  color: #fff;
-  font-weight: 600;
-  text-transform: uppercase;
-  background-color: #333333;
-  cursor: pointer;
-}
-.buttons-cart .buttons .checkout {
-  width: 288px;
-  height: 46px;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 30px;
-  border: none;
-  color: #fff;
-  text-transform: uppercase;
-  background-color: #333333;
-  background-color: #e4584b;
-  font-size: 17px;
 }
 #cartButtonClose {
   padding: 0.7em;
   border-radius: 50%;
-
   transition: 0.4s all;
 }
 #cartButtonClose:hover {
   transition: 0.4s all;
   background-color: #fccc4c;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700");
+
+.list-item-cart {
+  display: grid;
+  width: 50%;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.cart-section {
+  display: flex;
+  justify-content: center;
+}
+.cart-section .card-wide {
+  border-radius: 0.35em;
+  background: white;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0.25em;
+  padding: 0.5em 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px;
+}
+.cart-section.card-header .header {
+  font-weight: 500;
+  padding: 0.25em 0.5em;
+}
+
+.cart-section .card-body {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  display: flex;
+  align-items: center;
+}
+.cart-section .info {
+  line-height: 1.5;
+  font-weight: 400;
+  padding-top: 0.25em;
+  padding-bottom: 0.5em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  align-self: start;
+  text-align: left;
+}
+.cart-section .info .title {
+  font-weight: 700;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 0.25em;
+
+  font-size: 0.86em;
+  padding-bottom: 0.2em;
+}
+
+.cart-section .info p {
+  margin: 0;
+  font-size: 0.82em;
+}
+
+.cart-section .card-body img {
+  background: white;
+  height: 6em;
+  margin-right: 0.5em;
+  align-self: center;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
+.cart-section .inline {
+  display: inline-flex;
+}
+.cart-section .inline .inline-item {
+  font-size: 0.25em;
+  font-weight: 400;
+  color: grey;
+  padding-right: 0.6em;
 }

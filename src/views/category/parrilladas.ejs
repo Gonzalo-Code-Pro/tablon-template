@@ -1,12 +1,654 @@
-<section class="section-parrilladas">
-  <div class="bg">
-    <div class="info">
-      <div class="line">
-        <a href="/just-product">HOME/</a>
-        <span>PARRILLADAS</span>
+
+
+<style>
+
+  @charset "UTF-8";
+  /*------------------------------------*    DESIGN TOKENS
+  \*------------------------------------*/
+  :root {
+    --color-white: #ffffff;
+    --cool-gray-20: #c5c8ce;
+    --cool-gray-30: #a7abb4;
+    --cool-gray-50: #6b7280;
+    --cool-gray-70: #404859;
+    --cool-gray-90: #212836;
+    --blue-50: #266bd9;
+    --font-size-8: 0.5rem;
+    --font-size-10: 0.625rem;
+    --font-size-12: 0.75rem;
+    --font-size-14: 0.875rem;
+    --font-size-16: 1rem;
+    --font-size-18: 1.125rem;
+    --font-size-20: 1.25rem;
+    --font-weight-regular: normal;
+    --font-weight-medium: 500;
+    --font-weight-bold: bold;
+    --line-height-small: 1.25;
+    --line-height-base: 1.5;
+    --text-color-primary: var(--cool-gray-90);
+    --text-color-secondary: var(--cool-gray-50);
+    --text-color-link: var(--blue-50);
+    --text-color-disabled: var(--cool-gray-30);
+    --status-neutral-light: var(--cool-gray-20);
+    --status-neutral-darker: var(--cool-gray-70);
+    --shadow-level-2: 0px 4px 16px rgba(64, 72, 90, 0.1);
+    --border-radius-medium: 0.5rem;
+    --border-radius-large: 1rem;
+    --border-radius-pill: 9999px;
+    --space-inset-default: 0.75rem;
+    --space-inset-x-default: 0 0.75rem 0 0.75rem;
+    --title-size: var(--font-size-16);
+    --price-size: var(--font-size-14);
+    --desc-size: var(--font-size-12);
+  }
+  
+  /*------------------------------------*    SIZE TESTING
+  \*------------------------------------*/
+   .container-premium  .title-small {
+    --title-size: var(--font-size-14);
+  }
+  
+   .container-premium  .title-medium {
+    --title-size: var(--font-size-16);
+  }
+  
+   .container-premium  .title-large {
+    --title-size: var(--font-size-18);
+  }
+  
+   .container-premium  .price-small {
+    --price-size: var(--font-size-12);
+  }
+  
+   .container-premium .price-medium {
+    --price-size: var(--font-size-14);
+  }
+  
+   .container-premium  .price-large {
+    --price-size: var(--font-size-16);
+  }
+  
+   .container-premium .desc-small {
+    --desc-size: var(--font-size-12);
+  }
+  
+   .container-premium  .desc-medium {
+    --desc-size: var(--font-size-14);
+  }
+  
+   .container-premium .desc-large {
+    --desc-size: var(--font-size-16);
+  }
+  
+  /*------------------------------------*    PAGE
+  \*------------------------------------*/
+  .container-premium{
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: var(--text-color-primary);
+  }
+  
+    .container-premium a {
+    color: var(--text-color-link);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+  }
+  
+   .container-premium .uhs-content {
+    padding: var(--space-inset-default);
+  }
+  
+  /*------------------------------------*    MAIN CARD COMPONENT
+  \*------------------------------------*/
+   .container-premium  .card {
+    padding: var(--space-inset-default);
+    box-shadow: var(--shadow-level-2);
+    border-radius: var(--border-radius-large);
+    margin-bottom: 1.25rem;
+  }
+  
+   .container-premium   .card .title-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: var(--title-size);
+    line-height: var(--line-height-small);
+  }
+  
+   .container-premium   .card .title-row .title {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    margin-right: 0.75rem;
+  }
+  
+   .container-premium  .card .title-row .title > span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    align-self: center;
+    margin-left: 0.125rem;
+    color: var(--text-color-link);
+  }
+  
+   .container-premium  .card .title-row > a {
+    flex-shrink: 0;
+    font-size: var(--font-size-14) !important;
+  }
+  
+   .container-premium  .card > .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.75rem;
+  }
+  
+  /*------------------------------------*    FOOD DEAL CARD COMPONENT
+  \*------------------------------------*/
+   .container-premium  .image-content {
+    position: relative;
+  }
+  
+   .container-premium  .image-content .location {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    color: var(--color-white);
+    padding: 0.5rem;
+  }
+  
+   .container-premium  .image-content .location > span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    align-self: center;
+    font-size: var(--font-size-10);
+    line-height: var(--line-height-small);
+    margin-left: 0.25rem;
+  }
+  
+   .container-premium  .image-content .fomo-user {
+    position: absolute;
+    bottom: 0;
+    color: var(--color-white);
+    padding: 0.5rem;
+  }
+  
+   .container-premium .image-content .fomo-user > span {
+    font-size: var(--font-size-10);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-small);
+    margin-left: 0.25rem;
+  }
+  
+   .container-premium .image-content .image {
+    padding-top: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius-medium);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 50%), url(https://i.imgur.com/kUXXe4s.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+   .container-premium .distance-tag {
+    color: var(--color-white);
+    font-size: var(--font-size-8);
+    font-weight: var(--font-weight-bold);
+    padding: 0.125rem 0.25rem 0.125rem 0.25rem;
+    border-radius: var(--border-radius-pill);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+   .container-premium .heart-tag {
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+  }
+  
+   .container-premium .heart-tag:before {
+    content: "♥";
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-right: 0.25rem;
+  }
+  
+   .container-premium  .outline-tag {
+    display: inline-block;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    color: var(--status-neutral-darker);
+    margin-top: 0.25rem;
+    padding: 0.125rem 0.5rem;
+    border: 1px solid var(--status-neutral-light);
+    border-radius: var(--border-radius-pill);
+  }
+  
+   .container-premium .info-content > h4 {
+    color: var(--text-color-secondary);
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-small);
+    margin-bottom: 0.25rem;
+  }
+  
+   .container-premium  .info-content .price {
+    font-size: var(--price-size);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-small);
+    margin-bottom: 0.25rem;
+  }
+  
+   .container-premium  .info-content .price > span {
+    color: var(--text-color-disabled);
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-medium);
+    text-decoration: line-through;
+  }
+  
+   .container-premium .info-content .price .cashback {
+    color: var(--text-color-primary);
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-regular);
+    text-decoration: none;
+  }
+  
+   .container-premium .info-content > p {
+    color: var(--text-color-disabled);
+    font-size: var(--desc-size);
+    line-height: var(--line-height-small);
+  }
+  
+   .container-premium  .truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+   .container-premium  .truncate-1 {
+    -webkit-line-clamp: 1;
+  }
+  
+   .container-premium  .truncate-2 {
+    -webkit-line-clamp: 2;
+  }
+  
+   .container-premium .truncate-3 {
+    -webkit-line-clamp: 3;
+  }
+  
+  /*------------------------------------*    SLIDER
+  \*------------------------------------*/
+   .container-premium  .config-panel {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    width: 100vw;
+    bottom: 0;
+    z-index: 9999;
+  }
+  
+   .container-premium  .config-panel > .sliders {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 1rem 1rem 2rem;
+  }
+  
+   .container-premium .slider-container {
+    font-weight: var(--font-weight-bold);
+  }
+  
+   .container-premium  .slider-container > input {
+    width: 100%;
+  }
+  
+   .container-premium  .slider-container > p {
+    font-size: var(--font-size-12);
+    margin-bottom: 0.5rem;
+  }
+  </style>
+  
+  
+  <section class="section-parrilladas">
+    <div class="bg" style="background-image: url(http://localhost:5500/fastfood/img/parrilladasbg.jpg);">
+      <div class="info">
+        <div class="line">
+          <a href="/just-product">HOME/</a>
+          <span>PARRILLADAS</span>
+        </div>
+        <h2 class="title">PARRILLADAS</h2>
       </div>
-      <h2 class="title">PARRILLADAS</h2>
+    </div>
+    <div class="container-premium">
+  
+  
+  <!-- CONTENT -->
+  <div class="uhs-content">
+    <div class="card">
+      <div class="title-row">
+        <div class="title">
+          <h3>Food deals near</h3>
+          <span>Ayer Rajah Crescent</span>
+        </div>
+        <a href="">See all</a>
+      </div>
+      <div class="content">
+        <div class="food-card">
+          <div class="image-content">
+            <div class="location">
+              <div class="distance-tag">350m</div>
+              <span>Raffles Place MRT Xchange</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://i.imgur.com/kUXXe4s.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Jollibean</h4>
+            <div class="price">
+              $120.00
+              <span>$100.60</span>
+            </div>
+            <p class="truncate truncate-2">2x Mee Chiang Kueh + 2x Soymilk [Redeem in Store] Takeaway</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="location">
+              <div class="distance-tag">350m</div>
+              <span>Raffles Place MRT Xchange</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://i.imgur.com/TroGWA8.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>A-One</h4>
+            <div class="price">
+              $5.00
+              <span>$13.80</span>
+            </div>
+            <p class="truncate truncate-2">1 x Dried Scallop Porridge with Minced Meat</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="location">
+              <div class="distance-tag">350m</div>
+              <span>Raffles Place MRT Xchange</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://i.imgur.com/kIae4Kf.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Gong Cha</h4>
+            <div class="price">
+              $4.90
+              <span>$7.00</span>
+            </div>
+            <p class="truncate truncate-2">2 x Pearl Milk Tea (Medium)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="title-row">
+        <div class="title">
+          <h3>Vouchers</h3>
+        </div>
+        <a href="">See all</a>
+      </div>
+      <div class="content">
+        <div class="food-card">
+          <div class="image-content">
+            <div class="image" style="background-image: url(https://cloud.shopback.com/image/upload/v1610348290/app-assets/SG%202021%20Assets/20200111/cold_storage.png)"></div>
+          </div>
+          <div class="info-content">
+            <div class="price">
+              2%
+              <span class="cashback">Cashback</span>
+            </div>
+            <p>+3% with Citibank</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="image" style="background-image: url(https://cloud.shopback.com/image/upload/v1610348290/app-assets/SG%202021%20Assets/20200111/grab_bcar.png)"></div>
+          </div>
+          <div class="info-content">
+            <div class="price">
+              10%
+              <span class="cashback">Cashback</span>
+            </div>
+            <p>+3% with Citibank</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="image" style="background-image: url(https://cloud.shopback.com/image/upload/v1610348290/app-assets/SG%202021%20Assets/20200111/Zalora.png)"></div>
+          </div>
+          <div class="info-content">
+            <div class="price">
+              10%
+              <span class="cashback">Cashback</span>
+            </div>
+            <p>+3% with Citibank</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="title-row">
+        <div class="title">
+          <h3>FOMO Community Deals</h3>
+        </div>
+        <a href="">See all</a>
+      </div>
+      <div class="content">
+        <div class="food-card">
+          <div class="image-content">
+            <div class="fomo-user">
+              <div class="heart-tag">36</div>
+              <span>@sg_jap_anime</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://cloud.shopback.com/image/upload/v1610890012/FOMO/UHS%20Daily/64751ae0-e31d-400c-b454-5ad24bee70d1.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Lazada</h4>
+            <p class="truncate truncate-3">Kinohimitsu Health Product Set worth $200</p>
+            <div class="outline-tag">2 winners</div>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="fomo-user">
+              <div class="heart-tag">35</div>
+              <span>@sg_jap_anime</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://cloud.shopback.com/image/upload/v1610890079/FOMO/UHS%20Daily/2c204f4e-ad9f-413c-9adb-abc62f0c96de.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Cavilla Beauty</h4>
+            <p class="truncate truncate-3">$150 NTUC Voucher / $100 Takashimaya Voucher / $50 Starbucks Card</p>
+            <div class="outline-tag">3 winners</div>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="fomo-user">
+              <div class="heart-tag">27</div>
+              <span>@sg_jap_anime</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://cloud.shopback.com/image/upload/v1610890147/FOMO/UHS%20Daily/0ee9dc39-dac8-49ff-b1ae-b924c185038e.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Science Arts Co</h4>
+            <p class="truncate truncate-3">CNY Hamper worth $128</p>
+            <div class="outline-tag">2 winners</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="title-row">
+        <div class="title">
+          <h3>Penawaran makanan di dekat Anda</h3>
+        </div>
+        <a href="">Lihat semua</a>
+      </div>
+      <div class="content">
+        <div class="food-card">
+          <div class="image-content">
+            <div class="location">
+              <div class="distance-tag">350m</div>
+              <span>Raffles Place MRT Xchange</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://i.imgur.com/kUXXe4s.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Jollibean</h4>
+            <div class="price">
+              Rp2.000.000
+              <span>Rp2.299.000</span>
+            </div>
+            <p class="truncate truncate-2">2x Mee Chiang Kueh + 2x Soymilk [Redeem in Store] Takeaway</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="location">
+              <div class="distance-tag">350m</div>
+              <span>Raffles Place MRT Xchange</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://i.imgur.com/TroGWA8.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>A-One</h4>
+            <div class="price">
+              Rp52.000
+              <span>Rp62.000</span>
+            </div>
+            <p class="truncate truncate-2">1 x Dried Scallop Porridge with Minced Meat</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="location">
+              <div class="distance-tag">350m</div>
+              <span>Raffles Place MRT Xchange</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://i.imgur.com/kIae4Kf.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Gong Cha</h4>
+            <div class="price">
+              Rp50.000
+              <span>Rp70.000</span>
+            </div>
+            <p class="truncate truncate-2">2 x Pearl Milk Tea (Medium)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="title-row">
+        <div class="title">
+          <h3>Voucher</h3>
+        </div>
+        <a href="">Lihat semua</a>
+      </div>
+      <div class="content">
+        <div class="food-card">
+          <div class="image-content">
+            <div class="image" style="background-image: url(https://cloud.shopback.com/image/upload/v1610348290/app-assets/SG%202021%20Assets/20200111/cold_storage.png)"></div>
+          </div>
+          <div class="info-content">
+            <div class="price">
+              <span class="cashback">Cashback </span>2%
+            </div>
+            <p>+3% dengan Citibank</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="image" style="background-image: url(https://cloud.shopback.com/image/upload/v1610348290/app-assets/SG%202021%20Assets/20200111/grab_bcar.png)"></div>
+          </div>
+          <div class="info-content">
+            <div class="price">
+              <span class="cashback">Cashback </span>10%
+            </div>
+            <p>+3% dengan Citibank</p>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="image" style="background-image: url(https://cloud.shopback.com/image/upload/v1610348290/app-assets/SG%202021%20Assets/20200111/Zalora.png)"></div>
+          </div>
+          <div class="info-content">
+            <div class="price">
+              <span class="cashback">Cashback </span>10%
+            </div>
+            <p>+3% dengan Citibank</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="title-row">
+        <div class="title">
+          <h3>Penawaran Komunitas FOMO</h3>
+        </div>
+        <a href="">Lihat semua</a>
+      </div>
+      <div class="content">
+        <div class="food-card">
+          <div class="image-content">
+            <div class="fomo-user">
+              <div class="heart-tag">36</div>
+              <span>@sg_jap_anime</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://cloud.shopback.com/image/upload/v1610890012/FOMO/UHS%20Daily/64751ae0-e31d-400c-b454-5ad24bee70d1.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Lazada</h4>
+            <p class="truncate truncate-3">Kinohimitsu Kesehatan Produk Set senilai Rp2.000.000</p>
+            <div class="outline-tag">2 pemenang</div>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="fomo-user">
+              <div class="heart-tag">35</div>
+              <span>@sg_jap_anime</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://cloud.shopback.com/image/upload/v1610890079/FOMO/UHS%20Daily/2c204f4e-ad9f-413c-9adb-abc62f0c96de.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Cavilla Beauty</h4>
+            <p class="truncate truncate-3">Rp150.000 NTUC Voucher / Rp100.000 Takashimaya Voucher / Rp50.000 Starbucks Card</p>
+            <div class="outline-tag">3 pemenang</div>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="image-content">
+            <div class="fomo-user">
+              <div class="heart-tag">27</div>
+              <span>@sg_jap_anime</span>
+            </div>
+            <div class="image" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%), url(https://cloud.shopback.com/image/upload/v1610890147/FOMO/UHS%20Daily/0ee9dc39-dac8-49ff-b1ae-b924c185038e.png);"></div>
+          </div>
+          <div class="info-content">
+            <h4>Science Arts Co</h4>
+            <p class="truncate truncate-3">Hamper Tahun Baru Cina senilai Rp128.000</p>
+            <div class="outline-tag">2 pemenang</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+    </div>
+  </div>
+  
+  
 

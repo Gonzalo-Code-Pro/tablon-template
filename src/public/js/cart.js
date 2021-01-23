@@ -1,5 +1,7 @@
 //abir y cerrarel carrito de compras
 
+
+
 const cartButton = document.getElementById("cartButton");
 const body = document.getElementById("body");
 const bodys = document.getElementById("bodys");
@@ -10,7 +12,6 @@ const cartButtonClose = document.getElementById("cartButtonClose");
 
 cartButton.addEventListener("click", () => {
   body.classList.toggle("active");
-
   cart.classList.toggle("active");
   bodys.style.filter = "blur(32px)";
   headers.classList.toggle("blur");

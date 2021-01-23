@@ -2,6 +2,7 @@ const { uuid } = require("uuidv4");
 const pool = require("../../../database/pool");
 const path = require("path");
 const fs = require("fs");
+const { argv0 } = require("process");
 
 function productController() {
   return {
@@ -10,28 +11,88 @@ function productController() {
     },
     async addPostProduct(req, res) {
       console.log(req.file);
-      let img = req.file.filename;
-      let nombreoficial = req.body.nombreoficial;
-      let nombrecomercial = req.body.nombrecomercial;
-      let preciounitario = parseFloat(req.body.nombreoficial);
-      let categoria_id = 2;
-      const values = [
-        uuid(),
+      console.log(req.body);
+      let _id = uuid();
+      let categoria = req.body.categoria ? req.body.categoria : "";
+      let nombreoficial = req.body.nombreoficial ? req.body.nombreoficial : "";
+      let nombrecomercial = req.body.nombrecomercial
+        ? req.body.nombrecomercial
+        : "";
+      let preciooriginal = req.body.preciooriginal
+        ? req.body.preciooriginal
+        : "";
+      let preciodescuento = req.body.preciodescuento
+        ? req.body.preciodescuento
+        : "";
+      let demorapreparacion = req.body.demorapreparacion
+        ? req.body.demorapreparacion
+        : "";
+      let descripccion = req.body.descripccion ? req.body.descripccion : "";
+      let cantidaddisponible = req.body.cantidaddisponible
+        ? parseInt(req.body.cantidaddisponible)
+        : 0;
+      let medida = req.body.medida ? req.body.medida : "";
+      let tipoorder = req.body.tipoorder ? req.body.tipoorder : "";
+      let tipo = req.body.tipo ? req.body.tipo : "";
+      let createdat = new Date();
+      let imagen = req.file.filename;
+      let precioriginalParse = parseFloat(preciooriginal);
+      let preciodescuentoParse = parseFloat(preciodescuento);
+      let values = [
+        _id,
+        categoria,
         nombreoficial,
         nombrecomercial,
-        preciounitario,
-        img,
-        categoria_id,
+        precioriginalParse,
+        preciodescuentoParse,
+        demorapreparacion,
+        descripccion,
+        cantidaddisponible,
+        medida,
+        tipoorder,
+        tipo,
+        createdat,
+        imagen,
       ];
+      console.log(values);
+
       try {
-        const text = `INSERT INTO
-                        producto(id1,nombreoficial,nombrecomercial,preciounitario,img,categoria_id) 
-                        VALUES ($1,$2,$3,$4,$5,$6)`;
+        const text = `
+        INSERT INTO
+        producto(  
+        id,
+        categoria,
+        nombreoficial,
+        nombrecomercial,
+        preciooriginal,
+        preciodescuento,
+        demorapreparacion,
+        descripccion,
+        cantidaddisponible,
+        medida,
+        tipoorder,
+        tipo,
+        createdat,
+        imagen
+        ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)`;
         const response = await pool.query(text, values);
+        //agregar sus extras
+        let extras = req.body.extras;
+        let idproducto = _id;
+        extras.forEach(async function (item) {
+          let values2 = [uuid(), item, idproducto];
+          await pool.query(
+            `INSERT INTO extras(idextra,nombreextra,producto_id)
+                      VALUES ($1,$2,$3)
+          `,
+            values2
+          );
+        });
+        //await pool.query(text2, values2);
       } catch (e) {
         console.log(e);
       }
-      res.send("Producto agregado");
+      res.redirect("/admin/product");
     },
     async getProducts(req, res) {
       try {
@@ -49,10 +110,9 @@ function productController() {
       let id = req.params.id;
       try {
         const response = await pool.query(
-          "SELECT * FROM producto WHERE id1 = $1",
+          "SELECT * FROM producto WHERE id1 = $1 ORDER BY createdat DESC",
           [id]
         );
-
         res.render("admin/edit_product", {
           layout: "layoutSingle",
           product: response.rows[0],

@@ -13,6 +13,12 @@ function authController() {
     postRegister(req, res) {
       res.send("Aqui se reciben los nuevos usuarios");
     },
+    getUser(req,res){
+      res.render("admin/user",{layout:'layoutsAdmin'})
+    },
+    getUsers(req,res){
+      res.render("admin/usuariosregistrados",{layout:'layoutsAdmin'})
+    }
   };
 }
 module.exports = authController;

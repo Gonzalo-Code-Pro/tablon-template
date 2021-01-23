@@ -6,26 +6,28 @@ const productController = require("../../controllers/admin/productcontroller");
 const acountController = require("../../controllers/admin/acountcontroller");
 const reporteController = require("../../controllers/admin/reporteController");
 const router = express.Router();
-const { uuid } = require('uuidv4');
+const { uuid } = require("uuidv4");
 //multer
 const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
 const storage = multer.diskStorage({
-    destination: 'src/public/uploads', // <= si no existe, multer la creará
-    filename: function(req, file, cb) {
-        let ext = path.extname(file.originalname);
-        ext = ext.length > 1 ? ext : '.' + mime.extension(file.mimetype);
-       const fileName = uuid()+ '_img' + ext; 
-        cb(null, fileName);
-    }
+  destination: "src/public/uploads", // <= si no existe, multer la creará
+  filename: function (req, file, cb) {
+    let ext = path.extname(file.originalname);
+    ext = ext.length > 1 ? ext : "." + mime.extension(file.mimetype);
+    const fileName = uuid() + "_img" + ext;
+    cb(null, fileName);
+  },
 });
-const upload = multer({storage : storage});
+const upload = multer({ storage: storage });
 //sistema de login
 router.get("/login", authController().getLogin);
 router.post("/login", authController().postLogin);
 router.get("/register", authController().getRegister);
 router.post("/register", authController().postRegister);
+router.get('/user',authController().getUser)
+router.get('/users',authController().getUsers)
 /*controlador de pagina dne inicio*/
 router.get("/dashboard", homeController().index);
 
@@ -38,7 +40,7 @@ router.get("/product", productController().getProducts);
 router.get("/addproduct", productController().addProduct);
 router.post(
   "/addproduct",
-  upload.single("imagenproduct"),
+  upload.single("imagen"),
   productController().addPostProduct
 );
 router.get("/editproduct/:id", productController().editProduct);
@@ -48,5 +50,5 @@ router.get("/youacount", acountController().getAcount);
 router.get("/edityouacount", acountController().editAcount);
 //reportes de ventas
 router.get("/reportes", reporteController().getReportes);
-
+router.get('/ventas',reporteController().getVentas);
 module.exports = router;

@@ -1,10 +1,11 @@
+
+
 function pagoController() {
   return {
     getPago(req, res) {
-      res.render("section-pago/pago", { layout: "layoutsFastfood" });
+      res.render("section-pedido/pedido", { layout: "layoutsFastfood" });
     },
     postPago(req,res){
-        
         res.send('...')
     },
   };

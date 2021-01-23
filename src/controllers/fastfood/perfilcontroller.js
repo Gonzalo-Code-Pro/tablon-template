@@ -1,7 +1,7 @@
 function perfilController() {
   return {
     getPerfil(req, res) {
-      res.render("section-user/section-user", { layout: "layoutsFastfood" });
+      res.render("section-user/user", { layout: "layoutsFastfood" });
     },
     updatePerfil(req,res){
         

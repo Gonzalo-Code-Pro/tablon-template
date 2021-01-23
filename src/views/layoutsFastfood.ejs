@@ -15,6 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
       rel="stylesheet"
     />
+    <!----<JQuery>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- home.css--->
+    <link rel="stylesheet" href="http://localhost:5500/fastfood/css/home.css" />
+
     <!-- App.css--->
     <link rel="stylesheet" href="http://localhost:5500/fastfood/css/app.css" />
     <!-- Navegacion -->
@@ -71,17 +77,10 @@
       href="http://localhost:5500/fastfood/css/seccion-user/section-user.css"
     />
   </head>
-  <body n class="body" name="Ancla" id="body">
+  <body class="body" name="Ancla" id="body">
     <!--cart modal --->
     <div class="cart" id="cart"><%- include('cart') %></div>
-    <!--- Login & Register  modal---->
-    <div class="logins" id="logins">
-      <%- include('./section-user/logins.ejs') %>
-    </div>
-    <!----  Favorites modal --->
-    <div class="favorites" id="favorites">
-      <%- include('./section-product/favorites.ejs') %>
-    </div>
+
     <!---Header -->
     <header id="header">
       <div class="menu-wrap">
@@ -1019,11 +1018,11 @@
           </a>
         </div>
         <div class="cart-search" id="cart-options">
-          <a id="userButton" href="#"
+          <a id="userButton" href="http://localhost:5500/fastfood/login"
             ><p class="icon-user">
               <i style="font-size: 18px" class="fa fa-user-o"></i></p
           ></a>
-          <a id="favoriteButton" href="#">
+          <a id="favoriteButton" href="http://localhost:5500/fastfood/favorites">
             <p class="corazon-icon">
               <i style="font-size: 20px" class="fa fa-heart-o"></i>
 
@@ -1037,7 +1036,7 @@
                 class="fa fa-cart-arrow-down"
                 aria-hidden="true"
               ></i>
-              <span>5</span>
+              <span id="cart-number">5</span>
             </p></a
           >
           <a href="#">
@@ -1071,39 +1070,6 @@
             </p>
             <span class="stcker-red">envio gratis+ </span>
           </a>
-          <div id="dropdown1" class="dropdown dropdown-content1">
-            <div class="image">
-              <img
-                src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/menu-pizza1.jpg"
-                alt=""
-              />
-            </div>
-            <div class="image">
-              <img
-                src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/menu-burger3.jpg"
-                alt=""
-              />
-            </div>
-            <div class="image">
-              <img
-                src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/menu-burger1.jpg"
-                alt=""
-              />
-            </div>
-            <div class="content-modal">
-              <h3>About Our Pizza</h3>
-              <p>
-                With a more “contemporary” style, our gourmet pizzas are where
-                the creativity of our pizza chefs shines.
-              </p>
-              <p>
-                Every Pizza on Lafka can be made with buttery flaky crust or
-                100% whole-grain crust and even vegan friendly gluten-free
-                dough.
-              </p>
-              <button class="button-pizza">Build Your pizza</button>
-            </div>
-          </div>
         </div>
         <div id="item2">
           <a href="http://localhost:5500/fastfood/category/pizzas">
@@ -1171,7 +1137,7 @@
         <div id="item7">
           <a
             id="item7"
-            href="http://localhost:5500/fastfood/category/parrilladas/premiunpack"
+            href="http://localhost:5500/fastfood/category/premiumpacks"
           >
             <img
               src="http://localhost:5500/fastfood/icons/svgfood/024-chef-hat.svg"
@@ -1246,6 +1212,7 @@
         </ul>
       </div>
     </footer>
+
     <script>
       function autoHeader() {
         let scrollTop = document.documentElement.scrollTop;

@@ -1,11 +1,131 @@
+<style>
+
+.section-pizzas .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 5em;
+}
+.section-pizzas  .grid {
+  display: grid;
+ grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+  column-gap: 2em;
+  row-gap: 4em;
+}
+ .section-pizzas .card {
+  position: relative;
+  max-width: 80%;
+  margin: 0 auto;
+}
+  .section-pizzas .card__image {
+  position: absolute;
+  max-width: 130%;
+  left: -15%;
+  right: 0;
+  margin: 0 auto;
+  top: -18%;
+  z-index: 2;
+  transition: all 0.3s ease-out;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+  .section-pizzas .card__data {
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #ededed;
+  padding-top: calc(100% * 1.18);
+  transition: all 0.3s ease-out 0.1s;
+}
+ .section-pizzas  .card__info {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+ .section-pizzas .card__info h2 {
+  font-size: 14px;
+  font-weight: 800;
+}
+ .section-pizzas .card__info p {
+  font-size: 10px;
+  line-height: 14px;
+  color: #a2a2a2;
+}
+  .section-pizzas .card__action {
+  display: grid;
+  grid-template: 30px / 1fr 35px;
+}
+ .section-pizzas .card__price {
+  height: 30px;
+  padding: 0 10px 0 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+}
+ .section-pizzas .card__add {
+  overflow: hidden;
+  width: 35px;
+  height: 30px;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: #222222;
+  border: none;
+  color: #fff;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in;
+}
+ .section-pizzas .card__add:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+ .section-pizzas .card__add:active {
+  opacity: 1;
+  transform: scale(0.8);
+}
+ .section-pizzas .card:hover .card__image {
+  top: -20%;
+}
+.card:hover .card__data {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+</style>
+
 <section class="section-pizzas">
-  <div class="bg">
+  <div class="bg" style="background-image: url(http://localhost:5500/fastfood/img/pizzasbg.jpg); 
+    " >
     <div class="info">
-      <div class="line">
-        <a href="/just-product">HOME/</a>
-        <span>PIZZAS</span>
+      <div class="line" >
+        <a href="/just-product" >HOME / </a>
+        <span style="color: white;" > PIZZAS</span>
       </div>
-      <h2 class="title">PIZZAS</h2>
+      <h2 class="title"style="color: white;" >PIZZAS</h2>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="grid"style="margin:5em;" > 
+      <%  products.forEach(function(item){%>
+      <article class="card">
+<a href="/fastfood/category/pizzas/<%= item.id %>" style="color: #000;">    
+   <img style="border-radius: 15px;max-width: 205px;" class="card__image" src="http://localhost:5500/fastfood/uploads/<%= item.imagen %>"/>
+   </a>
+   <div class="card__data">
+          <div class="card__info">
+            <h2> <a href="/fastfood/category/pizzas/<%= item.id %>" style="color: #000;"><%= item.nombrecomercial %></a> </h2>
+            <p> <%=  item.descripccion %> </p>
+          </div>
+          <h3 class="card__price">$<%= item.preciodescuento %></h3>
+          <button class="card__add">+</button>
+        </div>
+      </article>
+      <%  }) %>
     </div>
   </div>
 </div>

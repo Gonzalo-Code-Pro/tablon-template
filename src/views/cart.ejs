@@ -1,138 +1,823 @@
+<style>
+  @charset "utf-8";
+
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+  .cart-container {
+    background-color: #fff;
+    color: #666;
+    font-family: "Open Sans", sans-serif;
+    font-size: 62.5%;
+    margin: 0 auto;
+  }
+
+  .cart-container a {
+    border: 0 none;
+    outline: 0;
+    text-decoration: none;
+
+    color: #4d2c21;
+  }
+
+  .cart-container strong {
+    font-weight: bold;
+  }
+
+  .cart-container p {
+    margin: 0.75rem 0 0;
+
+    color: #4d2c21;
+  }
+
+  .cart-container h1 {
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cart-container input,
+  .cart-container button {
+    border: 0 none;
+    outline: 0 none;
+    border-radius: 8px;
+  }
+
+  .cart-container button {
+    background-color: #666;
+    color: #fff;
+  }
+
+  .cart-container button:hover,
+  .cart-containerbutton:focus {
+    background-color: #555;
+  }
+  .basket-product {
+    transition: 0.6s all;
+    border-radius: 12px;
+    padding: 1em;
+  }
+  .basket-product:hover {
+    background: #fccc4c;
+    transition: 0.6s all;
+  }
+  .cart-container img,
+  .cart-container .basket-module,
+  .cart-container .basket-labels,
+  .cart-container .basket-product {
+    width: 100%;
+  }
+  .basket {
+  }
+  /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+  .basket::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  .basket::-webkit-scrollbar:vertical {
+    width: 10px;
+  }
+
+  .basket::-webkit-scrollbar-button:increment,
+  .contenedor::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  .basket::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+
+  .basket::-webkit-scrollbar-thumb {
+    background-color: #797979;
+  }
+  .cart-container input,
+  .cart-container button,
+  .cart-container .basket,
+  .cart-container .basket-module,
+  .cart-container .basket-labels,
+  .cart-container .item,
+  .cart-container .price,
+  .cart-container .quantity,
+  .cart-container .subtotal,
+  .cart-container .basket-product,
+  .cart-container .product-image,
+  .cart-container .product-details {
+    float: left;
+  }
+
+  .cart-container .price:before,
+  .cart-container .subtotal:before,
+  .cart-container .subtotal-value:before,
+  .cart-container .total-value:before,
+  .cart-container .promo-value:before {
+    content: "$";
+  }
+
+  .cart-container .hide {
+    display: none;
+  }
+
+  .cart-container main {
+    clear: both;
+    font-size: 0.75rem;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 1rem 0;
+    width: 960px;
+  }
+
+  .cart-container .basket,
+  .cart-container aside {
+    padding: 0 1rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .cart-container .basket {
+    width: 70%;
+  }
+
+  .cart-container .basket-module {
+    color: #111;
+  }
+
+  .cart-container label {
+    display: block;
+    margin-bottom: 0.3125rem;
+    color: #4d2c21;
+  }
+
+  .cart-container .promo-code-field {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    transition: all 0.2s linear;
+    width: 48%;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+
+  .cart-container .promo-code-field:hover,
+  .cart-container .promo-code-field:focus {
+    border: 1px solid #999;
+  }
+
+  .cart-container .promo-code-cta {
+    border-radius: 4px;
+    font-size: 0.625rem;
+    margin-left: 0.625rem;
+    padding: 0.6875rem 1.25rem 0.625rem;
+  }
+  /*#4d2c21*/
+  .cart-container .basket-labels {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-top: 1.625rem;
+  }
+
+  .cart-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cart-container li {
+    color: #111;
+    display: inline-block;
+    padding: 0.625rem 0;
+  }
+
+  .cart-container li.price:before,
+  .cart-container li.subtotal:before {
+    content: "";
+  }
+
+  .cart-container .item {
+    width: 55%;
+  }
+
+  .cart-container .price,
+  .cart-container .quantity,
+  .cart-container .subtotal {
+    width: 15%;
+  }
+
+  .cart-container .subtotal {
+    text-align: right;
+  }
+
+  .cart-container .remove {
+    bottom: 1.125rem;
+    float: right;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 45%;
+  }
+
+  .cart-container .remove button {
+    background-color: transparent;
+    color: #777;
+    float: none;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+
+  .cart-container .item-heading {
+    padding-left: 4.375rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .cart-container .basket-product {
+    border: 1px solid #ccc;
+    padding: 0.6em;
+    position: relative;
+    margin-top: 1em;
+  }
+
+  .cart-container .product-image {
+    width: 35%;
+  }
+
+  .cart-container .product-details {
+    width: 65%;
+  }
+
+  .cart-container .product-frame {
+    border-radius: 10px;
+  }
+
+  .cart-container .product-details {
+    padding: 0 1.5rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .cart-container .quantity-field {
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 0.625rem;
+    padding: 2px;
+    width: 3.75rem;
+  }
+
+  .cart-container aside {
+    float: right;
+    position: relative;
+    width: 30%;
+  }
+
+  .cart-container .summary {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-top: 10.3em;
+    position: fixed;
+    width: 250px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .cart-container .summary:hover {
+  }
+  .cart-container .summary-total-items {
+    color: #666;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .cart-container .summary-subtotal,
+  .cart-container .summary-total {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    clear: both;
+    margin: 1rem 0;
+    overflow: hidden;
+    padding: 0.5rem 0;
+  }
+
+  .cart-container .subtotal-title,
+  .cart-container .subtotal-value,
+  .cart-container .total-title,
+  .cart-container .total-value,
+  .cart-container .promo-title,
+  .cart-container .promo-value {
+    color: #111;
+    float: left;
+    width: 50%;
+  }
+
+  .cart-container .summary-promo {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .cart-container .promo-title {
+    float: left;
+    width: 70%;
+  }
+
+  .cart-container .promo-value {
+    color: #8b0000;
+    float: left;
+    text-align: right;
+    width: 30%;
+  }
+
+  .cart-container .summary-delivery {
+    padding-bottom: 3rem;
+  }
+
+  .cart-container .subtotal-value,
+  .cart-container .total-value {
+    text-align: right;
+  }
+
+  .cart-container .total-title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .cart-container .summary-checkout {
+    display: block;
+  }
+
+  .cart-container .checkout-cta {
+    display: block;
+    float: none;
+    font-size: 0.75rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.625rem 0;
+    width: 100%;
+    color: #4d2c21;
+    font-weight: 600;
+    background-color: #fccc4c;
+    border: 2px solid transparent;
+    transition: 1s all;
+  }
+  .cart-container .checkout-cta:hover {
+    border: 2px solid #4d2c21;
+
+    background-color: #fccc4c;
+    transition: 1s all;
+  }
+
+  .cart-container .summary-delivery-selection {
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    display: block;
+    font-size: 0.625rem;
+    height: 34px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 640px) {
+    .cart-container aside,
+    .cart-container .basket,
+    .cart-container .summary,
+    .cart-container .item,
+    .cart-container .remove {
+      width: 100%;
+    }
+    .cart-container .basket {
+      min-height: 50vh;
+      overflow: auto;
+    }
+    .cart-container .basket-labels {
+      display: none;
+    }
+    .cart-container .basket-module {
+      margin-bottom: 1rem;
+    }
+    .cart-container .item {
+      margin-bottom: 1rem;
+    }
+    .cart-container .product-image {
+      width: 40%;
+    }
+    .cart-container .product-details {
+      width: 60%;
+    }
+    .cart-container .price,
+    .cart-container .subtotal {
+      width: 33%;
+    }
+    .cart-container .quantity {
+      text-align: center;
+      width: 34%;
+    }
+    .cart-container .quantity-field {
+      float: none;
+      background: #fff;
+    }
+    .cart-container .remove {
+      bottom: 0;
+      text-align: left;
+      margin-top: 0.75rem;
+      position: relative;
+    }
+    .cart-container .remove button {
+      padding: 0;
+    }
+    .cart-container .summary {
+      margin-top: 1.25rem;
+      position: relative;
+    }
+  }
+
+  @media screen and (min-width: 641px) and (max-width: 960px) {
+    .cart-container aside {
+      padding: 0 1rem 0 0;
+    }
+    .cart-container .summary {
+      width: 28%;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .cart-container main {
+      width: 100%;
+    }
+    .cart-container .product-details {
+      padding: 0 1rem;
+    }
+  }
+</style>
+
 <div class="cart-section">
   <img
     id="cartButtonClose"
     style="cursor: pointer; position: absolute; left: 96%; top: 2%"
     width="40"
     height="40"
-    src="./img/equisCart.png"
+    src="http://localhost:5500/fastfood/img/equisCart.png"
     alt=""
   />
-  <div class="list">
-    <!---->
-
-    <!---->
-    <div class="item-cart">
-      <div class="info-cart-item">
-        <img
-          src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/burger18-440x440.jpg"
-          alt=""
-        />
-
-        <span class="price-item">
-          <span class="title-item">Tuscan Pizza</span>
-          <p class="cantidad">1 x <span>$</span>9.99</p>
-        </span>
+  <div class="cart-container">
+    <main>
+      <div
+        class="basket"
+        style="
+          max-height: 90vh;
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          overflow: auto;
+        "
+      >
+        <div class="basket-module">
+          <label for="promo-code">Enter a promotional code</label>
+          <input
+            id="promo-code"
+            type="text"
+            name="promo-code"
+            maxlength="5"
+            class="promo-code-field"
+          />
+          <button class="promo-code-cta">Apply</button>
+        </div>
+        <div class="basket-labels">
+          <ul>
+            <li class="item item-heading">Item</li>
+            <li class="price">Price</li>
+            <li class="quantity">Quantity</li>
+            <li class="subtotal">Subtotal</li>
+          </ul>
+        </div>
+        <div id="list-cart" style="padding: 1em"></div>
+        <!----->
       </div>
-      <a style="padding-right: 10px" href="#"
-        ><i class="far fa-trash-alt"></i
-      ></a>
-    </div>
-    <!---->
-    <div class="item-cart">
-      <div class="info-cart-item">
-        <img
-          src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/burger18-440x440.jpg"
-          alt=""
-        />
 
-        <span class="price-item">
-          <span class="title-item">Tuscan Pizza</span>
-          <p class="cantidad">1 x <span>$</span>8.99</p>
-        </span>
-      </div>
-      <a style="padding-right: 10px" href="#"
-        ><i class="far fa-trash-alt"></i
-      ></a>
-    </div>
-
-    <!---->
-    <div class="item-cart">
-      <div class="info-cart-item">
-        <img
-          src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/burger18-440x440.jpg"
-          alt=""
-        />
-
-        <span class="price-item">
-          <span class="title-item">Tuscan Pizza</span>
-          <p class="cantidad">1 x <span>$</span>9.99</p>
-        </span>
-      </div>
-      <a style="padding-right: 10px" href="#"
-        ><i class="far fa-trash-alt"></i
-      ></a>
-    </div>
-
-    <!---->
-    <div class="item-cart">
-      <div class="info-cart-item">
-        <img
-          src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/burger18-440x440.jpg"
-          alt=""
-        />
-
-        <span class="price-item">
-          <span class="title-item">Tuscan Pizza</span>
-          <p class="cantidad">1 x <span>$</span>9.99</p>
-        </span>
-      </div>
-      <a style="padding-right: 10px" href="#"
-        ><i class="far fa-trash-alt"></i
-      ></a>
-    </div>
-
-    <!----->
-    <div class="item-cart">
-      <div class="info-cart-item">
-        <img
-          src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/burger18-440x440.jpg"
-          alt=""
-        />
-
-        <span class="price-item">
-          <span class="title-item">Tuscan Pizza</span>
-          <p class="cantidad">1 x <span>$</span>9.99</p>
-        </span>
-      </div>
-      <a style="padding-right: 10px" href="#"
-        ><i class="far fa-trash-alt"></i
-      ></a>
-    </div>
-
-    <!------>
-    <div class="item-cart" id="item-cart-ultimo">
-      <div class="info-cart-item">
-        <img
-          src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/05/burger18-440x440.jpg"
-          alt=""
-        />
-
-        <span class="price-item">
-          <span class="title-item">Tuscan Pizza</span>
-          <p class="cantidad">1 x <span>$</span>9.99</p>
-        </span>
-      </div>
-      <a style="padding-right: 10px" href="#"
-        ><i class="far fa-trash-alt"></i
-      ></a>
-    </div>
-    <!------>
+      <aside>
+        <div class="summary">
+          <div class="summary-total-items">
+            <span class="total-items"></span> Items in your Bag
+          </div>
+          <div class="summary-subtotal">
+            <div class="subtotal-title">Subtotal</div>
+            <div class="subtotal-value final-value" id="basket-subtotal">
+              130.00
+            </div>
+            <div class="summary-promo hide">
+              <div class="promo-title">Promotion</div>
+              <div class="promo-value final-value" id="basket-promo"></div>
+            </div>
+          </div>
+          <div class="summary-delivery">
+            <select
+              name="delivery-collection"
+              class="summary-delivery-selection"
+            >
+              <option value="0" selected="selected">
+                Select Collection or Delivery
+              </option>
+              <option value="collection">Collection</option>
+              <option value="first-class">Royal Mail 1st Class</option>
+              <option value="second-class">Royal Mail 2nd Class</option>
+              <option value="signed-for">Royal Mail Special Delivery</option>
+            </select>
+          </div>
+          <div class="summary-total">
+            <div class="total-title">Total</div>
+            <div class="total-value final-value" id="basket-total">130.00</div>
+          </div>
+          <div class="summary-checkout">
+            <button class="checkout-cta" id="checkout">
+              <a href="http://localhost:5500/fastfood/checkout"> Checkout </a>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </main>
   </div>
 </div>
 
-<div class="cart-section-2">
-  <div class="buttons-cart">
-    <span class="total-price">
-      <p>Subtotal</p>
-      <span class="price"
-        >$24
-        <p>.98</p>
-      </span>
-    </span>
-    <div class="buttons">
-      <button class="view-cart">View cart</button>
+<script>
+  $(document).ready(function () {
+    cartIniciar();
+    document.getElementById("checkout").addEventListener("click", () => {});
+  });
 
-      <button class="checkout">Checkout</button>
-    </div>
-  </div>
-</div>
+  function cartIniciar() {
+    $.ajax({
+      type: "get", // la variable type guarda el tipo de la peticion GET,POST,..
+      url: `http://localhost:5500/fastfood/cartlist`,
+      //url guarda la ruta hacia donde se hace la peticion
+      // data recive un objeto con la informacion que se enviara al servidor
+      success: function (datos) {
+        //success es una funcion que se utiliza si el servidor retorna informacion
+        console.log(datos);
+        let datos_ = datos;
+        let template = "";
+        let numberCart = 0;
+        let PriceTotal = 0;
+        datos_.productcart.map(function (item) {
+          numberCart++;
+          PriceTotal += item.quantity * item.preciodescuento;
+          template += `
+                                        <div class="basket-product" >
+                                            <div class="item">
+                                              <div class="product-image">
+                                                <img src="http://localhost:5500/fastfood/uploads/${
+                                                  item.imagen
+                                                }" alt="Placholder Image 2" class="product-frame">
+                                              </div>
+                                              <div class="product-details">
+                                                <h1><strong><span class="item-quantity">${
+                                                  item.quantity
+                                                } </span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
+                                                <p><strong>Navy, Size 18</strong></p>
+                                                <p>Product Code - 232321939</p>
+                                              </div>
+                                            </div>
+                                            <div class="price"> ${
+                                              item.preciodescuento
+                                            } </div>
+                                            <div class="quantity">
+                                              <input type="number" data-cart="${
+                                                item.id
+                                              }" min="1" value="${
+            item.quantity
+          }" class="quantity-field">
+                                            </div>
+                                            <div class="subtotal">${
+                                              item.quantity *
+                                              item.preciodescuento
+                                            }</div>
+                                            <div class="remove">
+                                            <button  onclick="removeItem('${
+                                              item.id
+                                            }')" data-id="${item.id}" 
+                                                style="border:1px solid #ccc;cursor:pointer;" 
+                                                class="button-remove-cart">
+                                                Remove
+                                              </button>
+                                            </div>
+                                          </div>
+                                        `;
+        });
+
+        document.getElementById("list-cart").innerHTML = template;
+        document.getElementById("cart-number").innerHTML = numberCart;
+        document.getElementById("basket-subtotal").innerHTML = PriceTotal;
+        document.getElementById("basket-total").innerHTML = PriceTotal;
+        let inputCartQuatity = document.getElementsByClassName(
+          "quantity-field"
+        );
+        for (let i = 0; i < inputCartQuatity.length; i++) {
+          inputCartQuatity[i].addEventListener("change", (e) => {
+            inputCartQuatity[i].value;
+            let idcart = inputCartQuatity[i].getAttribute("data-cart");
+            let quantity;
+            if (inputCartQuatity[i].value >= 1) {
+              quantity = inputCartQuatity[i].value;
+            }
+            $.ajax({
+              type: "post", // la variable type guarda el tipo de la peticion GET,POST<<,..
+              url: `http://localhost:5500/fastfood/update/`,
+              data: { idcart, quantity },
+              //url guarda la ruta hacia donde se hace la peticion
+              // data recive un objeto con la informacion que se enviara al servidor
+              success: function (datos) {
+                //success es una funcion que se utiliza si el servidor retorna informacion
+                console.log(datos);
+                if (datos.response == "precio actualizado") {
+                  setTimeout(function () {
+                    cartIniciar();
+                  }, 0000);
+                }
+              },
+
+              // dataType: dataType // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+            });
+          });
+        }
+      },
+      // dataType: dataType // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+    });
+  }
+  function removeItem(id) {
+    $.ajax({
+      type: "get", // la variable type guarda el tipo de la peticion GET,POST<<,..
+      url: `http://localhost:5500/fastfood/delete/${id}`,
+      //url guarda la ruta hacia donde se hace la peticion
+      // data recive un objeto con la informacion que se enviara al servidor
+      success: function (datos) {
+        //success es una funcion que se utiliza si el servidor retorna informacion
+        console.log(datos);
+        cartIniciar();
+      },
+      // dataType: dataType // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+    });
+  }
+
+  const valueCuantity = document.getElementsByClassName("quantity-field");
+  for (let i = 0; i < valueCuantity.length; i++) {
+    valueCuantity[i].addEventListener("click", () => {
+      let q = valueCuantity[i].value();
+      console.log(q);
+    });
+  }
+  /* const cartButtonRemove = document.getElementsByClassName('button-remove-cart');
+            for (let i = 0; i < cartButtonRemove.length; i++) {
+            
+                cartButtonRemove[i].addEventListener('click', () => {
+                    let _id = cartButtonRemove[i].getAttribute("data-id")
+                    let user = 'gonzalo';
+                
+                    $.ajax({
+                        type: "get", // la variable type guarda el tipo de la peticion GET,POST,..
+                        url: `http://localhost:5500/fastfood/delete/${_id}`,
+                        //url guarda la ruta hacia donde se hace la peticion
+                         // data recive un objeto con la informacion que se enviara al servidor
+                        success: function (datos) { //success es una funcion que se utiliza si el servidor retorna informacion
+                                  console.log(datos)
+                                  
+                        },
+                       // dataType: dataType // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+                    })
+
+                })
+            }
+*/
+
+  /*
+
+/* Set values + misc 
+var promoCode;
+var promoPrice;
+var fadeTime = 300;
+
+/* Assign actions 
+$('.quantity input').change(function() {
+  updateQuantity(this);
+});
+
+$('.remove button').click(function() {
+  removeItem(this);
+});
+
+$(document).ready(function() {
+  updateSumItems();
+});
+
+$('.promo-code-cta').click(function() {
+
+  promoCode = $('#promo-code').val();
+
+  if (promoCode == '10off' || promoCode == '10OFF') {
+    //If promoPrice has no value, set it as 10 for the 10OFF promocode
+    if (!promoPrice) {
+      promoPrice = 10;
+    } else if (promoCode) {
+      promoPrice = promoPrice * 1;
+    }
+  } else if (promoCode != '') {
+    alert("Invalid Promo Code");
+    promoPrice = 0;
+  }
+  //If there is a promoPrice that has been set (it means there is a valid promoCode input) show promo
+  if (promoPrice) {
+    $('.summary-promo').removeClass('hide');
+    $('.promo-value').text(promoPrice.toFixed(2));
+    recalculateCart(true);
+  }
+});
+
+/* Recalculate cart 
+function recalculateCart(onlyTotal) {
+  var subtotal = 0;
+
+  /* Sum up row totals 
+  $('.basket-product').each(function() {
+    subtotal += parseFloat($(this).children('.subtotal').text());
+  });
+
+  /* Calculate totals 
+  var total = subtotal;
+
+  //If there is a valid promoCode, and subtotal < 10 subtract from total
+  var promoPrice = parseFloat($('.promo-value').text());
+  if (promoPrice) {
+    if (subtotal >= 10) {
+      total -= promoPrice;
+    } else {
+      alert('Order must be more than £10 for Promo code to apply.');
+      $('.summary-promo').addClass('hide');
+    }
+  }
+
+  /*If switch for update only total, update only total display
+  if (onlyTotal) {
+    /* Update total display 
+    $('.total-value').fadeOut(fadeTime, function() {
+      $('#basket-total').html(total.toFixed(2));
+      $('.total-value').fadeIn(fadeTime);
+    });
+  } else {
+    /* Update summary display. 
+    $('.final-value').fadeOut(fadeTime, function() {
+      $('#basket-subtotal').html(subtotal.toFixed(2));
+      $('#basket-total').html(total.toFixed(2));
+      if (total == 0) {
+        $('.checkout-cta').fadeOut(fadeTime);
+      } else {
+        $('.checkout-cta').fadeIn(fadeTime);
+      }
+      $('.final-value').fadeIn(fadeTime);
+    });
+  }
+}
+
+/* Update quantity 
+function updateQuantity(quantityInput) {
+  /* Calculate line price 
+  var productRow = $(quantityInput).parent().parent();
+  var price = parseFloat(productRow.children('.price').text());
+  var quantity = $(quantityInput).val();
+  var linePrice = price * quantity;
+
+  /* Update line price display and recalc cart totals 
+  productRow.children('.subtotal').each(function() {
+    $(this).fadeOut(fadeTime, function() {
+      $(this).text(linePrice.toFixed(2));
+      recalculateCart();
+      $(this).fadeIn(fadeTime);
+    });
+  });
+
+  productRow.find('.item-quantity').text(quantity);
+  updateSumItems();
+}
+
+function updateSumItems() {
+  var sumItems = 0;
+  $('.quantity input').each(function() {
+    sumItems += parseInt($(this).val());
+  });
+  $('.total-items').text(sumItems);
+}
+
+/* Remove item from cart 
+function removeItem(removeButton) {
+  /* Remove row from DOM and recalc cart total 
+  var productRow = $(removeButton).parent().parent();
+  productRow.slideUp(fadeTime, function() {
+    productRow.remove();
+    recalculateCart();
+    updateSumItems();
+  });
+}
+*/
+</script>

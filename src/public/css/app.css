@@ -33,10 +33,9 @@ header {
 .section-deliciuspack,
 .section-pizzas,
 .section-happybox,
-.section-premiunpack
-{
+.section-premiunpack {
   height: auto;
-  max-width: 99%;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -49,27 +48,72 @@ header {
 .section-deliciuspack .bg,
 .section-pizzas .bg,
 .section-happybox .bg,
-.section-premiunpack .bg{
-  height: 75vh;
+.section-premiunpack .bg {
+  height: 100vh;
   background-color: #f0f0f0f0;
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  background-position: center;
+  background-size: cover;
+}
+.section-pedido .line a,
+.section-pollos .line a,
+.section-parrilladas .line a,
+.section-menus .line a,
+.section-deliciuspack .line a,
+.section-pizzas .line a,
+.section-happybox .line a,
+.section-premiunpack .line a {
+  color: #6b2111;
+
+  font-weight: 500;
+}
+.section-pedido .line span,
+.section-pollos .line span,
+.section-parrilladas .line span,
+.section-menus .line span,
+.section-deliciuspack .line span,
+.section-pizzas .line span,
+.section-happybox .line span,
+.section-premiunpack .line span {
+  color: #6b2111;
+  font-weight: 700;
 }
 
- .section-pedido .info,
+.section-pedido .line,
+.section-pollos .line,
+.section-parrilladas .line,
+.section-menus .line,
+.section-deliciuspack .line,
+.section-pizzas .line,
+.section-happybox .line,
+.section-premiunpack .line {
+  background-color: #fccc4c;
+  border-radius: 6px;
+  padding: 0.7em;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.section-pedido .info,
 .section-pollos .info,
 .section-parrilladas .info,
 .section-menus .info,
 .section-deliciuspack .info,
 .section-pizzas .info,
 .section-happybox .info,
-.section-premiunpack .info{
+.section-premiunpack .info {
   text-align: center;
   font-size: 12px;
   text-transform: 12px;
   padding-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-pedido .info h2,
@@ -79,22 +123,20 @@ header {
 .section-deliciuspack .info h2,
 .section-pizzas .info h2,
 .section-happybox .info h2,
-.section-premiunpack .info h2{
-  font-size: 47px;
-  color: #22272d;
+.section-premiunpack .info h2 {
+  font-size: 67px;
+  color: #fff;
 }
 a {
   text-decoration: none;
 }
 footer {
-  display: none;/*flex*/
+  display: none; /*flex*/
   flex-direction: column;
   min-height: 50vh;
   padding: 0;
   margin: 0;
   max-width: 100%;
 }
-#footer.active{
-    filter: blur(24px);
-}
+
 

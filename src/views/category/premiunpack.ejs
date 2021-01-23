@@ -1,5 +1,164 @@
+
+
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Rambla:400,400italic,700,700italic);
+
+
+
+.container-premiumpack  .food-widget {
+	font: 14px/22px "Rambla", Arial, sans-serif;
+	color: #4a5a67;
+	padding: 40px 0;
+}
+
+.container-premiumpack  a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.container-premiumpack  a:hover {
+	text-decoration: underline;
+}
+
+.container-premiumpack  hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #D4D5CF;
+	margin-top: 38px;
+}
+.container-premiumpack{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1em;
+}
+.container-premiumpack  .container {
+	margin: 0 auto;
+	width: 640px;
+	height: 400px;
+	background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/shrimp_rice.jpg");
+	border-radius: 4px;
+	position: relative;
+  border-radius: 15px;;
+}
+.container-premiumpack    .upvotes {
+	position: absolute;
+	left: 30px;
+	bottom: 18px;
+	color: white;
+	background: #80C59E;
+	border-radius: 50%;
+	border: 2px solid white;
+	padding: 10px;
+	font-size: 16px;
+	line-height: 25px;
+}
+
+.container-premiumpack  img.avatars {
+	position: absolute;
+	left: 101px;
+	bottom: 22px;
+}
+
+.details {
+	position: absolute;
+	right: 0px;
+	width: 210px;
+	height: 400px;
+	background: #F5F4E9;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+
+}
+
+.download, .recipe, .votes {
+	padding: 0 18px;
+}
+
+.download {
+	background: #80C59E;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 19px;
+	color: #348c6e;
+	height: 100px;
+	padding-top: 12px;
+}
+
+.download span {
+	display: block;
+	padding-left: 47px;
+}
+
+.download:before {
+	content: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-document.png");
+	position: relative;
+	top: 21px;
+	padding-right: 15px;
+}
+
+.recipe {
+	padding-top: 40px;
+	color: #4a5a67;
+}
+
+.recipe .name1 {
+	font-size: 28px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.recipe .name2 {
+	padding-top: 5px;
+	font-size: 18px;
+}
+
+.recipe .prep-time, .recipe .calories {
+	color: #b8beb8;
+}
+
+.recipe .prep-time {
+	padding-top: 20px;
+}
+
+.recipe .prep-time:before {
+	content: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-time.png");
+	position: relative;
+	top: 4px;
+	padding-right: 5px;
+}
+
+.recipe .calories {
+	padding-top: 5px;
+}
+
+.recipe .calories:before {
+	content: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-calories.png");
+	position: relative;
+	top: 4px;
+	padding-right: 5px;
+}
+
+.votes {
+	color: #ec6744;
+	padding-top: 23px;
+}
+
+.votes .rating {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.votes img {
+	position: absolute;
+	bottom: 29px;
+	right: 39px;
+}
+</style>
 <section class="section-premiunpack">
-  <div class="bg">
+  <div class="bg" style="background-image: url(http://localhost:5500/fastfood/img/premiumpackbg.jpg);">
     <div class="info">
       <div class="line">
         <a href="/just-product">HOME/</a>
@@ -8,5 +167,271 @@
       <h2 class="title">PREMIUN PACKS</h2>
     </div>
   </div>
+
+ 
+<div class="container-premiumpack">
+  <!-----start food witg---->
+  <div class="food-widget">
+  
+    <div class="container">
+      
+      <div class="upvotes">+114</div>
+      
+      <img class="avatars" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/upvotes_avatars.png" alt="avatars" />
+  
+      
+      <div class="details">
+        
+        <div class="download">
+          <a href="#">download <span>recipe<span></a>
+        </div> <!-- end download -->
+        
+        <div class="recipe">
+          <div class="name1">Shrimp</div>
+          <div class="name2">with rice & lime</div>
+          <div class="prep-time">40 min</div>
+          <div class="calories">430 calories</div>
+          <hr />
+        </div> <!-- end recipe -->
+            
+        <div class="votes">
+          <div class="rating">9.8</div>
+          <div class="num-votes">121 votes</div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-chef-hat.png" alt="chef hat" />
+          
+        </div> <!-- end votes -->
+        
+      </div> <!-- end details -->
+      
+    </div> <!-- end container -->
+  </div> <!-- end food-widget -->
+  <div class="food-widget">
+  
+    <div class="container">
+      
+      <div class="upvotes">+114</div>
+      
+      <img class="avatars" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/upvotes_avatars.png" alt="avatars" />
+  
+      
+      <div class="details">
+        
+        <div class="download">
+          <a href="#">download <span>recipe<span></a>
+        </div> <!-- end download -->
+        
+        <div class="recipe">
+          <div class="name1">Shrimp</div>
+          <div class="name2">with rice & lime</div>
+          <div class="prep-time">40 min</div>
+          <div class="calories">430 calories</div>
+          <hr />
+        </div> <!-- end recipe -->
+            
+        <div class="votes">
+          <div class="rating">9.8</div>
+          <div class="num-votes">121 votes</div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-chef-hat.png" alt="chef hat" />
+          
+        </div> <!-- end votes -->
+        
+      </div> <!-- end details -->
+      
+    </div> <!-- end container -->
+  </div>
+
+
+
+  <div class="food-widget">
+  
+    <div class="container">
+      
+      <div class="upvotes">+114</div>
+      
+      <img class="avatars" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/upvotes_avatars.png" alt="avatars" />
+  
+      
+      <div class="details">
+        
+        <div class="download">
+          <a href="#">download <span>recipe<span></a>
+        </div> <!-- end download -->
+        
+        <div class="recipe">
+          <div class="name1">Shrimp</div>
+          <div class="name2">with rice & lime</div>
+          <div class="prep-time">40 min</div>
+          <div class="calories">430 calories</div>
+          <hr />
+        </div> <!-- end recipe -->
+            
+        <div class="votes">
+          <div class="rating">9.8</div>
+          <div class="num-votes">121 votes</div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-chef-hat.png" alt="chef hat" />
+          
+        </div> <!-- end votes -->
+        
+      </div> <!-- end details -->
+      
+    </div> <!-- end container -->
+  </div>
+
+
+
+  <div class="food-widget">
+  
+    <div class="container">
+      
+      <div class="upvotes">+114</div>
+      
+      <img class="avatars" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/upvotes_avatars.png" alt="avatars" />
+  
+      
+      <div class="details">
+        
+        <div class="download">
+          <a href="#">download <span>recipe<span></a>
+        </div> <!-- end download -->
+        
+        <div class="recipe">
+          <div class="name1">Shrimp</div>
+          <div class="name2">with rice & lime</div>
+          <div class="prep-time">40 min</div>
+          <div class="calories">430 calories</div>
+          <hr />
+        </div> <!-- end recipe -->
+            
+        <div class="votes">
+          <div class="rating">9.8</div>
+          <div class="num-votes">121 votes</div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-chef-hat.png" alt="chef hat" />
+          
+        </div> <!-- end votes -->
+        
+      </div> <!-- end details -->
+      
+    </div> <!-- end container -->
+  </div>
+
+
+
+
+
+  <div class="food-widget">
+  
+    <div class="container">
+      
+      <div class="upvotes">+114</div>
+      
+      <img class="avatars" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/upvotes_avatars.png" alt="avatars" />
+  
+      
+      <div class="details">
+        
+        <div class="download">
+          <a href="#">download <span>recipe<span></a>
+        </div> <!-- end download -->
+        
+        <div class="recipe">
+          <div class="name1">Shrimp</div>
+          <div class="name2">with rice & lime</div>
+          <div class="prep-time">40 min</div>
+          <div class="calories">430 calories</div>
+          <hr />
+        </div> <!-- end recipe -->
+            
+        <div class="votes">
+          <div class="rating">9.8</div>
+          <div class="num-votes">121 votes</div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-chef-hat.png" alt="chef hat" />
+          
+        </div> <!-- end votes -->
+        
+      </div> <!-- end details -->
+      
+    </div> <!-- end container -->
+  </div>
+
+
+
+
+
+  <div class="food-widget">
+  
+    <div class="container">
+      
+      <div class="upvotes">+114</div>
+      
+      <img class="avatars" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/upvotes_avatars.png" alt="avatars" />
+  
+      
+      <div class="details">
+        
+        <div class="download">
+          <a href="#">download <span>recipe<span></a>
+        </div> <!-- end download -->
+        
+        <div class="recipe">
+          <div class="name1">Shrimp</div>
+          <div class="name2">with rice & lime</div>
+          <div class="prep-time">40 min</div>
+          <div class="calories">430 calories</div>
+          <hr />
+        </div> <!-- end recipe -->
+            
+        <div class="votes">
+          <div class="rating">9.8</div>
+          <div class="num-votes">121 votes</div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-chef-hat.png" alt="chef hat" />
+          
+        </div> <!-- end votes -->
+        
+      </div> <!-- end details -->
+      
+    </div> <!-- end container -->
+  </div>
+
+
+
+
+
+  <div class="food-widget">
+  
+    <div class="container">
+      
+      <div class="upvotes">+114</div>
+      
+      <img class="avatars" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/upvotes_avatars.png" alt="avatars" />
+  
+      
+      <div class="details">
+        
+        <div class="download">
+          <a href="#">download <span>recipe<span></a>
+        </div> <!-- end download -->
+        
+        <div class="recipe">
+          <div class="name1">Shrimp</div>
+          <div class="name2">with rice & lime</div>
+          <div class="prep-time">40 min</div>
+          <div class="calories">430 calories</div>
+          <hr />
+        </div> <!-- end recipe -->
+            
+        <div class="votes">
+          <div class="rating">9.8</div>
+          <div class="num-votes">121 votes</div>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon-chef-hat.png" alt="chef hat" />
+          
+        </div> <!-- end votes -->
+        
+      </div> <!-- end details -->
+      
+    </div> <!-- end container -->
+  </div>
 </div>
 
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

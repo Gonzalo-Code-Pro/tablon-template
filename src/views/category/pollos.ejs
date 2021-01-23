@@ -1,12 +1,499 @@
-<section class="section-pollos">
-  <div class="bg">
-    <div class="info">
-      <div class="line">
-        <a href="/just-product">HOME/</a>
-        <span>POLLOS A LA BRASA</span>
-      </div>
-      <h2 class="title">POLLOS A LA BRASA</h2>
-    </div>
-  </div>
-</div>
+<style>
+    :root {
+        --font-family: sans-serif;
+        font-weight: 16px;
+        --color-green: #06c167;
+        --color-grey: rgb(238, 238, 238);
+        --color-greyDarker: rgb(84, 84, 84);
+    }
 
+    .container-pollos {}
+
+    .section-pollos {}
+
+    .container-pollos .smallText {
+        font-size: 0.7rem;
+        font-weight: 300;
+    }
+
+    .container-pollos .container {
+        width: calc(100% - 120px);
+        margin: auto;
+    }
+
+    .container-pollos .searchBar {
+        margin-left: auto;
+        display: flex;
+        padding-left: 5rem;
+    }
+
+    .container-pollos.logo h1 {
+        font-weight: 300;
+    }
+
+    .container-pollos .logo h1 span {
+        font-weight: 600;
+        color: var(--color-green);
+    }
+
+    .container-pollos .currentDetails {
+        display: flex;
+    }
+
+    .container-pollos .header-option {
+        padding-left: 5rem;
+        letter-spacing: 0.6px;
+        display: flex;
+        align-items: center;
+    }
+
+    .container-pollos .header-option svg {
+        margin-right: 1rem;
+        display: inline-flex;
+    }
+
+    .container-pollos .header-title h2 {
+        font-weight: 400;
+        font-size: 1.7rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+    }
+
+    .container-pollos .header span {
+        color: var(--color-greyDarker);
+    }
+
+    .container-pollos .options {
+        padding: 1.2rem 0;
+    }
+
+    .container-pollos .options-btn {
+        background: var(--color-grey);
+        padding: 0.8rem 1.2rem;
+        border-radius: 30px;
+        border: 0;
+        font-family: var(--font-family);
+        font-size: 1rem;
+        letter-spacing: 0.6px;
+        display: in-flex;
+        align-items: center;
+    }
+
+    .container-pollos.options-btn svg {
+        max-width: 20px;
+        margin-right: 0.4rem;
+    }
+
+    .container-pollos #selected {
+        background: black;
+        color: white;
+    }
+
+    .container-pollos .listings {
+        padding: 2rem 0;
+    }
+
+    .container-pollos .listings .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .container-pollos .listings .header-viewOptions {
+        display: flex;
+        align-items: center;
+        margin: auto 0 auto auto;
+    }
+
+    .container-pollos .listings .viewAll {
+        color: var(--color-green);
+        padding-right: 2rem;
+    }
+
+    .container-pollos .listings .arrow {
+        width: 40px;
+        height: 40px;
+        background: red;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-grey);
+        opacity: 0.3;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .container-pollos .listings .darker:hover {
+        opacity: 1;
+    }
+
+    .container-pollos .listings .arrow:hover {
+        opacity: 1;
+    }
+
+    .container-pollos .listings .circle {
+        height: 40px;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        display: inline-flex;
+    }
+
+    .container-pollos .listings .listings-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .container-pollos .listings .listings-grid-element {
+        width: calc(1 / 3 * 100% - (1 - 1 / 3) * 25px);
+        margin-top: 2rem;
+    }
+
+    .container-pollos .listings .listings-grid-element:last {
+        padding-right: 0;
+    }
+
+    .container-pollos .listings-grid-element .image {
+        height: 240px;
+        overflow: hidden;
+    }
+
+    .container-pollos .listings-grid-element .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .container-pollos .listings-grid-element .text {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 1rem 0;
+    }
+
+    .container-pollos .listings-grid-element .text h3 {
+        font-weight: 400;
+        margin-bottom: 0.3rem;
+        margin-top: 0;
+    }
+
+    .container-pollos .listings-grid-element .text span {
+        font-size: 0.8rem;
+        font-weight: 300;
+    }
+
+    .container-pollos .listings-grid-element .text .rating {
+        margin: auto 0 auto auto;
+        height: 100%;
+    }
+
+    .container-pollos .listings-grid-element .text .rating span {
+        height: 40px;
+        width: 40px;
+        background: var(--color-grey);
+        font-size: 1rem;
+        color: black;
+    }
+
+    .container-pollos .listings-grid-element .text-lower {
+        padding: 0.6rem 0;
+    }
+
+    .container-pollos .listings-grid-element .text-lower span {
+        color: var(--color-greyDarker);
+    }
+</style>
+
+<section class="section-pollos">
+    <div class="bg" style="background-image: url(http://localhost:5500/fastfood/img/pollosbg.jpg);">
+        <div class="info">
+            <div class="line">
+                <a href="/just-product">HOME/</a>
+                <span>POLLOS A LA BRASA</span>
+            </div>
+            <h2 class="title">POLLOS A LA BRASA</h2>
+        </div>
+    </div>
+
+
+
+    <div class="container-pollos">
+
+
+        <div class="options">
+            <div class="container">
+                <button class="options-btn" id="selected">
+                    <i data-feather="shopping-bag"></i>
+                    <span>Delivery</span>
+                </button>
+                <button class="options-btn">
+                    <i data-feather="watch"></i>
+                    <span>Pick-up</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Listing -->
+        <div class="listings">
+            <div class="container">
+                <div class="header">
+                    <div class="header-title">
+                        <h2>When you're hungry now</h2>
+                        <span>The fastest food to your door</span>
+                    </div>
+                    <div class="header-viewOptions">
+                        <div class="viewAll">
+                            <span>View All</span>
+                        </div>
+                        <div class="viewMore">
+                            <span class="arrow circle left"><i data-feather="arrow-left"></i></span>
+                            <span class="arrow circle right darker">
+                                <i data-feather="arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listings-grid">
+                    <% 
+                    
+                    products.forEach(function(item){ %>
+                        <div class="listings-grid-element">
+                            <div class="image">
+                                <a href="/fastfood/category/pollos/<%= item.id %>">
+                                    <img src="http://localhost:5500/fastfood/uploads/<%= item.imagen %>"
+                                        alt="Listing pic" />
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="text-title">
+                                    <h3>
+                                        <%= item.nombrecomercial %> - <%= item.categoria %>
+                                    </h3>
+                                    <div class="info">
+                                        <span>$ <%= item.preciodescuento %> delivery: <%= item.tipoorder %> | Duracion:
+                                                    <%= item.demorapreparacion%> | </span>
+                                    </div>
+                                </div>
+                                <div class="rating">
+                                    <span class="circle">4.2</span>
+                                </div>
+                            </div>
+                            <div class="text-lower">
+                                <span class="smallText"> | Medida: 1/4 | Category : <%= item.categoria %> | Fast Food
+                                        <button style="border-radius: 30px;border:none;padding: 0.7em;cursor: pointer;"
+                                            class="button-cart-add" data-quantity="1" data-id="<%= item.id %>">Agregar + </button> </span>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </div>
+        <script>
+const cartButtonAdd = document.getElementsByClassName('button-cart-add');
+            for (let i = 0; i < cartButtonAdd.length; i++) {
+            
+                cartButtonAdd[i].addEventListener('click', () => {
+                    let _id = cartButtonAdd[i].getAttribute("data-id")
+                    $.ajax({
+                        type: "get", // la variable type guarda el tipo de la peticion GET,POST,..
+                        url: `http://localhost:5500/fastfood/cart/${_id}`,
+                        //url guarda la ruta hacia donde se hace la peticion
+                         // data recive un objeto con la informacion que se enviara al servidor
+                        success: function (datos) { //success es una funcion que se utiliza si el servidor retorna informacion
+                                  console.log(datos)
+                                  cartIniciar()
+                        },
+                       // dataType: dataType // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+                    })
+                    let body = document.getElementById("body");
+                    let bodys = document.getElementById("bodys");
+                    let headers = document.getElementById("header");
+                    let navFlotante = document.getElementById("navbar-three");
+                    let cart = document.getElementById("cart");
+                            body.classList.toggle("active");
+                            cart.classList.toggle("active");
+                            bodys.style.filter = "blur(32px)";
+                            headers.classList.toggle("blur");
+                            navFlotante.classList.toggle("blur");
+                    
+                })
+
+            }
+
+    
+        </script>
+        <!----
+    <div class="listings">
+        <div class="container">
+            <div class="header">
+                <div class="header-title">
+                    <h2>Popular near you</h2>
+                    <span>The fastest food to your door</span>
+                </div>
+                <div class="header-viewOptions">
+                    <div class="viewAll">
+                        <span>View All</span>
+                    </div>
+                    <div class="viewMore">
+                        <span class="arrow circle left"><i data-feather="arrow-left"></i></span>
+                        <span class="arrow circle right darker">
+                            <i data-feather="arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listings-grid">
+                <div class="listings-grid-element">
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Listing pic"/>
+                    </div>
+                    <div class="text">
+                        <div class="text-title">
+                            <h3>Valley Fried Chicken</h3>
+                            <div class="info">
+                                <span>£1.99 delivery fee | 20-30 MINS | </span>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="circle">4.2</span>
+                        </div>
+                    </div>
+                    <div class="text-lower">
+                        <span class="smallText"> Halal | Burger | Fast Food</span>
+                    </div>
+                </div>
+                <div class="listings-grid-element">
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1568106690101-fd6822e876f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3580&q=80" alt="Listing pic"/>
+                    </div>
+                    <div class="text">
+                        <div class="text-title">
+                            <h3>Chiquito</h3>
+                            <div class="info">
+                                <span>£1.99 delivery fee | 20-30 MINS | </span>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="circle">4.2</span>
+                        </div>
+                    </div>
+                    <div class="text-lower">
+                        <span class="smallText">Mexican</span>
+                    </div>
+                </div>
+                <div class="listings-grid-element">
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" alt="Listing pic"/>
+                    </div>
+                    <div class="text">
+                        <div class="text-title">
+                            <h3>Oodle N'Oodle</h3>
+                            <div class="info">
+                                <span>£4.99 delivery fee | 20-30 MINS | </span>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="circle">4.2</span>
+                        </div>
+                    </div>
+                    <div class="text-lower">
+                        <span class="smallText">Chinese</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="listings">
+        <div class="container">
+            <div class="header">
+                <div class="header-title">
+                    <h2>Special offers</h2>
+                    <span>The fastest food to your door</span>
+                </div>
+                <div class="header-viewOptions">
+                    <div class="viewAll">
+                        <span>View All</span>
+                    </div>
+                    <div class="viewMore">
+                        <span class="arrow circle left">
+                            <i data-feather="arrow-left"></i>
+                        </span>
+                        <span class="arrow circle right darker">
+                            <i data-feather="arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listings-grid">
+                <div class="listings-grid-element">
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1560717869-37296557a131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Listing pic"/>
+                    </div>
+                    <div class="text">
+                        <div class="text-title">
+                            <h3>Wing Corner</h3>
+                            <div class="info">
+                                <span>£4.99 delivery fee | 20-30 MINS | </span>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="circle">4.2</span>
+                        </div>
+                    </div>
+                    <div class="text-lower">
+                        <span class="smallText">BBQ</span>
+                    </div>
+                </div>
+                <div class="listings-grid-element">
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1594179047502-07fb8a5451f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Listing pic"/>
+                    </div>
+                    <div class="text">
+                        <div class="text-title">
+                            <h3>Go Go Pizza</h3>
+                            <div class="info">
+                                <span>£4.99 delivery fee | 20-30 MINS | </span>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="circle">4.2</span>
+                        </div>
+                    </div>
+                    <div class="text-lower">
+                        <span class="smallText">American | Italian | Halal | Fast Food</span>
+                    </div>
+                </div>
+                <div class="listings-grid-element">
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1539755530862-00f623c00f52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Listing pic"/>
+                    </div>
+                    <div class="text">
+                        <div class="text-title">
+                            <h3>Finger Licking</h3>
+                            <div class="info">
+                                <span>£2.99 delivery fee | 20-30 MINS | </span>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="circle">4.2</span>
+                        </div>
+                    </div>
+                    <div class="text-lower">
+                        <span class="smallText">African | Halal </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+--->
+
+
+        <div>
+
+
+        </div>

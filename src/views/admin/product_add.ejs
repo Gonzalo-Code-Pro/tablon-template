@@ -1,7 +1,1026 @@
 <div class="content-i">
   <div class="content-box">
-    <div class="row">
-      <div class="col">
+    <div class="element-wrapper">
+      <div class="element-box">
+
+          <div class="steps-w">
+            <div class="step-triggers">
+              <a class="step-trigger active" href="#stepContent1">Add Pollos</a>
+              <a class="step-trigger" href="#stepContent2">Add Pizzas</a>
+              <a class="step-trigger" href="#stepContent3">Add HappyBox </a>
+              <a class="step-trigger" href="#stepContent4">Add Parrilladas </a>
+              <a class="step-trigger" href="#stepContent5">Add DeliPacks </a>
+              <a class="step-trigger" href="#stepContent6">Add Menus </a>
+              <a class="step-trigger" href="#stepContent7">Add Premium </a>
+            </div>
+            <div class="step-contents">
+              <div class="row step-content active" id="stepContent1">
+                <div class="row">
+                        <form
+                        class="col"
+                          action="http://localhost:5500/admin/addproduct"
+                          method="POST"
+                          enctype="multipart/form-data"
+                        >
+                        <input type="hidden" name="categoria" value="pollos">
+
+
+
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="">NombreOficial</label
+                                ><input
+                                  class="form-control"
+                                  name="nombreoficial"
+                                  placeholder="NombreOficial"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="">NombreComercial</label
+                                ><input
+                                  class="form-control"
+                                  name="nombrecomercial"
+                                  placeholder="NombreComercial"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for=""> PrecioOriginal</label
+                                ><input
+                                  class="form-control"
+                                  name="preciooriginal"
+                                  placeholder="PrecioOriginal"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label for="">PrecioConDescuento</label
+                                ><input
+                                  class="form-control"
+                                  name="preciodescuento"
+                                  placeholder="PrecioConDescuento"
+                                  type="text"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="">Extras</label>
+                            <select
+                              class="form-control select2"
+                              name="extras"
+                              multiple="true"
+                            >
+                              <option>Gaseosa InkaKola o Coca Cola /$1.50</option>
+                              <option>Arroz/$4.00</option>
+                              <option>Chicha Morada/$2.50</option>
+                              <option>HoodDogs/$2.50</option>
+                              <option>Ensalada/$0.00</option>
+                              <option>Aguadito/$0.00</option>
+                              <option>Cremas/$0.00</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="">Demora en la Preparacion</label
+                            ><select name="demorapreparacion" class="form-control">
+                              <option>1h</option>
+                              <option>2h</option>
+                              <option>3h</option>
+                              <option>Instataneo</option>
+                              <option>Indefinido</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Descripccion</label
+                            ><textarea
+                              name="descripccion"
+                              class="form-control"
+                              rows="3"
+                            ></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="">Cantidad Disponible</label
+                            ><input
+                              class="form-control"
+                              name="cantidaddisponible"
+                              type="number"
+                            />
+                          </div>
+
+                          <div class="form-group">
+                            <label for=""> Medida del Pollo a la Brasa</label
+                            ><input
+                              class="form-control"
+                              name="medida"
+                              placeholder="Medida"
+                              type="text"
+                            />
+                          </div>
+        <div class="form-group">
+                            <label for="">Costo de envio</label
+                            ><select name="tipoorder" class="form-control">
+                              <option>Gratis </option>
+                              <option>Costo extra</option>
+                            </select>
+                          </div>
+        <div class="form-group">
+                            <label for="">Tipo de Pollo a la Brasa</label
+                            ><select name="tipo" class="form-control">
+                              <option>Tamaño estandar</option>
+                              <option>Familiar</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="">Imagen(jpg,png,jpeg)</label
+                            ><input
+                              class="form-control"
+                              id="imagenProduct"
+                              name="imagen"
+                              type="file"
+                            />
+                          </div>
+
+                            <button class="btn btn-primary" type="submit">Save</button>
+
+                        </form>
+                        <div style="margin-left: 3em;" class="col">
+                          <h1>Pollos a la Braza</h1>
+                          <img
+                            id="previewImagen1"
+                            src="https://scontent.fymy1-1.fna.fbcdn.net/v/t1.0-9/s720x720/131432281_3222094377895899_5055359411044202730_o.jpg?_nc_cat=100&ccb=2&_nc_sid=8024bb&_nc_eui2=AeHt6633bkh-p-_eu6mSPMJ5_upJIu3lVTX-6kki7eVVNUB6QPd-dcQfXvu6pkqYgRk&_nc_ohc=vmAXWhB3jL8AX9uZU_h&_nc_ht=scontent.fymy1-1.fna&tp=7&oh=267934a87d14c2317156c7bf7991bbf1&oe=60169FFD"
+                            alt=""
+                            width="400"
+                            style="border-radius: 15px"
+                          />
+                        </div>
+                      </div>  
+              </div>
+              <!------>
+              <div class="step-content active" id="stepContent2">
+                <div class="row">
+               
+                  <form
+                  class="col"
+                    action="http://localhost:5500/admin/addproduct"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  
+              >
+              <input type="hidden" name="categoria" value="pizzas">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">NombreOficial</label
+                          ><input
+                            class="form-control"
+                            name="nombreoficial"
+                            placeholder="NombreOficial"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">Nombre de la Pizza</label
+                          ><input
+                            class="form-control"
+                            name="nombrecomercial"
+                            placeholder="NombreComercial"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for=""> Precio Unitario de la Pizza</label>
+                          <input
+                            class="form-control"
+                            name="preciooriginal"
+                            placeholder="PrecioOriginal"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">PrecioConDescuento</label
+                          ><input
+                            class="form-control"
+                            name="preciodescuento"
+                            placeholder="PrecioConDescuento"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Extras</label>
+                      <select
+                        class="form-control select2"
+                        name="extras"
+                        multiple="true"
+                      >
+                        <option>Cremas/$1.50</option>
+                        <option>Extra Queso/$2.00</option>
+                        <option>Chicha Morada/$2.50</option>
+                        <option>HoodDogs/$3.00</option>    
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Demora en la Preparacion</label
+                      ><select name="demorapreparacion" class="form-control">
+                        <option>1h</option>
+                        <option>2h</option>
+                        <option>3h</option>
+                        <option>Instataneo</option>
+                        <option>Indefinido</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Descripccion</label
+                      ><textarea
+                        name="descripccion"
+                        class="form-control"
+                        rows="3"
+                      ></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Cantidad Pizzas Disponible</label
+                      ><input
+                        class="form-control"
+                        name="cantidaddisponible"
+                        type="number"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Medida de la pizza</label
+                      ><select name="medida" class="form-control">
+                        <option>1/2 Metro</option>
+                        <option>1 Metro</option>
+                        <option>1/4 Metro</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Tamaño de la pizza</label
+                      ><select name="tamaño" class="form-control">
+                        <option>Personal</option>
+                        <option>Mediana</option>
+                        <option>Familiar</option>
+                      </select>
+                    </div>
+  <div class="form-group">
+                      <label for="">Costo de envio</label
+                      ><select name="tipoorder" class="form-control">
+                        <option>gratis </option>
+                        <option>costo extra</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Imagen(jpg,png,jpeg)</label
+                      ><input
+                        class="form-control"
+                        id="imagenProduct"
+                        name="imagen"
+                        type="file"
+                      />
+                    </div>
+
+                      <button class="btn btn-primary" type="submit">Save</button>
+
+                  </form>
+                  
+                  <div style="margin-left: 3em;" class="col">
+                    <h1>Pizzas</h1>
+                      <img
+                        id="previewImagen2"
+                        src="https://i2.wp.com/www.eatthis.com/wp-content/uploads/2018/07/little-caesar-hot-ready-pepperoni-pizza.jpg?fit=1024%2C750&ssl=1"
+                        alt=""
+                        width="400"
+                        style="border-radius: 15px"
+                      />
+                    </div>
+                </div>
+              </div>
+
+              <div class="step-content active" id="stepContent3">
+                <div class="row">
+                <form
+                class="col"
+                  action="http://localhost:5500/admin/addproduct"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+
+              <input type="hidden" name="categoria" value="happybox">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">NombreOficial</label
+                        ><input
+                          class="form-control"
+                          name="nombreoficial"
+                          placeholder="NombreOficial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">Nombre HappyBox</label
+                        ><input
+                          class="form-control"
+                          name="nombrecomercial"
+                          placeholder="NombreComercial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for=""> PrecioOriginal</label
+                        ><input
+                          class="form-control"
+                          name="preciooriginal"
+                          placeholder="PrecioOriginal"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">PrecioConDescuento</label
+                        ><input
+                          class="form-control"
+                          name="preciodescuento"
+                          placeholder="PrecioConDescuento"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Extras</label>
+                    <select
+                      class="form-control select2"
+                      name="extras"
+                      multiple="true"
+                    >
+                      <option>Gaseosa InkaKola o Coca Cola/$1.50 </option>
+                      <option>Chicha Morada/$2.50 </option>
+                      <option>Cremas/$0.00</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Demora en la Preparacion</label
+                    ><select name="demorapreparacion" class="form-control">
+                      <option>1h</option>
+                      <option>2h</option>
+                      <option>3h</option>
+                      <option>Instataneo</option>
+                      <option>Indefinido</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Descripccion</label
+                    ><textarea
+                      name="descripccion"
+                      class="form-control"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Cantidad Disponible</label
+                    ><input
+                      class="form-control"
+                      name="cantidaddisponible"
+                      type="number"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Tamaño de la caja</label
+                    ><select name="tamaño" class="form-control">
+                      <option>Caja Pequeño</option>
+                      <option>Caja Grande</option>
+                    </select>
+                  </div>
+
+<div class="form-group">
+                    <label for="">Costo de envio</label
+                    ><select name="tipoorder" class="form-control">
+                      <option>gratis </option>
+                      <option>costo extra</option>
+                    </select>
+                  </div>
+
+<div class="form-group">
+                    <label for="">Tipo de HappyBox</label
+                    ><select name="tipo" class="form-control">
+                      <option>Mollejas</option>
+                      <option>Salchipapa</option>
+                      <option>Mix</option>
+                      <option>Alitas</option>
+                      <option>Chorizo</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Imagen(jpg,png,jpeg)</label
+                    ><input
+                      class="form-control"
+                      id="imagenProduct"
+                      name="imagen"
+                      type="file"
+                    />
+                  </div>
+
+                    <button class="btn btn-primary" type="submit">Save</button>
+
+                </form>
+
+                <div style="margin-left: 3em;" class="col">
+                  <h1>Happy Box</h1>
+                  <img
+                    id="previewImagen3"
+                    src="https://scontent.fymy1-2.fna.fbcdn.net/v/t1.0-9/s720x720/128779176_3178088578963146_3052392173278784266_o.jpg?_nc_cat=105&ccb=2&_nc_sid=8024bb&_nc_eui2=AeHyZ354rZgP8QG6CIFsjk2n4tf-Y2hWrM7i1_5jaFaszuR5UlH0eY6LMN96aSMYXV0&_nc_ohc=Cm49XfRBbFkAX-Cm-oG&_nc_ht=scontent.fymy1-2.fna&tp=7&oh=e7df4a1f30f8c82acee21c1f35064466&oe=6014DC4D"
+                    alt=""
+                    width="400"
+                    style="border-radius: 15px"
+                  />
+                </div>
+              </div>
+              </div>
+              
+
+              <div class="step-content active" id="stepContent4">
+               <div class="row">
+                <form
+                class="col"
+                  action="http://localhost:5500/admin/addproduct"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+
+              <input type="hidden" name="categoria" value="parilladas">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">NombreOficial</label
+                        ><input
+                          class="form-control"
+                          name="nombreoficial"
+                          placeholder="NombreOficial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">Nombre Parrillada</label
+                        ><input
+                          class="form-control"
+                          name="nombrecomercial"
+                          placeholder="NombreComercial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for=""> PrecioOriginal</label
+                        ><input
+                          class="form-control"
+                          name="preciooriginal"
+                          placeholder="PrecioOriginal"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">PrecioConDescuento</label
+                        ><input
+                          class="form-control"
+                          name="preciodescuento"
+                          placeholder="PrecioConDescuento"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Extras</label>
+                    <select
+                      class="form-control select2"
+                      name="extras"
+                      multiple="true"
+                    >
+                      <option>Gaseosa InkaKola o Coca Cola/$2.50</option>
+                      <option>Chicha Morada/$1.50</option>
+                      <option>HoodDogs/$2.00</option>
+                      <option>Ensalada$0.00</option>
+                      <option>Cremas/$0.00</option>
+                      <option>Copa de Sangria/$0.00</option>
+                      <option>Papas Fritas/$5.00</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Demora en la Preparacion de la Parrilla</label
+                    ><select name="demorapreparacion" class="form-control">
+                      <option>1h</option>
+                      <option>2h</option>
+                      <option>3h</option>
+                      <option>Instataneo</option>
+                      <option>Indefinido</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Descripccion</label
+                    ><textarea
+                      name="descripccion"
+                      class="form-control"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Cantidad Disponible</label
+                    ><input
+                      class="form-control"
+                      name="cantidaddisponible"
+                      type="number"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for=""> Tamaño de la parrilla</label
+                    ><input
+                      class="form-control"
+                      name="tamaño"
+                      placeholder="Medida"
+                      type="text"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Imagen(jpg,png,jpeg)</label
+                    ><input
+                      class="form-control"
+                      id="imagenProduct"
+                      name="imagen"
+                      type="file"
+                    />
+                  </div>
+
+<div class="form-group">
+                    <label for="">Tipo de Parrillada</label
+                    ><select name="tipo" class="form-control">
+                      <option>Tamaño estandar</option>
+                      <option>Familiar</option>
+                    </select>
+                  </div>
+<div class="form-group">
+                    <label for="">Costo de envio</label
+                    ><select name="tipoorder" class="form-control">
+                      <option>gratis </option>
+                      <option>costo extra</option>
+                    </select>
+                  </div>
+
+                    <button class="btn btn-primary" type="submit">Save</button>
+
+                </form>
+
+                <div style="margin-left: 3em;" class="col">
+                  <h1>Parrilladas</h1>
+                  <img
+                    id="previewImagen4"
+                    src="https://scontent.flim2-2.fna.fbcdn.net/v/t1.0-9/67644039_406278486658820_1528305851050229760_n.jpg?_nc_cat=108&ccb=2&_nc_sid=8024bb&_nc_ohc=tZ3gNrfOZUIAX9B0wTd&_nc_ht=scontent.flim2-2.fna&oh=4d77db5e7f98326fd91121a649d9f274&oe=602CF553"
+                    alt=""
+                    width="400"
+                    style="border-radius: 15px"
+                  />
+                </div>
+              </div>
+              </div>
+
+              <div class="step-content active" id="stepContent5">
+                <div class="row">
+                <form
+                class="col"
+                  action="http://localhost:5500/admin/addproduct"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+
+              <input type="hidden" name="categoria" value="deliciuspack">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">NombreOficial</label
+                        ><input
+                          class="form-control"
+                          name="nombreoficial"
+                          placeholder="NombreOficial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">NombreComercial</label
+                        ><input
+                          class="form-control"
+                          name="nombrecomercial"
+                          placeholder="NombreComercial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for=""> PrecioOriginal</label
+                        ><input
+                          class="form-control"
+                          name="preciooriginal"
+                          placeholder="PrecioOriginal"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">PrecioConDescuento</label
+                        ><input
+                          class="form-control"
+                          name="preciodescuento"
+                          placeholder="PrecioConDescuento"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Extras</label>
+                    <select
+                      class="form-control select2"
+                      name="extras"
+                      multiple="true"
+                    >
+                      <option>Gaseosa InkaKola o Coca Cola/$2.00</option>
+                      <option>Chicha Morada/$1.50</option>
+                      <option>HoodDogs4.00</option>
+                      <option>Cremas/$0.00</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Demora en la Preparacion</label
+                    ><select name="demorapreparacion" class="form-control">
+                      <option>1h</option>
+                      <option>2h</option>
+                      <option>3h</option>
+                      <option>Instataneo</option>
+                      <option>Indefinido</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Descripccion</label
+                    ><textarea
+                      name="descripccion"
+                      class="form-control"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Cantidad Disponible</label
+                    ><input
+                      class="form-control"
+                      name="cantidaddisponible"
+                      type="number"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for=""> Tamaño del Pack</label
+                    ><input
+                      class="form-control"
+                      name="tamaño"
+                      placeholder="Medida"
+                      type="text"
+                    />
+                  </div>
+<div class="form-group">
+                    <label for="">Tipo de Pack</label
+                    ><select name="tipo" class="form-control">
+                      <option>Tamaño estandar</option>
+                      <option>Familiar</option>
+                    </select>
+                  </div>
+<div class="form-group">
+                    <label for="">Costo de envio</label
+                    ><select name="tipoorder" class="form-control">
+                      <option>gratis </option>
+                      <option>costo extra</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Imagen(jpg,png,jpeg)</label
+                    ><input
+                      class="form-control"
+                      id="imagenProduct"
+                      name="imagen"
+                      type="file"
+                    />
+                  </div>
+
+                    <button class="btn btn-primary" type="submit">Save</button>
+
+                </form>
+                <div style="margin-left: 3em;" class="col">
+                  <h1>Add DeliciusPack</h1>
+                  <img
+                    id="previewImagen5"
+                    src="https://scontent.fymy1-2.fna.fbcdn.net/v/t1.0-9/s720x720/126032525_3141938509244820_3024836461637794543_o.jpg?_nc_cat=103&ccb=2&_nc_sid=8024bb&_nc_eui2=AeEMI0NOwkbXPgGLnEx14gEszuLpNpDWHMTO4uk2kNYcxAk49GzXWrk3MdfsQYkN1-w&_nc_ohc=42Cab0V2ufQAX-Vijz-&_nc_ht=scontent.fymy1-2.fna&tp=7&oh=986f60acc38b40f6d7e36245660f0087&oe=6014238E"
+                    alt=""
+                    width="400"
+                    style="border-radius: 15px"
+                  />
+                </div>
+                </div>
+              </div>
+
+              <div class="step-content active" id="stepContent6">
+              <div class="row">
+                <form
+                class="col"
+                  action="http://localhost:5500/admin/addproduct"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+
+              <input type="hidden" name="categoria" value="menus">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">NombreOficial</label
+                        ><input
+                          class="form-control"
+                          name="nombreoficial"
+                          placeholder="NombreOficial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">Nombre del Menu </label
+                        ><input
+                          class="form-control"
+                          name="nombrecomercial"
+                          placeholder="NombreComercial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for=""> Precio por Menu</label
+                        ><input
+                          class="form-control"
+                          name="preciooriginal"
+                          placeholder="PrecioOriginal"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">PrecioConDescuento</label
+                        ><input
+                          class="form-control"
+                          name="preciodescuento"
+                          placeholder="PrecioConDescuento"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Extras</label>
+                    <select
+                      class="form-control select2"
+                      name="extras"
+                      multiple="true"
+                    >
+                      <option>Gaseosa InkaKola o Coca Cola /$2.50</option>
+                      <option>Chicha Morada/$1.80</option>
+                      <option>Ensalada/$0.00</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Demora en la Preparacion</label
+                    ><select name="demorapreparacion" class="form-control">
+                      <option>1h</option>
+                      <option>2h</option>
+                      <option>3h</option>
+                      <option>Instataneo</option>
+                      <option>Indefinido</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Descripccion</label
+                    ><textarea
+                      name="descripccion"
+                      class="form-control"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Cantidad de menus Disponible</label
+                    ><input
+                      class="form-control"
+                      name="cantidaddisponible"
+                      type="number"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">Imagen(jpg,png,jpeg)</label
+                    ><input
+                      class="form-control"
+                      id="imagenProduct"
+                      name="imagen"
+                      type="file"
+                    />
+                  </div>
+
+                    <button class="btn btn-primary" type="submit">Save</button>
+
+                </form>
+
+                <div style="margin-left: 3em;" class="col">
+                  <h1>Menus Criollos</h1>
+                  <img
+                    id="previewImagen6"
+                    src="https://scontent.flim2-1.fna.fbcdn.net/v/t1.0-9/p960x960/123595884_706988669921132_7656528971130525718_o.jpg?_nc_cat=110&ccb=2&_nc_sid=8024bb&_nc_ohc=BZlU0UZWaeQAX-JgfnP&_nc_ht=scontent.flim2-1.fna&tp=6&oh=7ab725a297b2a61fc1543f3f6123e765&oe=602C5CD2"
+                    alt=""
+                    width="400"
+                    style="border-radius: 15px"
+                  />
+                </div>
+              </div>
+              </div>
+
+              <div class="step-content active" id="stepContent7">
+               <div class="row">
+                <form
+                class="col"
+                  action="http://localhost:5500/admin/addproduct"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+
+              <input type="hidden" name="categoria" value="premium">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">NombreOficial del Paquete Premium</label
+                        ><input
+                          class="form-control"
+                          name="nombreoficial"
+                          placeholder="NombreOficial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">NombreComercial</label
+                        ><input
+                          class="form-control"
+                          name="nombrecomercial"
+                          placeholder="NombreComercial"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for=""> PrecioOriginal</label
+                        ><input
+                          class="form-control"
+                          name="preciooriginal"
+                          placeholder="PrecioOriginal"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">PrecioConDescuento</label
+                        ><input
+                          class="form-control"
+                          name="preciodescuento"
+                          placeholder="PrecioConDescuento"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Extras</label>
+                    <select
+                      class="form-control select2"
+                      name="extras"
+                      multiple="true"
+                    >
+                      <option>Gaseosa InkaKola o Coca Cola/$0.00</option>
+                      <option>Chicha Morada/$0.00</option>
+                      <option>HoodDogs/$0.00</option>
+                      <option>Todas las Cremas/$0.00</option>
+                      <option>1/4 de Pollo/$0.00</option>
+                      <option>1 Caja HappyBox Estandar/$0.00</option>
+                      <option>1 Pizza Mediana/$0.00</option>
+                      <option>1 Parrillada de Pollo estandar/$0.00</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Demora en la Preparacion</label
+                    ><select name="demorapreparacion" class="form-control">
+                      <option>1h</option>
+                      <option>2h</option>
+                      <option>3h</option>
+                      <option>Instataneo</option>
+                      <option>Indefinido</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Descripccion</label
+                    ><textarea
+                      name="descripccion"
+                      class="form-control"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Cantidad Disponible</label
+                    ><input
+                      class="form-control"
+                      name="cantidaddisponible"
+                      type="number"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">Imagen(jpg,png,jpeg)</label
+                    ><input
+                      class="form-control"
+                      id="imagenProduct"
+                      name="imagen"
+                      type="file"
+                    />
+                  </div>
+
+                    <button class="btn btn-primary" type="submit">Save</button>
+
+                </form>
+
+                <div style="margin-left: 3em;" class="col">
+                  <h1>PremiumPacks</h1>
+                  <img
+                    id="previewImagen7"
+                    src="https://scontent.flim2-1.fna.fbcdn.net/v/t1.0-9/p960x960/84487560_527459744540693_8026119284272922624_o.jpg?_nc_cat=110&ccb=2&_nc_sid=8024bb&_nc_ohc=9hUs5J2_wysAX-7qkws&_nc_ht=scontent.flim2-1.fna&tp=6&oh=23401d9dcfeae230cdcad81335c9fdb4&oe=602CD375"
+                    alt=""
+                    width="400"
+                    style="border-radius: 15px"
+                  />
+                </div>
+              </div>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
     <!--------------------
               START - Color Scheme Toggler
               -------------------->
@@ -213,277 +1232,28 @@
     <!--------------------
               END - Chat Popup Box
               -------------------->
-
-    <div class="element-box">
-      <form
-        action="/admin/addproduct"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-        <h5 class="form-header">Registro de un Producto</h5>
-        <div class="form-desc">
-          Formulario breve para registro de un producto.Despues podra personalizar cada producto.
-        </div>
-        <div class="form-group row">
-          <label class="col-form-label col-sm-4" for=""> Nombre Oficial : </label>
-          <div class="col-sm-8">
-            <input
-              class="form-control"
-              placeholder="Introduzca un nombre"
-              type="text"
-              name="nombreoficial"
-              id="nombreoficial"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-form-label col-sm-4" for=""> Nombre Comercial:</label>
-          <div class="col-sm-8">
-            <input
-              class="form-control"
-              placeholder="Introduzca nombre comercial"
-              type="nombrecomercial"
-              id="nombrecomercial"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-form-label col-sm-4" for="">Precio:</label>
-          <div class="col-sm-8">
-            <input
-              class="form-control"
-              placeholder="Price"
-              type="text"
-              name="precio"
-              id="precio"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-form-label col-sm-4" for="">Imagen:</label>
-          <div class="col-sm-8">
-            <input class="form-control" id="imagenproduct" type="file" name="imagenproduct"/>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-form-label col-sm-4" for=""> Seleccionar categoria</label>
-          <div class="col-sm-8">
-            <select class="form-control"  id="categoria" name="categoria">
-              <option>Pollo a la braza</option>
-              <option>Pizza</option>
-              <option>Parrillada</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-form-label col-sm-4" for="">Estado del producto : </label>
-          <div class="col-sm-8">
-            <select class="form-control" name="estado" id="estado">
-              <option>Online</option>
-              <option>Inactivo</option>
-              <option>Pendiente</option>
-            </select>
-          </div>
-        </div>
-
-        <!--<div class="form-group row">-->
-          <!--<label class="col-form-label col-sm-4" for=""> Multiselect</label>-->
-          <!--<div class="col-sm-8">-->
-            <!--<select class="form-control select2" multiple="true">-->
-              <!--<option selected="true">New York</option>-->
-              <!--<option selected="true">California</option>-->
-              <!--<option>California</option>-->
-              <!--<option>Boston</option>-->
-              <!--<option>Texas</option>-->
-              <!--<option>Colorado</option>-->
-            <!--</select>-->
-          <!--</div>-->
-        <!--</div>-->
-        <fieldset class="form-group">
-          <legend><span>Otros</span></legend>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label" for=""> Cantidad disponible:</label>
-            <div class="col-sm-8">
-              <input
-                class="form-control"
-                type="number"
-                name="cantidad"
-                id="cantidad"
-              />
-            </div>
-          </div>
-
-        <div class="form-buttons-w">
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-      </div>
-
-      <div class="col">
-  <div class="user-profile compact">
-      <div class="up-head-w" id="previewImagen">
-        <div class="up-social">
-          <a href="#"><i class="os-icon os-icon-twitter"></i></a><a href="#"><i class="os-icon os-icon-facebook"></i></a>
-        </div>
-        <div class="up-main-info" >
-          <h2 class="up-header" id="nombrecomercialCard">
-            Burguer 3x
-          </h2>
-          <h6 class="up-sub-header" id="nombreoficialCard">
-            Product Burguer Largue
-          </h6>
-        </div>
-        
-      </div>
-      <div class="up-controls">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="value-pair">
-              <div class="label">
-                Estado:
-              </div>
-              <div class="value badge badge-pill badge-success" id="estadoCard">
-                Online
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 text-right">
-        <div class="value-pair">
-              <div class="label">
-                Categoria:
-              </div>
-              <div class="value badge badge-pill badge-success" id="categoriaCard">
-                Burguers
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="up-contents">
-        <div class="m-b">
-          <div class="row m-b">
-            <div class="col-sm-6 b-r b-b">
-              <div class="el-tablo centered padded-v">
-                <div class="value" >
-                  $ <span id="precioCard">25</span> 
-                </div>
-                <div class="label" >
-                  Precio oficial 
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 b-b">
-              <div class="el-tablo centered padded-v">
-                <div class="value" id="cantidadCard">
-                  315
-                </div>
-                <div class="label">
-                  Cantidad Disponible
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="padded">
-            <div class="os-progress-bar primary">
-              <div class="bar-labels">
-                <div class="bar-label-left">
-                  <span>Profile Completion</span><span class="positive">+10</span>
-                </div>
-                <div class="bar-label-right">
-                  <span class="info">72/100</span>
-                </div>
-              </div>
-              <div class="bar-level-1" style="width: 100%">
-                <div class="bar-level-2" style="width: 80%">
-                  <div class="bar-level-3" style="width: 30%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="os-progress-bar primary">
-              <div class="bar-labels">
-                <div class="bar-label-left">
-                  <span>Status Unlocked</span><span class="positive">+5</span>
-                </div>
-                <div class="bar-label-right">
-                  <span class="info">45/100</span>
-                </div>
-              </div>
-              <div class="bar-level-1" style="width: 100%">
-                <div class="bar-level-2" style="width: 30%">
-                  <div class="bar-level-3" style="width: 10%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="os-progress-bar primary">
-              <div class="bar-labels">
-                <div class="bar-label-left">
-                  <span>Followers</span><span class="negative">-12</span>
-                </div>
-                <div class="bar-label-right">
-                  <span class="info">74/100</span>
-                </div>
-              </div>
-              <div class="bar-level-1" style="width: 100%">
-                <div class="bar-level-2" style="width: 80%">
-                  <div class="bar-level-3" style="width: 60%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-      </div>
-    </div>
-
   </div>
+  <!--------------------
+            START - Sidebar
+            -------------------->
+
+  <!--------------------
+            END - Sidebar
+            -------------------->
 </div>
-      <script>
-
-          //para la targeta
-          const nombreOficialCardDOM = document.getElementById('nombreoficialCard')
-          const nombreComercialCardDOM = document.getElementById('nombrecomercialCard')
-          const precioCardDOM = document.getElementById('precioCard')
-          const categoriaCardDOM = document.getElementById('categoriaCard')
-          const estadoCardDOM = document.getElementById('estadoCard')
-          const cantidadCardDOM = document.getElementById('cantidadCard')
-          //para establecer un formulario dinamico
-           document.getElementById('nombreoficial').addEventListener('keyup',()=>{
-
-                                nombreOficialCardDOM.innerHTML = document.getElementById('nombreoficial').value;
-                          })
-           document.getElementById('nombrecomercial').addEventListener('keyup',()=>{
-                                nombreComercialCardDOM.innerHTML = document.getElementById('nombrecomercial').value;
-                          })
-           document.getElementById('precio').addEventListener('keyup',()=>{
-                                precioCardDOM.innerHTML = document.getElementById('precio').value;
-                          })
-           document.getElementById('categoria').addEventListener('change',()=>{
-                                categoriaCardDOM.innerHTML = document.getElementById('categoria').value;
-                          })
-           document.getElementById('estado').addEventListener('change',()=>{
-                              estadoCardDOM.innerHTML = document.getElementById('estado').value;
-                          })
-           document.getElementById('cantidad').addEventListener('keyup',()=>{
-                            cantidadCardDOM.innerHTML = document.getElementById('cantidad').value;
-                          })
-                  //imagen preview
-document.getElementById("imagenproduct").onchange = function(e) {
-  // Creamos el objeto de la clase FileReader
-  let reader = new FileReader();
-
-  // Leemos el archivo subido y se lo pasamos a nuestro fileReader
-  reader.readAsDataURL(e.target.files[0]);
-
-  // Le decimos que cuando este listo ejecute el código interno
-  reader.onload = function(){
-    let preview = document.getElementById('previewImagen');
-          preview.style.backgroundImage =`url('${reader.result}')`
-    
+<script>
+  document.getElementById("imagenProduct").onchange = function (e) {
+    let preview = document.getElementById("previewImagen");
+    preview.removeAttribute("src")
+    // Creamos el objeto de la clase FileReader
+    let reader = new FileReader();
+    // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+    reader.readAsDataURL(e.target.files[0]);
+    // Le decimos que cuando este listo ejecute el código interno
+    reader.onload = function () {
+      
+      
+      preview.setAttribute("src", `${reader.result}`);
+    };
   };
-}
-          //enviar los imputs a la targeta en tiempo rea
-      </script>
-
+</script>
