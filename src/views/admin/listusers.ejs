@@ -1,0 +1,546 @@
+
+          <div class="content-i">
+            <div class="content-box">
+              <div class="row pt-4">
+                <div class="col-sm-12">
+                  <!--START - Grid of tablo statistics-->
+                  <div class="element-wrapper">
+                    <div class="element-actions">
+                      <form class="form-inline justify-content-sm-end">
+                        <select class="form-control form-control-sm rounded">
+                          <option value="Pending">
+                            Today
+                          </option>
+                          <option value="Active">
+                            Last Week 
+                          </option>
+                          <option value="Cancelled">
+                            Last 30 Days
+                          </option>
+                        </select>
+                      </form>
+                    </div>
+                    <h6 class="element-header">
+                      Clientes registrados
+                    </h6>
+                    <div class="element-content">
+                      <div class="tablo-with-chart">
+                        <div class="row">
+                          <div class="col-sm-5 col-xxl-4">
+                            <div class="tablos">
+                              <div class="row mb-xl-2 mb-xxl-3">
+                                <div class="col-sm-6">
+                                  <a class="element-box el-tablo centered trend-in-corner padded bold-label" 
+                                  href="#">
+                                    <div id="card-clientes" class="value">
+                                      
+                                    </div>
+                                    <div class="label">
+                                      Clientes totales
+                                    </div>
+                                    <div class="trending trending-up-basic">
+                                      <span>12%</span><i class="os-icon os-icon-arrow-up2"></i>
+                                    </div>
+                                  </a>
+                                </div>
+                                <div class="col-sm-6">
+                                  <a class="element-box el-tablo centered trend-in-corner padded bold-label" href="#">
+                                    <div id="card-empleados" class="value">
+                                      14
+                                    </div>
+                                    <div class="label">
+                                      Empleados registrados
+                                    </div>
+                                    <div class="trending trending-down-basic">
+                                      <span>12%</span><i class="os-icon os-icon-arrow-down"></i>
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          <div class="col-sm-7 col-xxl-8">
+                            <!--START - Chart Box-->
+                            <div class="element-box pl-xxl-5 pr-xxl-5">
+                              <div class="el-tablo bigger highlight bold-label">
+                                <div class="value">
+                                  12,537
+                                </div>
+                                <div class="label">
+                                  Visitas Diarias 
+                                </div>
+                              </div>
+                              <div class="el-chart-w">
+                                <canvas height="170px" id="lineChart" width="600px"></canvas>
+                              </div>
+                            </div>
+                            <!--END - Chart Box-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--END - Grid of tablo statistics-->
+                </div>
+              </div>
+            
+              <div class="row pt-4">
+                <div class="col-sm-12">
+                  <!--START - Recent Ticket Comments-->
+                  <div class="element-wrapper">
+                    <h6 class="element-header">
+                      Emplados registrados
+                    </h6>
+                    <button onclick="openFormEmpleado()" class="btn btn-primary"> <a style="color: beige;"  href="#"> Agregar + </a> </button> 
+                        <form id="formepleado" method="POST" action="http://localhost:5500/admin/registerempleado" style="width: 400px;">
+                          <div class="form-group" style="margin:1em;">
+                            <label for="">Nombre</label
+                            ><input
+                              class="form-control"
+                              name="nombre"
+                              placeholder="name"
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group" style="margin:1em;">
+                            <label for="">Apellido</label
+                            ><input
+                              class="form-control"
+                              name="apellido"
+                              placeholder="apelldio"
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group" style="margin:1em;">
+                            <label for="">Direccion</label
+                            ><input
+                              class="form-control"
+                              name="direccion1"
+                              placeholder="direccion"
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group" style="margin:1em;">
+                            <label for="">Telefono</label
+                            ><input
+                              class="form-control"
+                              name="telefono"
+                              placeholder="telefono"
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group" style="margin:1em;">
+                            <label for="">Email</label
+                            ><input
+                              class="form-control"
+                              name="email"
+                              placeholder="email"
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group" style="margin:1em;">
+                            <label for="">Puesto</label
+                            ><input
+                              class="form-control"
+                              name="puesto"
+                              placeholder="puesto"
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group" style="margin:1em;">
+                          <button class="btn btn-dark" type="submit"  > Agregar  </button> 
+                       </div>
+                        </form>
+                      <script>
+ document.getElementById('formepleado').style.display ='none';
+                          function openFormEmpleado(){
+                                  document.getElementById('formepleado').style.display ='block';
+                          }
+                      </script>
+                    <div class="element-box-tp">
+                      <div class="table-responsive">
+                        <table class="table table-padded">
+                          <thead>
+                            <tr>
+                              <th>
+                                  Nombres
+                              </th>
+                              <th>  
+                                 Codigo Empleado
+                              </th>
+                              <th>
+                                Fecha Creado
+                              </th>
+                              <th class="text-center">
+                                    Puesto
+                                </th>
+                              <th>
+                                Email
+                              </th>
+                              <th>
+                                Direccion1
+                              </th>
+                              <th>
+                                Estado
+                              </th>
+                              <th>
+                                Actions
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% users.forEach(function(emp){
+                              if(emp.tipouser == 'empleado'){
+                              %>
+                            <tr class="count-empleados">
+                              
+                              <td>
+                                <%= emp.apellido %> , <%= emp.nombre %>
+                              </td>
+                              <td style="max-width:200px;">
+                                <div style="max-width:200px;" class="smaller lighter">
+                                  
+                                  <a  style="max-width:200px;color:orange;" href="#">
+                                    <%= emp.id %>
+                                  </a>
+                                </div>
+                              </td>
+                              <td>
+                              <span class="smaller lighter"><%= emp.fechacreado %> - <%= moment(emp.fechacreado).format('hh:mm A') %></span>
+                              </td>
+                              <td class="text-center">
+                                <a class="badge badge-success-inverted" href=""><%= emp.puesto %></a>
+                              </td>
+                              <td class="nowrap">
+                                <span class="status-pill smaller green"></span><span><%= emp.email %></span>
+                              </td>
+                              <td class="nowrap">
+                                <span class="status-pill smaller green"></span><span><%= emp.puesto %></span>
+                              </td>
+                              <td class="nowrap">
+                                <span class="status-pill smaller green"></span><span><%= emp.estado %></span>
+                              </td>
+                              <td class="row-actions">
+                                <a href="#"><i class="os-icon os-icon-grid-10"></i></a><a href="#"><i class="os-icon os-icon-ui-44"></i></a><a class="danger" href="#"><i class="os-icon os-icon-ui-15"></i></a>
+                              </td>
+                            </tr>
+                            <%  }  }) %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!--END - Recent Ticket Comments-->
+                </div>
+              </div>
+              <div class="row pt-4">
+                <div class="col-sm-12">
+                  <!--START - Recent Ticket Comments-->
+                  <div class="element-wrapper">
+                    <h6 class="element-header">
+                      Clientes registrados
+                    </h6>
+                    <div class="element-box-tp">
+                      <div class="table-responsive">
+                        <table class="table table-padded">
+                          <thead>
+                            <tr>
+                            
+                              <th>
+                                Nombres
+                              </th>
+                              <th>
+                                Cod Cliente
+                              </th>
+                              <th class="text-center">
+                                Fecha Registro
+                              </th>
+                              <th>
+                                Telefono
+                              </th>
+                              <th>
+                                Direccion1
+                              </th>
+                              <th>
+                                Direccion2
+                              </th>
+                              <th>
+                                Email
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% users.forEach(function(user){
+                                    if(user.tipouser == 'customer'){
+                                %>
+                            <tr class="count-clientes">
+                              <td style="max-width: 100px;" >
+                                <div  class="user-with-avatar">
+                                  <span><%= user.nombre %></span>
+                                </div>
+                              </td>
+                              <td  style="max-width: 100px;">
+                                <div  class="smaller lighter">
+                                  <a style="color:orange;" href="#"> <%= user.id %>  </a>
+                                 </div>
+                              </td>
+                              <td>
+                                <span class="smaller lighter"> <%= user.fechacreado %> -  <%= moment(user.fechacreado).format('hh:mm A')%></span>
+                              </td>
+                              <td class="text-center">
+                                    <%= user.telefono %>
+                              </td>
+                              <td class="nowrap" style="width: 200px;">
+                                <span  class="status-pill smaller green"></span><span><%= user.direccion1 %></span>
+                              </td>
+                              <td  style="width: 200px;"  class="nowrap">
+                                <span class="status-pill smaller green"></span><span><%= user.direccion2 %></span>
+                              </td>
+                              <td class="nowrap">
+                                <span class="status-pill smaller green"></span><span><%= user.email %></span>
+                              </td>
+                            </tr>
+                            <%  
+                              }
+                          }) %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!--END - Recent Ticket Comments-->
+                </div>
+              </div>
+            
+              <script>
+
+              
+              </script>
+              <!--------------------
+              START - Color Scheme Toggler
+              -------------------->
+              <div class="floated-colors-btn second-floated-btn">
+                <div class="os-toggler-w">
+                  <div class="os-toggler-i">
+                    <div class="os-toggler-pill"></div>
+                  </div>
+                </div>
+                <span>Dark </span><span>Colors</span>
+              </div>
+              <!--------------------
+              END - Color Scheme Toggler
+              --------------------><!--------------------
+              START - Demo Customizer
+              -------------------->
+              <div class="floated-customizer-btn third-floated-btn">
+                <div class="icon-w">
+                  <i class="os-icon os-icon-ui-46"></i>
+                </div>
+                <span>Customizer</span>
+              </div>
+              <div class="floated-customizer-panel">
+                <div class="fcp-content">
+                  <div class="close-customizer-btn">
+                    <i class="os-icon os-icon-x"></i>
+                  </div>
+                  <div class="fcp-group">
+                    <div class="fcp-group-header">
+                      Menu Settings
+                    </div>
+                    <div class="fcp-group-contents">
+                      <div class="fcp-field">
+                        <label for="">Menu Position</label><select class="menu-position-selector">
+                          <option value="left">
+                            Left
+                          </option>
+                          <option value="right">
+                            Right
+                          </option>
+                          <option value="top">
+                            Top
+                          </option>
+                        </select>
+                      </div>
+                      <div class="fcp-field">
+                        <label for="">Menu Style</label><select class="menu-layout-selector">
+                          <option value="compact">
+                            Compact
+                          </option>
+                          <option value="full">
+                            Full
+                          </option>
+                          <option value="mini">
+                            Mini
+                          </option>
+                        </select>
+                      </div>
+                      <div class="fcp-field with-image-selector-w">
+                        <label for="">With Image</label><select class="with-image-selector">
+                          <option value="yes">
+                            Yes
+                          </option>
+                          <option value="no">
+                            No
+                          </option>
+                        </select>
+                      </div>
+                      <div class="fcp-field">
+                        <label for="">Menu Color</label>
+                        <div class="fcp-colors menu-color-selector">
+                          <div class="color-selector menu-color-selector color-bright selected"></div>
+                          <div class="color-selector menu-color-selector color-dark"></div>
+                          <div class="color-selector menu-color-selector color-light"></div>
+                          <div class="color-selector menu-color-selector color-transparent"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fcp-group">
+                    <div class="fcp-group-header">
+                      Sub Menu
+                    </div>
+                    <div class="fcp-group-contents">
+                      <div class="fcp-field">
+                        <label for="">Sub Menu Style</label><select class="sub-menu-style-selector">
+                          <option value="flyout">
+                            Flyout
+                          </option>
+                          <option value="inside">
+                            Inside/Click
+                          </option>
+                          <option value="over">
+                            Over
+                          </option>
+                        </select>
+                      </div>
+                      <div class="fcp-field">
+                        <label for="">Sub Menu Color</label>
+                        <div class="fcp-colors">
+                          <div class="color-selector sub-menu-color-selector color-bright selected"></div>
+                          <div class="color-selector sub-menu-color-selector color-dark"></div>
+                          <div class="color-selector sub-menu-color-selector color-light"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fcp-group">
+                    <div class="fcp-group-header">
+                      Other Settings
+                    </div>
+                    <div class="fcp-group-contents">
+                      <div class="fcp-field">
+                        <label for="">Full Screen?</label><select class="full-screen-selector">
+                          <option value="yes">
+                            Yes
+                          </option>
+                          <option value="no">
+                            No
+                          </option>
+                        </select>
+                      </div>
+                      <div class="fcp-field">
+                        <label for="">Show Top Bar</label><select class="top-bar-visibility-selector">
+                          <option value="yes">
+                            Yes
+                          </option>
+                          <option value="no">
+                            No
+                          </option>
+                        </select>
+                      </div>
+                      <div class="fcp-field">
+                        <label for="">Above Menu?</label><select class="top-bar-above-menu-selector">
+                          <option value="yes">
+                            Yes
+                          </option>
+                          <option value="no">
+                            No
+                          </option>
+                        </select>
+                      </div>
+                      <div class="fcp-field">
+                        <label for="">Top Bar Color</label>
+                        <div class="fcp-colors">
+                          <div class="color-selector top-bar-color-selector color-bright selected"></div>
+                          <div class="color-selector top-bar-color-selector color-dark"></div>
+                          <div class="color-selector top-bar-color-selector color-light"></div>
+                          <div class="color-selector top-bar-color-selector color-transparent"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--------------------
+              END - Demo Customizer
+              --------------------><!--------------------
+              START - Chat Popup Box
+              -------------------->
+              <div class="floated-chat-btn">
+                <i class="os-icon os-icon-mail-07"></i><span>Demo Chat</span>
+              </div>
+              <div class="floated-chat-w">
+                <div class="floated-chat-i">
+                  <div class="chat-close">
+                    <i class="os-icon os-icon-close"></i>
+                  </div>
+                  <div class="chat-head">
+                    <div class="user-w with-status status-green">
+                      <div class="user-avatar-w">
+                        <div class="user-avatar">
+                          <img alt="" src="img/avatar1.jpg">
+                        </div>
+                      </div>
+                      <div class="user-name">
+                        <h6 class="user-title">
+                          John Mayers
+                        </h6>
+                        <div class="user-role">
+                          Account Manager
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-messages">
+                    <div class="message">
+                      <div class="message-content">
+                        Hi, how can I help you?
+                      </div>
+                    </div>
+                    <div class="date-break">
+                      Mon 10:20am
+                    </div>
+                    <div class="message">
+                      <div class="message-content">
+                        Hi, my name is Mike, I will be happy to assist you
+                      </div>
+                    </div>
+                    <div class="message self">
+                      <div class="message-content">
+                        Hi, I tried ordering this product and it keeps showing me error code.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-controls">
+                    <input class="message-input" placeholder="Type your message here..." type="text">
+                    <div class="chat-extra">
+                      <a href="#"><span class="extra-tooltip">Attach Document</span><i class="os-icon os-icon-documents-07"></i></a><a href="#"><span class="extra-tooltip">Insert Photo</span><i class="os-icon os-icon-others-29"></i></a><a href="#"><span class="extra-tooltip">Upload Video</span><i class="os-icon os-icon-ui-51"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--------------------
+              END - Chat Popup Box
+              -------------------->
+            </div>
+          </div>
+    <script>
+             let countEmpleados = document.getElementsByClassName('count-empleados')
+       let countClientes = document.getElementsByClassName('count-clientes')
+       let empleadostoales  = countEmpleados.length;
+       let clientestotales  = countClientes.length;
+
+        document.getElementById('card-empleados').innerHTML = empleadostoales;
+        document.getElementById('card-clientes').innerHTML = clientestotales;      
+    </script>

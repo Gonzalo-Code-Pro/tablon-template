@@ -1,470 +1,84 @@
-<div class="content-i">
+<div style="margin-bottom:15em;" class="content-i">
   <div class="content-panel">
     <div class="element-wrapper">
-      <h6 class="element-header">
-        Ordenes recientes
-      </h6>
+      <h6 class="element-header">Ordenes recientes</h6>
       <div class="element-box-tp">
         <div class="table-responsive">
           <table class="table table-padded">
             <thead>
               <tr>
-                <th>
-                  Codigo de Pedido
-                </th>
-                <th>
-                  Fecha pedido
-                </th>
-                <th>
-                  Cliente
-                </th>
-                <th>
-                  Direccion 
-                </th>
-                <th class="text-center">
-                  Categoria
-                </th>
-                <th class="text-center">
-                 Estado
-                </th>
-                <th class="text-center">
-                  Pago
-                 </th>
-                <th class="text-right">
-                  Costo
-                </th>
+                <th>Codigo de Pedido</th>
+                <th>Fecha pedido</th>
+                <th>Cliente</th>
+                <th>Direccion</th>
+                <th class="text-center">Telefono</th>
+                <th class="text-center">Estado</th>
+                <th class="text-center">Pago</th>
+                <th class="text-right">Costo</th>
+                <th class="text-right">Registrar  venta</th>
               </tr>
             </thead>
             <tbody>
+              <%  pedidos.forEach(function(item){ %>
               <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
+                <td style="width:200px;" class="">
+                  <span class="status-pill smaller green"></span
+                  ><span > <a href="http://localhost:5500/admin/orders/<%= item.id %>" style="color: orange;"><%= item.id %></a>   </span>
                 </td>
                 <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
+                    <span>Hoy</span><span class="smaller lighter"> <%= moment(item.fechacreado).format('hh:mm A')%> </span>
+                </td>
+                <td  style="max-width:100px;">
+                  <span style="max-width:100px;word-wrap: break-word;" ><%= item.nombre %></span>
                 </td>
                 <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Raul</span>
+                  <img
+                    alt=""
+                    src="img/company1.png"
+                    style="height: 25px"
+                  /><span><%=  item.direcciondefinitiva %></span>
                 </td>
                 <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Miramar Mz.8 L.5</span>
+                  <img
+                    alt=""
+                    src="img/company1.png"
+                    style="height: 25px"
+                  /><span><%=  item.telefono %></span>
                 </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
+                
                 <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-                        <option value="">Cancelado</option>
-                      </select>
+                  <span class="text-success">                   
+                    <select onclick="submitEstado()"   name="estado" id="listoptions" class="estadoselect optionsestate" data-idpedido="<%= item.id%>" data-estado="<%= item.estado %>">                
+                    </select>
                   </span>
                 </td>
 
-
                 <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
+                  <% if(item.tipopago == 'presencial') {%>
+                    <span class="text-success"><%= item.tipopago %>   </span>
+                    <% } else {%>
+                    <span class="text-warning"><%= item.tipopago %>   </span>
+                    <% } %>
                 </td>
 
-
                 <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
+                  <span class="text-success">$ <%= item.preciototal %></span>
+                </td>
+                <td class="text-right bolder nowrap">
+                  <span class="text-success">
+                      <% if(item.estado == 'completo') {%>
+                        <span class="text-danger">
+                            Vendido
+                        </span>
+                      <% } else {%>
+                        <span style="color:orange;">
+                            En Proceso
+                        </span>
+                      <% } %>
+                  
                 </td>
               </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>wrsdfv84sdv5sdfc</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">5:52pm</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Gonzalo</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto chiribaya Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-danger" href="">Pizza</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-orange">Stripe</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">8:32pm</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Antonia</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Habitat Mz.58 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-warning" href="#">Paquete premium</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Gonzalo</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto ilo Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">8:32pm</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Antonia</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Habitat Mz.58 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-warning" href="#">Paquete premium</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Pedro</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto ilo Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Gonzalo</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto ilo Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Gonzalo</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto ilo Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Gonzalo</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto ilo Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Gonzalo</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto ilo Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="nowrap">
-                  <span class="status-pill smaller green"></span><span>ersgf1rsf5r6sf5455</span>
-                </td>
-                <td>
-                  <span>Hoy</span><span class="smaller lighter">1:52am</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Gonzalo</span>
-                </td>
-                <td class="cell-with-media">
-                  <img alt="" src="img/company1.png" style="height: 25px;"><span>Alto ilo Mz.85 L.1</span>
-                </td>
-                <td class="text-center">
-                  <a class="badge badge-success" href="">Pollo a la brasa</a>
-                </td>
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success"> 
-                      <select name="" id="">
-                        <option value="">Pendiente</option>
-                        <option value="">Completo</option>
-                        <option value="">Procesando</option>
-                        <option value="">En espera</option>
-            
-                      </select>
-                  </span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">Presencial</span>
-                </td>
-
-
-                <td class="text-right bolder nowrap">
-                  <span class="text-success">+ 1,250 USD</span>
-                </td>
-              </tr>
+             <% }) %>
             </tbody>
           </table>
         </div>
@@ -472,3 +86,93 @@
     </div>
   </div>
 </div>
+<script>
+
+
+
+
+
+
+
+function submitEstado(){
+  let  estadoselect = document.getElementsByClassName('estadoselect');
+for(let i=0;i< estadoselect.length;i++){
+                        let estado_ = estadoselect[i].value;
+                        console.log(estado_)
+                        let idpedido = estadoselect[i].getAttribute('data-idpedido');
+                      $.ajax({
+                        type: "post",
+                        url: `http://localhost:5500/fastfood/editorder`,
+                        data : {idpedido,estado_},
+                        success: function (datos) {
+                          console.log(datos);
+                           location.reload()
+                        },
+                      });
+  }
+  
+}
+
+ estateOptions();
+
+          function  estateOptions(){
+          let  estadoselect = document.getElementsByClassName('estadoselect');
+          let estateAdminOptions = document.getElementsByClassName('optionsestate')
+              for(let i=0;i<estadoselect.length;i++){
+                    let estadoinput =  estadoselect[i].getAttribute('data-estado');
+                    if(estadoinput == 'recibido'){
+                              estateAdminOptions[i].innerHTML = `
+                              <option  selected value="recibido">Recibido</option>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="completo">Completo</option>
+                                        <option value="procesando">Procesando</option>
+                                        <option value="preparando">Preparando</option>
+                              `;
+                        }
+                        if(estadoinput == 'pendiente'){
+                              estateAdminOptions[i].innerHTML = `
+                              <option  value="recibido">Recibido</option>
+                                        <option selected  value="pendiente">Pendiente</option>
+                                        <option value="completo">Completo</option>
+                                        <option value="procesando">Procesando</option>
+                                        <option value="preparando">Preparando</option>
+                              `;
+                        }
+                        if(estadoinput == 'completo'){
+                              estateAdminOptions[i].innerHTML = `
+                                        <option value="recibido">Recibido</option>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option selected  value="completo">Completo</option>
+                                        <option value="procesando">Procesando</option>
+                                        <option value="preparando">Preparando</option>
+                              `;
+                        }
+                        if(estadoinput == 'preparando'){
+                              estateAdminOptions[i].innerHTML = `
+                              <option   value="recibido">Recibido</option>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="completo">Completo</option>
+                                        <option value="procesando">Procesando</option>
+                                        <option selected  value="preparando">Preparando</option>
+                              `;
+                        }
+                        if(estadoinput == 'procesando'){
+                              estateAdminOptions[i].innerHTML = `
+                              <option   value="recibido">Recibido</option>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="completo">Completo</option>
+                                        <option  selected value="procesando">Procesando</option>
+                                        <option value="preparando">Preparando</option>
+                              `;
+                        }
+
+
+
+
+                       
+              }
+
+  
+    }
+    
+</script>

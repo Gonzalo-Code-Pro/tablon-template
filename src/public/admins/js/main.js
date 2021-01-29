@@ -599,7 +599,7 @@ $(function () {
     if ($("#barChart1").length) {
       var barChart1 = $("#barChart1");
       var barData1 = {
-        labels: ["January", "February", "March", "April", "May", "June"],
+        labels: ["Enero", "February", "March", "April", "May", "June"],
         datasets: [
           {
             label: "My First dataset",
@@ -720,101 +720,14 @@ $(function () {
     // -----------------
     // init donut chart if element exists
     // -----------------
-    if ($("#donutChart").length) {
-      var donutChart = $("#donutChart");
 
-      // donut chart data
-      var data = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
-        datasets: [
-          {
-            data: [300, 50, 100, 30, 70],
-            backgroundColor: [
-              "#5797fc",
-              "#7e6fff",
-              "#4ecc48",
-              "#ffcc29",
-              "#f37070",
-            ],
-            hoverBackgroundColor: [
-              "#5797fc",
-              "#7e6fff",
-              "#4ecc48",
-              "#ffcc29",
-              "#f37070",
-            ],
-            borderWidth: 0,
-          },
-        ],
-      };
-
-      // -----------------
-      // init donut chart
-      // -----------------
-      new Chart(donutChart, {
-        type: "doughnut",
-        data: data,
-        options: {
-          legend: {
-            display: false,
-          },
-          animation: {
-            animateScale: true,
-          },
-          cutoutPercentage: 80,
-        },
-      });
-    }
+    
+  
 
     // -----------------
     // init donut chart if element exists
     // -----------------
-    if ($("#donutChart1").length) {
-      var donutChart1 = $("#donutChart1");
 
-      // donut chart data
-      var data1 = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
-        datasets: [
-          {
-            data: [300, 50, 100, 30, 70],
-            backgroundColor: [
-              "#5797fc",
-              "#7e6fff",
-              "#4ecc48",
-              "#ffcc29",
-              "#f37070",
-            ],
-            hoverBackgroundColor: [
-              "#5797fc",
-              "#7e6fff",
-              "#4ecc48",
-              "#ffcc29",
-              "#f37070",
-            ],
-            borderWidth: 6,
-            hoverBorderColor: "transparent",
-          },
-        ],
-      };
-
-      // -----------------
-      // init donut chart
-      // -----------------
-      new Chart(donutChart1, {
-        type: "doughnut",
-        data: data1,
-        options: {
-          legend: {
-            display: false,
-          },
-          animation: {
-            animateScale: true,
-          },
-          cutoutPercentage: 80,
-        },
-      });
-    }
   }
 
   // #11. MENU RELATED STUFF

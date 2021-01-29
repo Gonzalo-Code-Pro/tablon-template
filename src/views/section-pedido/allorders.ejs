@@ -1,0 +1,75 @@
+<style>
+  .container-table-allorder {
+    display: flex;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    justify-content: center;
+  }
+  .container-table-allorder th,
+  td {
+    padding: 1em;
+    border-radius: 0px;
+    margin:0;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  .container-table-allorder tr {
+  
+  }
+
+  .container-table-allorder .pendiente {
+    background-color: #fccc4c;
+  }
+  .container-table-allorder .cancelado {
+    background-color: red;
+  }
+  .container-table-allorder .completo {
+    background-color: green;
+  }
+
+  .container-table-allorder .preparando {
+    background-color: orange;
+  }
+  .container-table-allorder .procesando {
+    background-color: gray;
+  }
+</style>
+
+<section class="section-pedido">
+  <div class="bg">
+    <div class="info">
+      <div class="line">
+        <a href="/just-product">HOME</a>
+        <span>/allOrders</span>
+      </div>
+      <h2 class="title">TODOS LOS PEDIDOS</h2>
+    </div>
+  </div>
+
+  <div class="container-table-allorder">
+    <table>
+      <thead>
+        <th>Cod Order</th>
+        <th>Direccion order</th>
+        <th>Creacion del pedido</th>
+        <th>Cantidad de pedidos</th>
+        <th>Pago</th>
+        <th>Estado</th>
+      </thead>
+      <tbody id="table-orders"></tbody>
+      <%  pedidos.forEach((item)=>{ %>
+      <tr>
+        <td>  <a href="http://localhost:5500/fastfood/orders/<%= item.id %>" style="color:orange;">  <%= item.id%>  </a> </td>
+                  <td> <%= item.direcciondefinitiva %>  </td>
+                  <td> <%= moment(item.fechacreado).format('hh:mm A') %>  </td>
+                  <td><%= item.cantidadproductos %>  </td>
+                  <td> <%= item.tipopago  %> </td>
+                  <td class="<%= item.estado %>" > <%= item.estado  %>  </td>
+          </tr>
+      <% })  %>
+    </table>
+  </div>
+</section>
+
+<script>
+</script>

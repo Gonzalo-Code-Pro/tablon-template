@@ -674,8 +674,6 @@
             
                 cartButtonRemove[i].addEventListener('click', () => {
                     let _id = cartButtonRemove[i].getAttribute("data-id")
-                    let user = 'gonzalo';
-                
                     $.ajax({
                         type: "get", // la variable type guarda el tipo de la peticion GET,POST,..
                         url: `http://localhost:5500/fastfood/delete/${_id}`,

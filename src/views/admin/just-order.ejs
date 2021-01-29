@@ -1,0 +1,91 @@
+
+                <div style="margin-bottom:15em;"  class="col-12 col-xxxl-12">
+                  <div class="element-wrapper" style="display: flex;padding: 1em;">
+                      <h4 style="margin-right: 0.5em;" >Cliente : <span style="color: orange;"> <%= pedido.nombre %></span> </h4>
+                      <h4 style="margin-right: 0.5em;" >Telefono :  <span style="color: orange;" > <%= pedido.telefono %> </span> </h4>
+                      <h4 style="margin-right: 0.5em;" >Direccion : <span style="color: orange;" > <%= pedido.direcciondefinitiva %> </span>  </h4>
+                      <h4 style="margin-right: 0.5em;" >Ciudad : <span style="color: orange;" > <%= pedido.ciudadentrega %> </span>  </h4>
+                    </div>
+                  <div class="element-wrapper">
+
+                    <h6 class="element-header">
+                      Detalles del Pedido 
+                    </h6>
+                    <div class="element-box">
+                      <div class="table-responsive">
+                        <table class="table table-lightborder">
+                          <thead>
+                            <tr>
+                              <th>
+                                 Id Producto
+                              </th>
+                              <th>
+                                 Nombre Producto
+                              </th>
+                              <th>
+                                Categoria
+                             </th>
+                              <th>
+                                   Cantidad 
+                              </th>
+                              <th class="text-right">
+                                Medida
+                            </th>
+                                <th class="text-center">
+                                  Precio Unitario
+                              </th>
+                              <th class="text-right">
+                                  Precio Total
+                              </th>
+                             
+                  
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% productos.forEach(function(item){%>
+                            <tr>
+                              <td class="">
+                                 
+<a href="#" style="color: orange;" ><%= item.idproducto %></a>
+                              </td>
+                              <td class="" style="max-width:200px;word-wrap: break-word;"  >
+                                <%= item.nombrecomercial%>
+                              </td>
+                              <td class="nowrap">
+                                <%= item.categoria %>
+                              </td>
+                              <td>
+                                <div class="cell-image-list">
+                                     <% for(let i=0;i< item.cantidadpedidos;i++){%>
+                                      <div class="cell-img" style="width: 60px;height:60px;background-image: url('http://localhost:5500/fastfood/uploads/<%= item.imagen %>')"></div>
+                                  <%  } %>
+                                  
+                                </div>
+                              </td>
+                              <td class="text-center">
+                                   <%=  item.medida %>
+                              </td>
+                              <td class="text-center">
+                                $  <%=  item.preciodescuento %>
+                              </td>
+                              <td class="text-right">
+                                $  <%= item.preciototal %>
+                              </td>
+                            </tr>
+                           <% }) %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 d-xxxl-none">
+                  <!--START - Top Selling Chart-->
+
+                  <!--END - Top Selling Chart-->
+                </div>
+
+              </div>
+                
+              
+                    

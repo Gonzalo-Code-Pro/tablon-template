@@ -30,13 +30,14 @@
             -------------------->
       <% products.forEach(function(item){ %>
       <div class="property-item">
-        <a class="item-media-w" href="/admin/editproduct/<%= item.id1 %>">
+        <a class="item-media-w" href="/admin/editproduct/<%= item.id %>">
           <div
             class="item-media"
             style="background-image: url('./uploads/<%= item.imagen %>')"
           ></div>
         </a>
         <div class="item-info">
+          <span>Id : <a href="/admin/editproduct/<%= item.id %>" ><%=  item.id %></a></span>
           <div class="item-features">
             <div class="feature"> <%=  item.nombreoficial %>   </div>
             <div class="feature"> <%= item.categoria %> </div>
@@ -46,7 +47,7 @@
           </h3>
           <div class="item-reviews">
             <div class="reviews-stars"></div>
-            <div class="reviews-count" style="max-width: 300px;" > <%= item.descripccion %>  </div>
+            <div class="reviews-count" style="max-width: 300px;word-wrap: break-word;" > <%= item.descripccion %>  </div>
           </div>
           <div class="item-price-buttons">
             <div class="item-price">
@@ -56,7 +57,7 @@
               <a
                 class="btn btn-outline-primary"
                 href="/admin/editproduct/<%= item.id %>"
-                ><span>Details</span
+                ><span>Details & Edit</span
                 ><i class="os-icon os-icon-arrow-2-right"></i
               ></a>
             </div>

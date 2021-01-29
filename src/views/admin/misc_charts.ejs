@@ -1,4 +1,5 @@
-
+<script src="http://localhost:5500/admin/admins/bower_components/chart.js/dist/Chart.min.js"></script>
+   
           <div class="content-i">
             <div class="content-box">
               <div class="row">
@@ -29,7 +30,7 @@
                         Platos vendidos totales
                       </div>
                       <div class="value">
-                        574
+                      <%= estados[2] %>
                       </div>
                       <div class="trending trending-up">
                         <span>+12%</span><i class="os-icon os-icon-arrow-up2"></i>
@@ -39,13 +40,19 @@
                       <div class="label">
                         Nuevos clientes(semanal)
                       </div>
-                      <div class="value">
-                        35
+                      <div id="countclientes" class="value">
+                        
                       </div>
                       <div class="trending trending-down-basic">
                         <span>-9%</span><i class="os-icon os-icon-graph-down"></i>
                       </div>
                     </div>
+                    <input type="text" id="getcount"  hidden value="<%= estados[5] %> %>">
+ <script>
+
+        let clientesC = document.getElementById('getcount').value
+        document.getElementById('countclientes').innerHTML=clientesC;
+ </script>                   
                   
                   </div>
                 </div>
@@ -91,7 +98,7 @@
                           </div>
                         </div>
                         <div class="el-chart-w">
-                          <canvas height="150px" id="lineChart" width="600px"></canvas>
+                          
                         </div>
                       </div>
                       <div class="tab-pane" id="tab_sales"></div>
@@ -295,8 +302,7 @@
                     </div>
                     <div class="message">
                       <div class="message-content">
-                        Hi, my name is Mike, I will be happy to assist you
-                      </div>
+
                     </div>
                     <div class="message self">
                       <div class="message-content">
@@ -316,6 +322,27 @@
               END - Chat Popup Box
               -------------------->
             </div>
+                  <input type="text" id="pendientes"   hidden  value="<%= estados[0]%>" >
+                  <input type="text" id="procesando"   hidden value="<%=  estados[1] %>" >
+                  <input type="text" id="completando"  hidden  value="<%= estados[2] %>" >
+                  <input type="text" id="preparando"  hidden  value="<%=  estados[3] %>" >
+                  <input type="text" id="recibido"  hidden value="<%=  estados[4] %>">
+            <script>              
+                 let pendiente = parseInt( document.getElementById('pendientes').value)
+                 let preparando = parseInt(document.getElementById('preparando').value)
+                 let procesando =parseInt( document.getElementById('procesando').value)
+                 let completado = parseInt(document.getElementById('completando').value)
+                 let recibido = parseInt(document.getElementById('recibido').value)
+                 let totalpedidos =   pendiente + preparando + procesando + completado + recibido;
+                 
+                console.log(pendiente)
+                console.log(preparando)
+                console.log(procesando)
+                console.log(completado)
+                console.log(recibido)
+               // donut chart data
+              
+            </script>
             <!--------------------
             START - Sidebar
             -------------------->
@@ -336,35 +363,139 @@
                   <div class="el-chart-w">
                     <canvas height="160" id="donutChart" width="160"></canvas>
                     <div class="inside-donut-chart-label">
-                      <strong>142</strong><span>Total Orders</span>
+                      <strong  id="total-orders"></strong><span > Total Orders</span>
                     </div>
                   </div>
                   <div class="el-legend">
                     <div class="legend-value-w">
-                      <div class="legend-pin" style="background-color: #6896f9;"></div>
+                      <div class="legend-pin" style="background-color: #7e6fff;"></div>
                       <div class="legend-value">
-                        Procesados
+                        Preparando
                       </div>
                     </div>
                     <div class="legend-value-w">
-                      <div class="legend-pin" style="background-color: #85c751;"></div>
+                      <div class="legend-pin" style="background-color: #4ecc48;"></div>
                       <div class="legend-value">
-                        Cancelados
+                        Procesando
                       </div>
                     </div>
                     <div class="legend-value-w">
-                      <div class="legend-pin" style="background-color: #d97b70;"></div>
+                      <div class="legend-pin" style="background-color: #f37070;"></div>
+                      <div class="legend-value">
+                        Recibidos
+                      </div>
+                    </div>
+                    <div class="legend-value-w">
+                      <div class="legend-pin" style="background-color: #5797fc;"></div>
                       <div class="legend-value">
                       Pendientes
                       </div>
                     </div>
+                    <div class="legend-value-w">
+                      <div class="legend-pin" style="background-color: #ffcc29;"></div>
+                      <div class="legend-value">
+                    Completados     
+                          </div>
+                    </div>
                   </div>
                 </div>
               </div>
-             
+             <script>
+
+
+document.getElementById('total-orders').innerHTML = totalpedidos;
+if ($("#donutChart").length) {
+               var donutChart = $("#donutChart");
+              
+      var data = {
+        labels: ["pendientes", "preparando", "procesando", "completados", "recibidos"],
+         datasets: [
+           {
+             data: [pendiente,preparando,procesando,completado,recibido],
+             backgroundColor: [
+               "#5797fc",
+               "#7e6fff",
+               "#4ecc48",
+               "#ffcc29",
+               "#f37070",
+             ],
+             hoverBackgroundColor: [
+               "#5797fc",
+               "#7e6fff",
+               "#4ecc48",
+               "#ffcc29",
+               "#f37070",
+             ],
+             borderWidth: 0,
+           },
+         ],
+   };
+      // -----------------
+      // init donut chart
+      // -----------------
+      new Chart(donutChart, {
+        type: "doughnut",
+        data: data,
+        options: {
+          legend: {
+            display: false,
+          },
+          animation: {
+            animateScale: true,
+          },
+          cutoutPercentage: 80,
+        },
+      });
+    }
+             </script>
             </div>
             <!--------------------
             END - Sidebar
             -------------------->
           </div>
+
+          <script>
+// line chart data
+var liteLineDataV3 = {
+        labels: [
+          "",
+          "FEB",
+          "",
+          "MAR",
+          "",
+          "APR",
+          "",
+          "MAY",
+          "",
+          "JUN",
+          "",
+          "JUL",
+          "",
+        ],
+        datasets: [
+          {
+            label:   "Balance",
+            fill: true,
+            lineTension: 0.15,
+            backgroundColor: liteLineGradientV3,
+            borderColor: "#2861f5",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "#2861f5",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 2,
+            pointHoverRadius: 3,
+            pointHoverBackgroundColor: "#FC2055",
+            pointHoverBorderColor: "#fff",
+            pointHoverBorderWidth: 0,
+            pointRadius: 0,
+            pointHitRadius: 10,
+            data: chartDataV3,
+            spanGaps: false,
+          },
+        ],
+      };
+          </script>
    

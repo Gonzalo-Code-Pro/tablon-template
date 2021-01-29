@@ -7,6 +7,18 @@ const acountController = require("../../controllers/admin/acountcontroller");
 const reporteController = require("../../controllers/admin/reporteController");
 const router = express.Router();
 const { uuid } = require("uuidv4");
+var authadmin = function (req, res, next) {
+  if (req.session.idadmin) {
+    return next();
+  } else {
+    return res.redirect("http://localhost:5500/admin/login");
+  }
+};
+router.get("/logout", (req, res) => {
+  delete req.session.idadmin;
+  res.redirect("http://localhost:5500/admin/login");
+});
+const pool = require("../../../database/pool");
 //multer
 const fs = require("fs");
 const multer = require("multer");
@@ -24,31 +36,44 @@ const upload = multer({ storage: storage });
 //sistema de login
 router.get("/login", authController().getLogin);
 router.post("/login", authController().postLogin);
-router.get("/register", authController().getRegister);
-router.post("/register", authController().postRegister);
-router.get('/user',authController().getUser)
-router.get('/users',authController().getUsers)
+router.get("/getsession", async (req, res) => {
+  let response = await pool.query("SELECT * FROM users where id=$1", [
+    req.session.idadmin,
+  ]);
+  res.send({ admin: response.rows[0] });
+});
+//emple
+router.post(
+  "/registerempleado",
+  authadmin,
+  authController().postRegisterEmpleado
+);
+router.get("/user", authadmin, authController().getUser);
+router.get("/users", authadmin, authController().getUsers);
+
 /*controlador de pagina dne inicio*/
-router.get("/dashboard", homeController().index);
+router.get("/dashboard", authadmin, homeController().index);
 
 //orders
-router.get("/orders", orderController().getOrders);
+router.get("/orders", authadmin, orderController().getOrders);
+router.get("/orders/:id", authadmin, orderController().getOrdersById);
 
 //products
 
-router.get("/product", productController().getProducts);
-router.get("/addproduct", productController().addProduct);
+router.get("/product", authadmin, productController().getProducts);
+router.get("/addproduct", authadmin, productController().addProduct);
 router.post(
   "/addproduct",
+  authadmin,
   upload.single("imagen"),
   productController().addPostProduct
 );
-router.get("/editproduct/:id", productController().editProduct);
-router.post("/editproduct/:id", productController().editPostProduct);
+router.get("/editproduct/:id", authadmin, productController().editProduct);
+router.post("/editproduct/", authadmin, productController().editPostProduct);
 //tucuenta
-router.get("/youacount", acountController().getAcount);
-router.get("/edityouacount", acountController().editAcount);
+router.get("/editacount", authadmin, acountController().editGetAcount);
+router.post("/editacount", authadmin, acountController().editPostAcount);
 //reportes de ventas
-router.get("/reportes", reporteController().getReportes);
-router.get('/ventas',reporteController().getVentas);
+router.get("/reportes", authadmin, reporteController().getReportes);
+//router.get('/ventas',reporteController().getVentas);
 module.exports = router;

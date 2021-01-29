@@ -54,7 +54,7 @@ function productController() {
         createdat,
         imagen,
       ];
-      console.log(values);
+
 
       try {
         const text = `
@@ -75,7 +75,7 @@ function productController() {
         createdat,
         imagen
         ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)`;
-        const response = await pool.query(text, values);
+         await pool.query(text, values);
         //agregar sus extras
         let extras = req.body.extras;
         let idproducto = _id;
@@ -101,7 +101,10 @@ function productController() {
         res.render("admin/productslist", {
           layout: "layoutsAdmin",
           products: response.rows,
+
         });
+        
+          console.log(response.rows)
       } catch (e) {
         console.log(e);
       }
@@ -109,20 +112,51 @@ function productController() {
     async editProduct(req, res) {
       let id = req.params.id;
       try {
-        const response = await pool.query(
-          "SELECT * FROM producto WHERE id1 = $1 ORDER BY createdat DESC",
+        const resp = await pool.query(
+          "SELECT * FROM producto WHERE id = $1",
           [id]
         );
-        res.render("admin/edit_product", {
-          layout: "layoutSingle",
-          product: response.rows[0],
-        });
-        console.log(response.rows[0]);
+        // res.render("admin/edit_product", {
+        //  layout: "layoutsAdmin",
+        // product: resp.rows[0],
+        // });
+        const p = resp.rows[0];
+        let product = {
+           id :id,
+          nombreoficial:p.nombreoficial,
+          nombrecomercial : p.nombrecomercial,
+          preciooriginal:p.preciooriginal,
+          medida : p.medida,
+          tipo: p.tipo,
+          preciodescuento:p.preciodescuento,
+          tipoorder : p.tipoorder,
+          pedidosrealizados:p.pedidosrealizados,
+          createdat:p.createdat,
+          cantidaddisponible:p.cantidaddisponible,
+          estado:p.estado,
+          imagen:p.imagen,
+          ventasrealizadas:p.ventasrealizadas,
+          calificacion:p.calificacion,
+          likes:p.likes,
+          demorapreparacion:p.demorapreparacion,
+          descripccion:p.descripccion,
+          validate:p.validate,
+          updateat :p.updateat,
+          categoria:p.categoria,
+          precioextras:p.precioextras,
+          calorias : p.calorias
+        }
+        
+        console.log(resp.rows)
+        res.render('admin/edit_product',{layout:'layoutsAdmin',product})
       } catch (e) {
         console.log(e);
       }
     },
-    editPostProduct(req, res) {},
+    editPostProduct(req, res) {
+      console.log(req.body)
+      res.send('recibido')
+    },
   };
 }
 

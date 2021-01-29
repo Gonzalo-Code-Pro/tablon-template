@@ -9,33 +9,65 @@ const homeController = require("../../controllers/fastfood/index");
 const authController = require("../../controllers/fastfood/login");
 const { uuid } = require("uuidv4");
 // home
+var auth = function (req, res, next) {
+  if (req.session.iduser) {
+    return next();
+  } else {
+    return res.redirect("http://localhost:5500/fastfood/login");
+  }
+};
+
+router.get("/detroy", (req, res) => {
+  delete req.session.iduser;
+  res.redirect("http://localhost:5500/fastfood/login");
+});
+router.get("/session", async (req, res) => {
+  let idsessionUser = req.session.iduser;
+  let response = await pool.query("SELECT * FROM users WHERE id=$1", [
+    idsessionUser,
+  ]);
+  res.send({ userSession: response.rows[0] });
+});
 router.get("/", homeController().index);
 //login_register
 router.get("/login", authController().getLoginRegister);
-router.post("/login", authController().postLoginRegister);
+router.post("/login", authController().Login);
+router.post("/register", authController().Register);
+router.get("/user", auth, authController().getUser);
+router.post("/updateuser", auth, authController().updateUser);
 //orders
-
-router.get("/orders", orderController().getOrders);
-router.get("/orders/:_id", orderController().getOrderOne);
-router.post("/orders", orderController().postOrders);
+router.get("/ordersfull", auth, orderController().getOrdersTable);
+router.get("/orders", auth, orderController().getOrders);
+router.get("/orders/:id", auth, orderController().getOrderOne);
+router.post("/orders", auth, orderController().postOrders);
+router.post("/editorder", auth, async (req, res) => {
+  try {
+    await pool.query("UPDATE pedidos SET estado=$1  where id=$2", [
+      req.body.estado_,
+      req.body.idpedido,
+    ]);
+  } catch (e) {
+    console.log(e);
+  }
+  res.send("Estado actualizado");
+});
 //pago
-router.get("/checkout", pagoController().getPago);
-router.post("/checkout", pagoController().postPago);
+router.get("/checkout", auth, pagoController().getPago);
+router.post("/checkout", auth, pagoController().postPago);
 //almcenar en sesiones el carrito de pedido
-router.get("/cart/:id", async (req, res) => {
+router.get("/cart/:id", auth, async (req, res) => {
   const idproducto = req.params.id;
-  const iduser = "eroigjrgjparwgsjkeroisfgierjsf";
   try {
     const response = await pool.query(
       "INSERT INTO  cart(id,users_id,producto_id,quantity) values($1,$2,$3,$4)",
-      [uuid(), iduser, idproducto, 1]
+      [uuid(), req.session.iduser, idproducto, 1]
     );
     res.send("agregado");
   } catch (e) {
     console.log(e);
   }
 });
-router.get("/delete/:id", async (req, res) => {
+router.get("/delete/:id", auth, async (req, res) => {
   const idcart = req.params.id;
   try {
     const response = await pool.query("DELETE FROM cart WHERE id=$1", [idcart]);
@@ -47,6 +79,11 @@ router.get("/delete/:id", async (req, res) => {
   }
 
   res.send("elimindo");
+});
+
+router.post("/vacearcarrito", auth, async (req, res) => {
+  await pool.query("DELETE FROM cart where users_id=$1", [req.session.iduser]);
+  res.send("Carrito vaceado");
 });
 
 router.post("/update", async (req, res) => {
@@ -66,20 +103,21 @@ router.post("/update", async (req, res) => {
 router.get("/cartlist", async (req, res) => {
   try {
     const response = await pool.query(
-      "SELECT * FROM producto INNER JOIN cart ON cart.producto_id = producto.id"
+      "SELECT * FROM producto INNER JOIN cart ON cart.producto_id = producto.id where cart.users_id=$1",
+      [req.session.iduser]
     );
     res.send({
       productcart: response.rows,
     });
-    console.log(response.rows);
   } catch (e) {
     console.log(e);
   }
 });
 //perfil de usuario
 
-router.get("/perfil", perfilController().getPerfil);
-router.get("/perfil/update", perfilController().updatePerfil);
+router.get("/perfil", auth, perfilController().getPerfil);
+router.get("/perfil/update", auth, perfilController().updatePerfil);
+
 //just product single for category-----------------------------------------------------
 //router.get("/category/product/:id",categoryController().getProductOne)
 //pizzas

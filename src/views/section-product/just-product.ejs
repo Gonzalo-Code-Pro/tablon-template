@@ -1,115 +1,30 @@
-<section class="just-product">
-  <div class="product-content">
-    <img class="img-product" src="/admin/img/pollo_brasa.png" alt="" />
+
+
+    <section class="just-product">
+         <div class="product-content">
+    <img class="img-product" style="margin-top: 2em;" src="http://localhost:5500/fastfood/uploads/<%= product.imagen %>" alt="" />
     <div class="product-description">
-      <h2 class="title-product">Jalapeno Angus Burgaler</h2>
+      <h2 class="title-product"><%= product.nombrecomercial %> </h2>
       <p class="parrafo-product">
-        Smoked brisket, tender ribs, smoked sausage, bacon & cheddar with
-        lettuce, tomato, house BBQ & ranch.
+        <%= product.descripccion%>
       </p>
-      <div class="nutricional-info">
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-        <div class="propiedad">
-          <span class="name">ENERGY</span>
-          <p>430 Cal</p>
-        </div>
-      </div>
+     
       <p class="mensaje-product">
         *DI: Recommended Daily Intake based on 2000 calories diet
       </p>
       <p class="advertencia-product">Alergenos: leche, huevos, soja, glutten</p>
       <p class="product-price">
         <span class="moneda">$</span>
-        <span class="price-int">8</span>
-        <span class="price-dec">.11</span>
+        <span class="price-int"><%= product.preciodescuento%></span>
+        <span class="price-dec">.00</span>
       </p>
-      <div class="extra-options-product">
-        <h2 class="extra-title">EXTRA TOPPINGS</h2>
-        <form action="">
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-          <span class="select">
-            <input type="checkbox" name="" id="" />
-            <p>EXTRA CHEDDAR ($1.00)</p>
-          </span>
-        </form>
-      </div>
+     
       <div class="extra-total-price">
-        <span class="extra">
-          <p>Options total</p>
-          <div class="price">
-            <span class="dolar">$</span>
-            <span class="entero">2</span>
-            <span class="decimal"> .11</span>
-          </div>
-        </span>
+        
         <span class="total">
           <p>Options total</p>
           <div class="price">
-            <span class="dolar">$</span>
-            <span class="entero">2</span>
-            <span class="decimal">.11</span>
+            <span class="dolar">$ <%= product.preciodescuento%></span>
           </div>
         </span>
       </div>
@@ -140,7 +55,7 @@
               }
             });
         </script>
-        <button class="order">Order</button>
+        <button class="order" id="button--add"   data-id="<%= product.id %>">Order</button>
         <span class="favorite">
           <i style="font-size: 25px" class="far" aria-hidden="true"></i>
         </span>
@@ -148,15 +63,14 @@
 
       <p class="category">
         Category :
-        <span class="cat">Pollos</span>, <span class="cat">Pollos</span>,
-        <span class="cat">Pollos</span>,
-        <span class="cat">Pollos</span>
+        <span class="cat">  <%= product. categoria %> </span>
+    
       </p>
     </div>
-  </div>
-</section>
+         </div>
+    </section>
 
-<section class="reviews_description-product">
+    <section class="reviews_description-product">
   <ul>
     <a class="select-description" id="select-des"> Descripccion </a>
     <a class="select-review" id="select-rev"> Reviews(<span>1</span>) </a>
@@ -386,7 +300,7 @@
       </form>
     </div>
   </div>
-</section>
+    </section>
 
 <section class="other-products">
   <h2>Other <a href=""> Sides</a> You'll Love</h2>
@@ -478,5 +392,42 @@
       reviewForm.style.display = "flex";
       descriptionParrafo.style.display = "none";
     });
-  };
+ 
+
+
+
+
+                 const buttonAdd = document.getElementById('button--add');        
+                 buttonAdd .addEventListener('click', () => {
+                    let idproducto = buttonAdd.getAttribute("data-id")
+                    $.ajax({
+                        type: "get", // la variable type guarda el tipo de la peticion GET,POST,..
+                        url: `http://localhost:5500/fastfood/cart/${idproducto}`,
+                        //url guarda la ruta hacia donde se hace la peticion
+                         // data recive un objeto con la informacion que se enviara al servidor
+                        success: function (datos) { //success es una funcion que se utiliza si el servidor retorna informacion
+                                  console.log(datos)
+                                  cartIniciar()
+                        },
+                       // dataType: dataType // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+                    })
+                    let body = document.getElementById("body");
+                    let bodys = document.getElementById("bodys");
+                    let headers = document.getElementById("header");
+                    let navFlotante = document.getElementById("navbar-three");
+                    let cart = document.getElementById("cart");
+                            body.classList.toggle("active");
+                            cart.classList.toggle("active");
+                            bodys.style.filter = "blur(32px)";
+                            headers.classList.toggle("blur");
+                            navFlotante.classList.toggle("blur");
+                    
+                })
+
+            
+
+
+
+              };
+
 </script>

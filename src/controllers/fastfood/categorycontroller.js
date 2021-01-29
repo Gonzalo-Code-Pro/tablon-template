@@ -40,7 +40,7 @@ function categoryController() {
         const response = await pool.query(
           "SELECT * FROM producto WHERE categoria='happybox'"
         );
-    
+
         res.render("category/happybox", {
           layout: "layoutsFastfood",
           products: response.rows,
@@ -103,38 +103,51 @@ function categoryController() {
     },
 
     //----------------------------------just product --------------------------------
-    async getProductOne(req,res){
-        console.log(req.params.id)
-       try {
+    async getProductOne(req, res) {
+      console.log(req.params.id);
+      try {
         const response = await pool.query(
-          "SELECT * FROM producto WHERE id=$1",[req.params.id]);
+          "SELECT * FROM producto WHERE id=$1",
+          [req.params.id]
+        );
         res.send({
           products: response.rows,
         });
       } catch (e) {
         console.log(e);
       }
-
     },
-    getPizzaOne(req, res) {
+    async getPizzaOne(req, res) {
       res.render("section-product/just-product", { layout: "layoutsFastfood" });
     },
-    getPollosOne(req, res) {
+    async getPollosOne(req, res) {
+      try {
+        const response = await pool.query(
+          "SELECT * FROM producto INNER JOIN extras ON extras.producto_id = producto.id WHERE producto.id=$1",
+          [req.params.id]
+        );
+        res.render("section-product/just-product", {
+          layout: "layoutsFastfood",
+          product: response.rows[0],
+        });
+      } catch (e) {
+        console.log(e);
+      }
       res.render("section-product/just-product", { layout: "layoutsFastfood" });
     },
-    getHappyBoxOne(req, res) {
+    async getHappyBoxOne(req, res) {
       res.render("section-product/just-product", { layout: "layoutsFastfood" });
     },
-    getParrilladasOne(req, res) {
+    async getParrilladasOne(req, res) {
       res.render("section-product/just-product", { layout: "layoutsFastfood" });
     },
-    getMenusOne(req, res) {
+    async getMenusOne(req, res) {
       res.render("section-product/just-product", { layout: "layoutsFastfood" });
     },
-    getDeliciusPacksOne(req, res) {
+    async getDeliciusPacksOne(req, res) {
       res.render("section-product/just-product", { layout: "layoutsFastfood" });
     },
-    getPremiunPacksOne(req, res) {
+    async getPremiunPacksOne(req, res) {
       res.render("section-product/just-product", { layout: "layoutsFastfood" });
     },
   };
